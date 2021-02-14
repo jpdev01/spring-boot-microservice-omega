@@ -1,6 +1,7 @@
 package servlet.security;
 
-import onroad.dao.User;
+import onroad.entity.User;
+import onroad.service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,8 +18,7 @@ public class Edit extends HttpServlet {
         Integer id = (req.getParameter("id") != null) ? Integer.valueOf(req.getParameter("id")) : null;
 
         if (id != null){
-            User user = new UserDAO
-            User user = users.load(id);
+            User user = new UserService().load(id);
             req.setAttribute("user", user);
         }
 

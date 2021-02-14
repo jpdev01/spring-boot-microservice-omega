@@ -1,7 +1,9 @@
-package simulation;
+package onroad.simulation;
 
-import model.bean.Category;
-import model.dao.CategoryDAO;
+
+
+import onroad.dao.CategoryDAO;
+import onroad.entity.Category;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +52,7 @@ public class CategoryTest {
             text += "\nCategoria\n";
             text += "\nId:" + c.getId();
             text += "\nNome: " + c.getName();
-            text += "\nDescrição: " + c.getDescricao();
+            text += "\nDescrição: " + c.getDescription();
             return text;
         }
         return null;
@@ -63,7 +65,7 @@ public class CategoryTest {
                 text += "\nCategoria\n";
                 text += "\nId:" + c.getId();
                 text += "\nNome: " + c.getName();
-                text += "\nDescrição: " + c.getDescricao();
+                text += "\nDescrição: " + c.getDescription();
                 return text;
             }
         }

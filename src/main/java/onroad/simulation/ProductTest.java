@@ -1,11 +1,14 @@
-package simulation;
+package onroad.simulation;
 
-import model.bean.Category;
-import model.bean.Product;
-import model.dao.CategoryDAO;
-import model.dao.ProductDAO;
+
+import onroad.dao.CategoryDAO;
+import onroad.dao.ProductDAO;
+import onroad.entity.Category;
+import onroad.entity.Product;
+import onroad.entity.Provider;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ProductTest {
@@ -24,14 +27,13 @@ public class ProductTest {
         List<Product> produtos = new ArrayList<Product>();
 
         List<Category> categories = new ArrayList<>();
+        categories.add(generateCategory());
 
-        if (catgDao.findById(01) == null)
-        {
-            catgDao.save(new Category("Roupas", "Roupas com desconto"));
-        }
-        categories.add(catgDao.findById(01));
+        Provider provider = generateProvider();
 
-        produtos.add(new Product("Produto 1", 120.00, "Produto de teste", 01, categories));
+        Date date = new Date();
+
+        produtos.add(generateProduct(categories, provider, date));
 
         for (Product product : produtos){
             dao.save(product);
@@ -40,9 +42,13 @@ public class ProductTest {
 
     public static void updateTest(){
         List<Category> categories = new ArrayList<>();
-        categories.add(catgDao.findById(01));
+        categories.add(generateCategory());
 
-        Product p = new Product (01, "Produto 1 alterado", 100.00, "Alteração", 01, categories);
+        Provider provider = generateProvider();
+
+        Date date = new Date();
+
+        Product p = generateProduct(categories, provider, date);
         dao.save(p);
     }
 
@@ -67,7 +73,7 @@ public class ProductTest {
                 txt += categoriesToString(p.getCategories());
             }
 
-            txt += "\nValor: " + p.getValue();
+            txt += "\nValor: " + p.getFinalValue();
             txt += "\nQuantidade: " + p.getQtde();
             txt += "\n-------------\n";
         }
@@ -92,11 +98,34 @@ public class ProductTest {
             for (Category category : categories)
             {
                 txt = "\nNome: " + category.getName();
-                txt = "\nDescrição: " + category.getDescricao();
+                txt = "\nDescrição: " + category.getDescription();
             }
         }
 
         return txt;
+    }
+
+    public static Provider generateProvider()
+    {
+        Provider provider = new Provider("Monnari", "Monnari Jeans");
+
+        ProviderDAO
+        return provider;
+    }
+
+    public static Category generateCategory()
+    {
+        if (catgDao.findById(01) == null)
+        {
+            catgDao.save(new Category("Roupas", "Roupas com desconto"));
+        }
+        return catgDao.findById(01);
+    }
+
+    public static Product generateProduct(List<Category> categories, Provider provider, Date date)
+    {
+        return new Product("Produto 1", 120.00f, 30.00f, "Produto de teste", 01, "red", "f", date, "summer", "P", "32", "1212", categories, provider);
+
     }
 
 }
