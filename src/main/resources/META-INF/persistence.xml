@@ -2,8 +2,8 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
     <persistence-unit name="training-hibernate" transaction-type="RESOURCE_LOCAL">
-        <class>model.bean.Category</class>
-        <class>model.bean.Product</class>
+        <class>onroad.entity.Category</class>
+        <class>onroad.entity.Product</class>
         <properties>
             <!-- mysql -->
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost/neusamoda"/>
