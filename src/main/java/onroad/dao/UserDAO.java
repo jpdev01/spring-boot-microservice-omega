@@ -1,30 +1,31 @@
 package onroad.dao;
 
-import connection.ConnectionFactory;
-import model.bean.Category;
 import onroad.config.connection.PersistEngine;
 import onroad.entity.Category;
+import onroad.entity.User;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class CategoryDAO {
+public class UserDAO {
 
     private PersistEngine persistEngine = new PersistEngine();
 
-    public Category save(Category c){
+    public void save(User u){
+
         EntityManager em = persistEngine.createConnection();
+
         try {
 
             em.getTransaction().begin();
 
-            if (c.getId() == null){
+            if (u.getId() == null){
                 // nao tem ID: significa que é um objeto novo, insert.
-                em.persist(c);
+                em.persist(u);
             }
             else {
                 // se tiver id, significa que já foi persistido, update
-                em.merge(c);
+                em.merge(u);
             }
             em.getTransaction().commit();
 
@@ -39,17 +40,15 @@ public class CategoryDAO {
             em.close();
 
         }
-
-        return c;
     }
 
-    public Category findById(Integer id){
+    public User findById(Integer id){
         EntityManager em = persistEngine.createConnection();
-        Category category = null;
+        User user = null;
 
         try{
 
-            category = em.find(Category.class, id);
+            user = em.find(User.class, id);
 
         } catch (Exception e){
             System.out.println("Erro ao fazer busca pelo id\n" + e);
@@ -57,18 +56,18 @@ public class CategoryDAO {
             em.close();
         }
 
-        return category;
+        return user;
     }
 
     public List<Category> findAll(){
         EntityManager em = persistEngine.createConnection();
         // busca por query
-        List<Category> categories = null;
+        List<Category> users = null;
 
         try {
 
             // JDBC: SELECT * FROM CATEGORY
-            categories = em.createQuery("from Category").getResultList();
+            users = em.createQuery("from user").getResultList();
 
         } catch (Exception e) {
 
@@ -79,17 +78,17 @@ public class CategoryDAO {
             em.close();
         }
 
-        return categories;
+        return users;
     }
 
     public void remove(Integer id){
         EntityManager em = persistEngine.createConnection();
         try {
 
-            Category c = findById(id);
-            if (c != null) {
+            User user = findById(id);
+            if (user != null) {
                 em.getTransaction().begin();
-                em.remove(c);
+                em.remove(user);
                 em.getTransaction().commit();
             }
 
@@ -100,4 +99,5 @@ public class CategoryDAO {
             em.close();
         }
     }
+
 }
