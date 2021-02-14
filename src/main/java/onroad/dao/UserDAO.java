@@ -6,6 +6,7 @@ import onroad.entity.User;
 
 import javax.persistence.EntityManager;
 import java.util.List;
+import java.util.Set;
 
 public class UserDAO {
 
@@ -59,15 +60,15 @@ public class UserDAO {
         return user;
     }
 
-    public List<Category> findAll(){
+    public Set<User> findAll(){
         EntityManager em = persistEngine.createConnection();
         // busca por query
-        List<Category> users = null;
+        Set<User> users = null;
 
         try {
 
             // JDBC: SELECT * FROM CATEGORY
-            users = em.createQuery("from user").getResultList();
+            users.addAll(em.createQuery("from user").getResultList());
 
         } catch (Exception e) {
 

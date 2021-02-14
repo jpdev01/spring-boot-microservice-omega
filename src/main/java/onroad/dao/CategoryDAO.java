@@ -68,7 +68,7 @@ public class CategoryDAO {
         try {
 
             // JDBC: SELECT * FROM CATEGORY
-            categories = em.createQuery("from Category").getResultList();
+            categories = em.createQuery("from category").getResultList();
 
         } catch (Exception e) {
 

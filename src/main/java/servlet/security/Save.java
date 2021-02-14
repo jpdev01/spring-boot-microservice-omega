@@ -1,7 +1,8 @@
 package servlet.security;
 
 import onroad.config.AppUtils;
-import onroad.dao.User;
+import onroad.dao.UserDAO;
+import onroad.entity.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,10 +21,10 @@ public class Save extends HttpServlet {
         String permissao = req.getParameter("permissao");
 
         User user = new User(login, password, permissao);
-        Users users = Users.getInstance();
-        users.save(user);
+        UserDAO dao = new UserDAO();
+        dao.save(user);
 
-        resp.sendRedirect(AppUtils.getInstance().getAppUrl() + "user/list");
+        resp.sendRedirect(AppUtils.getInstance().getAppUrl() + "/user/list");
 
     }
 }

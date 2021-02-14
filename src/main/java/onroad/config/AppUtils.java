@@ -1,7 +1,7 @@
 package onroad.config;
 
 public class AppUtils {
-    private String appUrl = "http://localhost:8081/training_jsp_war_exploded/";
+    private String appUrl = "http://localhost:8081/neusamoda";
     private static AppUtils instance;
 
     public String getAppUrl() {
