@@ -1,4 +1,4 @@
-package config.files;
+package onroad.config;
 
 public class AppUtils {
     private String appUrl = "http://localhost:8081/training_jsp_war_exploded/";

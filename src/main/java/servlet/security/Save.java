@@ -1,6 +1,6 @@
 package servlet.security;
 
-import config.files.AppUtils;
+import onroad.config.AppUtils;
 import onroad.dao.User;
 
 import javax.servlet.ServletException;
