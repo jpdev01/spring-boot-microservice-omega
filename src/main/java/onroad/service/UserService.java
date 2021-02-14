@@ -15,9 +15,15 @@ public class UserService {
         return dao.findAll();
     }
 
-    public User load()
+    public User load(Integer id)
     {
+        User user = dao.findById(id);
+        return user;
+    }
 
+    public void remove(Integer id)
+    {
+        dao.remove(id);
     }
 
 }
