@@ -1,9 +1,6 @@
 package servlet.agenda;
 
-import model.Agenda;
-import model.Contato;
-import model.User;
-import model.Users;
+import onroad.dao.Contato;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

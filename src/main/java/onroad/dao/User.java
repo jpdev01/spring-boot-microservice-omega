@@ -1,4 +1,4 @@
-package model;
+package onroad.dao;
 
 public class User {
     private int id;

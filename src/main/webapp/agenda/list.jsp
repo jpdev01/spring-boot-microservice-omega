@@ -1,4 +1,4 @@
-<%@ page import="model.Contato" %>
+<%@ page import="onroad.dao.Contato" %>
 <%@ page import="java.util.Set" %><%--
   Created by IntelliJ IDEA.
   User: jptru

@@ -1,8 +1,7 @@
 package servlet.security;
 
 import config.files.AppUtils;
-import model.User;
-import model.Users;
+import onroad.dao.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
