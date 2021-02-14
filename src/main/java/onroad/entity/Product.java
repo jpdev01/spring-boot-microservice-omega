@@ -30,7 +30,10 @@ public class Product {
 
     private String code;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="products_has_categories", joinColumns=
+    @JoinColumn(name="product_id"), inverseJoinColumns=
+    @JoinColumn(name="category_id"))
     private List<Category> categories;
 
     @ManyToOne

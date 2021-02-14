@@ -12,7 +12,7 @@ public class Category {
     private String name;
     private String description;
 
-    @ManyToMany(mappedBy = "products")
+    @ManyToMany(mappedBy = "products", fetch = FetchType.EAGER)
     private List<Product> products;
 
     public Category()
