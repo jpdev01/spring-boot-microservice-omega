@@ -1,2 +1,6 @@
-package onroad.dao;public class Product {
+package onroad.dao;
+
+@Entity
+public class Product {
+
 }
