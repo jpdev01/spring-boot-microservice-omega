@@ -59,6 +59,24 @@ public class Product {
         this.provider = provider;
     }
 
+    public Product(String name, Float finalValue, Float initialValue, String description, Integer qtde, String color, String genre, Date entryDate, String style, String size, String size2, String code, List<Category> categories, Provider provider) {
+        this.id = id;
+        this.name = name;
+        this.finalValue = finalValue;
+        this.initialValue = initialValue;
+        this.description = description;
+        this.qtde = qtde;
+        this.color = color;
+        this.genre = genre;
+        this.entryDate = entryDate;
+        this.style = style;
+        this.size = size;
+        this.size2 = size2;
+        this.code = code;
+        this.categories = categories;
+        this.provider = provider;
+    }
+
     public Integer getId() {
         return id;
     }
