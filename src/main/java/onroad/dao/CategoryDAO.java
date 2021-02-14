@@ -1,7 +1,5 @@
 package onroad.dao;
 
-import connection.ConnectionFactory;
-import model.bean.Category;
 import onroad.config.connection.PersistEngine;
 import onroad.entity.Category;
 
