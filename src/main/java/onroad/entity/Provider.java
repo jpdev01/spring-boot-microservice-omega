@@ -1,9 +1,7 @@
 package onroad.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Provider {
@@ -13,6 +11,9 @@ public class Provider {
     private Integer id;
     private String name;
     private String description;
+
+    @OneToMany
+    private List<Product> products;
 
     public Provider (){}
 
