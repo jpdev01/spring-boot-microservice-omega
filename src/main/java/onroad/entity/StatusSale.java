@@ -1,2 +1,7 @@
-package onroad.entity;public enum StatusSale {
+package onroad.entity;
+
+public enum StatusSale {
+    QUITE,
+    PENDING,
+    LATE
 }
