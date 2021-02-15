@@ -24,6 +24,11 @@ public class Sale {
     @JoinColumn(name="product_id"))
     private List<Product> products;
 
+    @ManyToOne
+    private User seller;
+
+    private StatusSale status;
+
     public Sale() {
     }
 }

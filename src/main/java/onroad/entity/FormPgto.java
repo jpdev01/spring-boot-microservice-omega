@@ -1,2 +1,6 @@
-package onroad.entity;public enum FormPgto {
+package onroad.entity;
+
+public enum FormPgto {
+    CASH,
+    PARCELED
 }

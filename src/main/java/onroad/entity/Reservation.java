@@ -1,2 +1,4 @@
-package onroad.entity;public class Reservation {
+package onroad.entity;
+
+public class Reservation {
 }
