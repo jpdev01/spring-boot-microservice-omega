@@ -18,4 +18,5 @@ public class Payment {
     private Sale sale;
     private String frmPgto;
     private String method;
+    private CardFlag cardFlag;
 }

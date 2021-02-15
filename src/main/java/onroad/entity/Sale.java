@@ -1,10 +1,8 @@
 package onroad.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Sale {
@@ -15,7 +13,16 @@ public class Sale {
     private Float totalValue;
     private Date date;
     private String description;
-    private String method;
+    private String installments;
+
+    @ManyToOne
+    private Customer customer;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="sales_has_products", joinColumns=
+    @JoinColumn(name="sale_id"), inverseJoinColumns=
+    @JoinColumn(name="product_id"))
+    private List<Product> products;
 
     public Sale() {
     }
