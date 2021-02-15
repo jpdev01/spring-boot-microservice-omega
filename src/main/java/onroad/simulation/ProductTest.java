@@ -3,6 +3,7 @@ package onroad.simulation;
 
 import onroad.dao.CategoryDAO;
 import onroad.dao.ProductDAO;
+import onroad.dao.ProviderDAO;
 import onroad.entity.Category;
 import onroad.entity.Product;
 import onroad.entity.Provider;
@@ -108,8 +109,9 @@ public class ProductTest {
     public static Provider generateProvider()
     {
         Provider provider = new Provider("Monnari", "Monnari Jeans");
+        ProviderDAO dao = new ProviderDAO();
+        dao.save(provider);
 
-        ProviderDAO
         return provider;
     }
 
