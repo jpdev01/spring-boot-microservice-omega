@@ -14,7 +14,7 @@ public class User {
     private String login;
     private String password;
     private Integer permission;
-    private Integer active;
+    private Active active;
 
 
     public User(){}
