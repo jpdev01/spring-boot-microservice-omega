@@ -13,28 +13,23 @@ public class User {
     private Integer id;
     private String login;
     private String password;
-    private String permission;
+    private Integer permission;
+    private Integer active;
+
 
     public User(){}
 
-    public User(String login, String password, String permission) {
+    public User(String login, String password, Integer permission) {
         this.setLogin(login);
         this.setPassword(password);
         this.setPermission(permission);
     }
 
-    public User(Integer id, String login, String password, String permission) {
+    public User(Integer id, String login, String password, Integer permission) {
         this.setId(id);
         this.setLogin(login);
         this.setPassword(password);
         this.setPermission(permission);
-    }
-
-    public User(Integer id, String login, String password) {
-        this.setId(id);
-        this.setLogin(login);
-        this.setPassword(password);
-        this.setPermission("low");
     }
 
     public Integer getId() {
@@ -61,11 +56,13 @@ public class User {
         this.password = password;
     }
 
-    public String getPermission() {
+    public Integer getPermission() {
+        // 0 = comum
+        // 1 = adm
         return permission;
     }
 
-    public void setPermission(String permission) {
+    public void setPermission(Integer permission) {
         this.permission = permission;
     }
 }

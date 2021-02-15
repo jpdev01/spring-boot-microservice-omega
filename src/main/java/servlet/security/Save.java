@@ -18,7 +18,7 @@ public class Save extends HttpServlet {
         Integer id = req.getParameter("id") != null ? Integer.valueOf(req.getParameter("id")) : null;
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        String permissao = req.getParameter("permissao");
+        Integer permissao = req.getParameter("permissao") != null ? Integer.valueOf(req.getParameter("permissao")) : 0;
 
         User user = new User(login, password, permissao);
         UserDAO dao = new UserDAO();
