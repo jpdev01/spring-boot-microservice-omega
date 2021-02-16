@@ -6,7 +6,7 @@ import javax.persistence.Persistence;
 
 public class PersistEngine {
 
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("neusamodaApp");
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("neusamoda");
 
     public PersistEngine(){
 
