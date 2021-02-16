@@ -1,16 +1,17 @@
 package onroad.dao.impl;
 
 import onroad.config.connection.PersistEngine;
+import onroad.dao.CategoryDAO;
 import onroad.entity.Category;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class CategoryDAOImpl {
+public class CategoryDAOImpl implements CategoryDAO {
 
     private PersistEngine persistEngine = new PersistEngine();
 
-    public Category save(Category c){
+    public void save(Category c){
         EntityManager em = persistEngine.createConnection();
         try {
 
@@ -37,8 +38,6 @@ public class CategoryDAOImpl {
             em.close();
 
         }
-
-        return c;
     }
 
     public Category findById(Integer id){

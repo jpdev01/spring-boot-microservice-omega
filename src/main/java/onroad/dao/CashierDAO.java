@@ -1,4 +1,6 @@
 package onroad.dao;
 
-public class CashierDAO {
+public interface CashierDAO {
+
+    public void save(CashierDAO cashier);
 }

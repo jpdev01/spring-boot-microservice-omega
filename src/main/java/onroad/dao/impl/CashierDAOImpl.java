@@ -1,11 +1,8 @@
 package onroad.dao.impl;
 
+import onroad.dao.CashierDAO;
 import onroad.entity.Cashier;
 
-public class CashierDAOImpl {
+public class CashierDAOImpl implements CashierDAO {
 
-    public void save(Cashier cashier)
-    {
-
-    }
 }
