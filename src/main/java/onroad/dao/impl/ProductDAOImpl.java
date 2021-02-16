@@ -1,4 +1,4 @@
-package onroad.dao;
+package onroad.dao.impl;
 
 import onroad.config.connection.PersistEngine;
 import onroad.entity.Product;
@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import java.util.List;
 
-public class ProductDAO {
+public class ProductDAOImpl {
 
     PersistEngine persistEngine = new PersistEngine();
 

@@ -1,7 +1,7 @@
 package servlet.security;
 
 import onroad.config.AppUtils;
-import onroad.dao.UserDAO;
+import onroad.dao.impl.UserDAOImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +18,7 @@ public class Exclude extends HttpServlet {
         Integer id = req.getParameter("id") != null ? Integer.valueOf(req.getParameter("id")) : null;
         if (id != null)
         {
-            new UserDAO().remove(id);
+            new UserDAOImpl().remove(id);
         }
         resp.sendRedirect(AppUtils.getInstance().getAppUrl() + "/user/list");
     }

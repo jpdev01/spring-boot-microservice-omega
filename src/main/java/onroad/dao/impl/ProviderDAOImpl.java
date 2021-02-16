@@ -1,28 +1,29 @@
-package onroad.dao;
+package onroad.dao.impl;
 
 import onroad.config.connection.PersistEngine;
 import onroad.entity.Category;
+import onroad.entity.Provider;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class CategoryDAO {
+public class ProviderDAOImpl {
 
     private PersistEngine persistEngine = new PersistEngine();
 
-    public Category save(Category c){
+    public void save(Provider provider){
         EntityManager em = persistEngine.createConnection();
         try {
 
             em.getTransaction().begin();
 
-            if (c.getId() == null){
+            if (provider.getId() == null){
                 // nao tem ID: significa que é um objeto novo, insert.
-                em.persist(c);
+                em.persist(provider);
             }
             else {
                 // se tiver id, significa que já foi persistido, update
-                em.merge(c);
+                em.merge(provider);
             }
             em.getTransaction().commit();
 
@@ -31,23 +32,18 @@ public class CategoryDAO {
             System.out.println("Erro de transação! Será feito rollback da transação. \n" + e );
             em.getTransaction().rollback();
             // desfaz tudo
-
         } finally {
-
             em.close();
-
         }
-
-        return c;
     }
 
-    public Category findById(Integer id){
+    public Provider findById(Integer id){
         EntityManager em = persistEngine.createConnection();
-        Category category = null;
+        Provider provider = null;
 
         try{
 
-            category = em.find(Category.class, id);
+            provider = em.find(Provider.class, id);
 
         } catch (Exception e){
             System.out.println("Erro ao fazer busca pelo id\n" + e);
@@ -55,39 +51,35 @@ public class CategoryDAO {
             em.close();
         }
 
-        return category;
+        return provider;
     }
 
-    public List<Category> findAll(){
+    public List<Provider> findAll(){
         EntityManager em = persistEngine.createConnection();
         // busca por query
-        List<Category> categories = null;
+        List<Provider> providers = null;
 
         try {
 
-            // JDBC: SELECT * FROM CATEGORY
-            categories = em.createQuery("from category").getResultList();
+            providers = em.createQuery("from provider").getResultList();
 
         } catch (Exception e) {
-
             System.err.println(e);
-
         } finally {
-
             em.close();
         }
 
-        return categories;
+        return providers;
     }
 
     public void remove(Integer id){
         EntityManager em = persistEngine.createConnection();
         try {
 
-            Category c = findById(id);
-            if (c != null) {
+            Provider provider = findById(id);
+            if (provider != null) {
                 em.getTransaction().begin();
-                em.remove(c);
+                em.remove(provider);
                 em.getTransaction().commit();
             }
 

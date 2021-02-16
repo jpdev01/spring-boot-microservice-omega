@@ -1,9 +1,9 @@
 package onroad.simulation;
 
 
-import onroad.dao.CategoryDAO;
-import onroad.dao.ProductDAO;
-import onroad.dao.ProviderDAO;
+import onroad.dao.impl.CategoryDAOImpl;
+import onroad.dao.impl.ProductDAOImpl;
+import onroad.dao.impl.ProviderDAOImpl;
 import onroad.entity.Category;
 import onroad.entity.Product;
 import onroad.entity.Provider;
@@ -14,8 +14,8 @@ import java.util.List;
 
 public class ProductTest {
 
-    private static ProductDAO dao = new ProductDAO();
-    private static CategoryDAO catgDao = new CategoryDAO();
+    private static ProductDAOImpl dao = new ProductDAOImpl();
+    private static CategoryDAOImpl catgDao = new CategoryDAOImpl();
 
     public static void main(String[] args) {
         saveTest();
@@ -109,7 +109,7 @@ public class ProductTest {
     public static Provider generateProvider()
     {
         Provider provider = new Provider("Monnari", "Monnari Jeans");
-        ProviderDAO dao = new ProviderDAO();
+        ProviderDAOImpl dao = new ProviderDAOImpl();
         dao.save(provider);
 
         return provider;

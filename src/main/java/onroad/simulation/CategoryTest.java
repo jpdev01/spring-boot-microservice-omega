@@ -2,7 +2,7 @@ package onroad.simulation;
 
 
 
-import onroad.dao.CategoryDAO;
+import onroad.dao.impl.CategoryDAOImpl;
 import onroad.entity.Category;
 
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public class CategoryTest {
         categories.add(c);
         categories.add(c1);
 
-        CategoryDAO ctgDAO = new CategoryDAO();
+        CategoryDAOImpl ctgDAO = new CategoryDAOImpl();
 
         for (Category cat : categories ){
             ctgDAO.save(cat);
@@ -36,12 +36,12 @@ public class CategoryTest {
     public static void updateTest(){
         Category c = new Category(01, "Comidas", "Comidas para janta");
 
-        CategoryDAO ctgDAO = new CategoryDAO();
+        CategoryDAOImpl ctgDAO = new CategoryDAOImpl();
         ctgDAO.save(c);
     }
 
     public static Category findTest(Integer id){
-        CategoryDAO dao = new CategoryDAO();
+        CategoryDAOImpl dao = new CategoryDAOImpl();
 
         return dao.findById(id);
     }
@@ -73,13 +73,13 @@ public class CategoryTest {
     }
 
     public static List<Category> findAllTest(){
-        CategoryDAO dao = new CategoryDAO();
+        CategoryDAOImpl dao = new CategoryDAOImpl();
 
         return dao.findAll();
     }
 
     public static void removeTest(Integer id){
-        CategoryDAO dao = new CategoryDAO();
+        CategoryDAOImpl dao = new CategoryDAOImpl();
         dao.remove(id);
     }
 

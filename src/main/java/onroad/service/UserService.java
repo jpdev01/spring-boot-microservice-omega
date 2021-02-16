@@ -1,14 +1,13 @@
 package onroad.service;
 
-import onroad.dao.UserDAO;
+import onroad.dao.impl.UserDAOImpl;
 import onroad.entity.User;
 
-import java.util.List;
 import java.util.Set;
 
 public class UserService {
 
-    private UserDAO dao = new UserDAO();
+    private UserDAOImpl dao = new UserDAOImpl();
 
     public Set<User> loadAll()
     {
