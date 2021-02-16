@@ -1,6 +1,7 @@
 package onroad.dao.impl;
 
 import onroad.config.connection.PersistEngine;
+import onroad.dao.UserDAO;
 import onroad.entity.Category;
 import onroad.entity.User;
 
@@ -8,7 +9,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Set;
 
-public class UserDAOImpl {
+public class UserDAOImpl implements UserDAO {
 
     private PersistEngine persistEngine = new PersistEngine();
 
