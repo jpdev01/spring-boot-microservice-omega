@@ -1,2 +1,5 @@
-package onroad.entity;public enum TypeMovimentCashier {
+package onroad.entity;
+
+public enum TypeMovimentCashier {
+    ENTRY, EXIT
 }
