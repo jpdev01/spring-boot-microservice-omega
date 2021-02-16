@@ -1,13 +1,14 @@
 package onroad.dao.impl;
 
 import onroad.config.connection.PersistEngine;
+import onroad.dao.ProviderDAO;
 import onroad.entity.Category;
 import onroad.entity.Provider;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class ProviderDAOImpl {
+public class ProviderDAOImpl implements ProviderDAO {
 
     private PersistEngine persistEngine = new PersistEngine();
 
