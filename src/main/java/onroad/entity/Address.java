@@ -17,4 +17,5 @@ public class Address {
     private String neighborhood;
     private String city;
     private String complement;
+    private Integer onroadId;
 }

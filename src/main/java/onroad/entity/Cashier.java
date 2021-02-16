@@ -15,4 +15,6 @@ public class Cashier {
     private Integer actualValue;
     private Date closeDate;
     private String description;
+
+    private TypeMovimentCashier type;
 }

@@ -1,9 +1,6 @@
 package onroad.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -15,8 +12,15 @@ public class Payment {
     private Float value;
     private Date date;
     private String description;
+
+    @ManyToOne
     private Sale sale;
+
     private String frmPgto;
-    private String method;
+
+    @Enumerated(EnumType.ORDINAL)
+    private Method method;
+
+    @Enumerated(EnumType.ORDINAL)
     private CardFlag cardFlag;
 }

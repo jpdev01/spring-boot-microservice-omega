@@ -2,6 +2,7 @@ package servlet.security;
 
 import onroad.config.AppUtils;
 import onroad.dao.UserDAO;
+import onroad.entity.Permission;
 import onroad.entity.User;
 
 import javax.servlet.ServletException;
@@ -20,7 +21,7 @@ public class Save extends HttpServlet {
         String password = req.getParameter("password");
         Integer permissao = req.getParameter("permissao") != null ? Integer.valueOf(req.getParameter("permissao")) : 0;
 
-        User user = new User(login, password, permissao);
+        User user = new User(login, password, Permission.ADM);
         UserDAO dao = new UserDAO();
         dao.save(user);
 

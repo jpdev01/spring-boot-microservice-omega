@@ -27,6 +27,7 @@ public class Sale {
     @ManyToOne
     private User seller;
 
+    @Enumerated(EnumType.ORDINAL)
     private StatusSale status;
 
     public Sale() {

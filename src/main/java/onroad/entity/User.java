@@ -1,9 +1,6 @@
 package onroad.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -13,19 +10,23 @@ public class User {
     private Integer id;
     private String login;
     private String password;
-    private Integer permission;
-    private Active active;
+
+    @Enumerated(EnumType.ORDINAL)
+    private Permission permission = Permission.LESS;
+
+    @Enumerated(EnumType.ORDINAL)
+    private Active active = Active.ACTIVE;
 
 
     public User(){}
 
-    public User(String login, String password, Integer permission) {
+    public User(String login, String password, Permission permission) {
         this.setLogin(login);
         this.setPassword(password);
         this.setPermission(permission);
     }
 
-    public User(Integer id, String login, String password, Integer permission) {
+    public User(Integer id, String login, String password, Permission permission) {
         this.setId(id);
         this.setLogin(login);
         this.setPassword(password);
@@ -56,13 +57,13 @@ public class User {
         this.password = password;
     }
 
-    public Integer getPermission() {
+    public Permission getPermission() {
         // 0 = comum
         // 1 = adm
         return permission;
     }
 
-    public void setPermission(Integer permission) {
+    public void setPermission(Permission permission) {
         this.permission = permission;
     }
 }
