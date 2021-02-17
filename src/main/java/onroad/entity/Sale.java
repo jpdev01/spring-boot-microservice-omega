@@ -1,5 +1,7 @@
 package onroad.entity;
 
+import onroad.custom.StatusSale;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;

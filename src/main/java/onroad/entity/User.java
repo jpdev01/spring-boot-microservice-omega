@@ -1,5 +1,8 @@
 package onroad.entity;
 
+import onroad.custom.Active;
+import onroad.custom.Permission;
+
 import javax.persistence.*;
 
 @Entity

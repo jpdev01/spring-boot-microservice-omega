@@ -1,5 +1,7 @@
 package onroad.entity;
 
+import onroad.custom.TypeMovimentCashier;
+
 import javax.persistence.*;
 import java.util.Date;
 

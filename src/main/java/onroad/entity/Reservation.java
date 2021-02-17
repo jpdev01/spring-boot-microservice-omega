@@ -1,5 +1,7 @@
 package onroad.entity;
 
+import onroad.custom.Status;
+
 import javax.persistence.*;
 import java.util.List;
 

@@ -2,7 +2,7 @@ package servlet.security;
 
 import onroad.config.AppUtils;
 import onroad.dao.impl.UserDAOImpl;
-import onroad.entity.Permission;
+import onroad.custom.Permission;
 import onroad.entity.User;
 
 import javax.servlet.ServletException;

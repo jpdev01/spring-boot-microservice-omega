@@ -1,5 +1,7 @@
 package onroad.entity;
 
+import onroad.custom.Method;
+
 import javax.persistence.*;
 import java.util.Date;
 
