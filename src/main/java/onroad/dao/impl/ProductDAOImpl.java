@@ -56,7 +56,7 @@ public class ProductDAOImpl implements ProductDAO {
 
         try {
 
-            products = em.createQuery("from product p").getResultList();
+            products = em.createQuery("FROM Product").getResultList();
 
         } catch (Exception e) {
             System.err.println(e);
