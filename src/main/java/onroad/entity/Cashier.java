@@ -30,7 +30,6 @@ public class Cashier {
     }
 
     public Cashier(Integer actualValue, Date closeDate, String description, TypeMovimentCashier type) {
-        this.setId(id);
         this.setActualValue(actualValue);
         this.setCloseDate(closeDate);
         this.setDescription(description);
