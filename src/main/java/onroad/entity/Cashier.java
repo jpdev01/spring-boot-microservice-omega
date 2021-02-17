@@ -9,7 +9,7 @@ public class Cashier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer actualValue;
+    private Float actualValue;
     private Date startDate;
     private Date closeDate;
     private String description;
@@ -19,14 +19,16 @@ public class Cashier {
 
     }
 
-    public Cashier(Integer id, Integer actualValue, Date closeDate, String description, TypeMovimentCashier type) {
+    public Cashier(Integer id, Float actualValue, Date startDate, Date closeDate, String description, TypeMovimentCashier type) {
         this.setId(id);
+        this.setStartDate(startDate);
         this.setActualValue(actualValue);
         this.setCloseDate(closeDate);
         this.setDescription(description);
     }
 
-    public Cashier(Integer actualValue, Date closeDate, String description, TypeMovimentCashier type) {
+    public Cashier(Float actualValue, Date startDate, Date closeDate, String description, TypeMovimentCashier type) {
+        this.setStartDate(startDate);
         this.setActualValue(actualValue);
         this.setCloseDate(closeDate);
         this.setDescription(description);
@@ -40,11 +42,11 @@ public class Cashier {
         this.id = id;
     }
 
-    public Integer getActualValue() {
+    public Float getActualValue() {
         return actualValue;
     }
 
-    public void setActualValue(Integer actualValue) {
+    public void setActualValue(Float actualValue) {
         this.actualValue = actualValue;
     }
 

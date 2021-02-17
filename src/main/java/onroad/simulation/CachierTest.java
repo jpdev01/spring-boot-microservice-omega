@@ -18,7 +18,7 @@ public class CachierTest {
     public static void saveTest()
     {
         Date date = new Date();
-        Cashier cashier = new Cashier(100, date, "Caixa atual", TypeMovimentCashier.ENTRY);
+        Cashier cashier = new Cashier(100f, date, null, "Caixa atual", TypeMovimentCashier.ENTRY);
         dao.save(cashier);
     }
 }
