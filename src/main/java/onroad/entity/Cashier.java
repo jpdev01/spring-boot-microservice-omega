@@ -16,6 +16,27 @@ public class Cashier {
     @Enumerated(EnumType.ORDINAL)
     private TypeMovimentCashier type;
 
+    public Cashier()
+    {
+
+    }
+
+    public Cashier(Integer id, Integer actualValue, Date closeDate, String description, TypeMovimentCashier type) {
+        this.setId(id);
+        this.setActualValue(actualValue);
+        this.setCloseDate(closeDate);
+        this.setDescription(description);
+        this.setType(type);
+    }
+
+    public Cashier(Integer actualValue, Date closeDate, String description, TypeMovimentCashier type) {
+        this.setId(id);
+        this.setActualValue(actualValue);
+        this.setCloseDate(closeDate);
+        this.setDescription(description);
+        this.setType(type);
+    }
+
     public Integer getId() {
         return id;
     }
