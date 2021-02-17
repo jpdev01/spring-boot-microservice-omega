@@ -12,5 +12,4 @@ public class Audit {
     private String type;
     private String description;
     private Date date;
-    private Integer onroadId;
 }

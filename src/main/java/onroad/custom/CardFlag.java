@@ -1,4 +1,4 @@
-package onroad.entity;
+package onroad.custom;
 
 public enum CardFlag {
     MASTERCARD,
