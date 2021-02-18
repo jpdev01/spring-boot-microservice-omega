@@ -46,7 +46,6 @@ public class Payment {
     }
 
     public Payment(Float value, Date date, String description, Sale sale, FormPgto frmPgto, Method method, CardFlag cardFlag) {
-        this.id = id;
         this.value = value;
         this.date = date;
         this.description = description;
