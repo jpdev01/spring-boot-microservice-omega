@@ -1,31 +1,31 @@
 package onroad.dao.impl;
 
 import onroad.config.connection.PersistEngine;
-import onroad.dao.ReservationDAO;
-import onroad.entity.Reservation;
+import onroad.dao.SaleDAO;
+import onroad.entity.Sale;
 
 import javax.persistence.EntityManager;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ReservationDAOImpl implements ReservationDAO {
+public class SaleDAOImpl implements SaleDAO {
 
     PersistEngine persistEngine = new PersistEngine();
 
     @Override
-    public void save(Reservation reservation) {
+    public void save(Sale sale) {
 
         EntityManager em = persistEngine.createConnection();
         try
         {
             em.getTransaction().begin();
-            if (reservation.getId() == null)
+            if (sale.getId() == null)
             {
-                em.persist(reservation);
+                em.persist(sale);
             }
             else
             {
-                em.merge(reservation);
+                em.merge(sale);
             }
             em.getTransaction().commit();
         }
@@ -38,20 +38,19 @@ public class ReservationDAOImpl implements ReservationDAO {
         {
             em.close();
         }
-
     }
 
     @Override
     public void remove(Integer id) {
 
-        EntityManager em = persistEngine.createConnection();
+        EntityManager em = persistEngine.getConnection();
         try
         {
-            Reservation reservation = em.find(Reservation.class, id);
-            if (reservation != null)
+            Sale sale = getById(id);
+            if (sale != null)
             {
                 em.getTransaction().begin();
-                em.remove(reservation);
+                em.remove(sale);
                 em.getTransaction().commit();
             }
         }
@@ -67,36 +66,34 @@ public class ReservationDAOImpl implements ReservationDAO {
     }
 
     @Override
-    public Reservation getById(Integer id) {
+    public Sale getById(Integer id) {
 
-        EntityManager em = persistEngine.createConnection();
-        Reservation reservation = null;
+        EntityManager em = persistEngine.getConnection();
+        Sale sale = null;
 
         try
         {
-            reservation = em.find(Reservation.class, id);
+            sale = em.find(Sale.class, id);
         }
         catch (Exception e)
         {
             System.err.println(e);
-            em.getTransaction().rollback();
         }
         finally
         {
             em.close();
         }
-
-        return reservation;
+        return sale;
     }
 
     @Override
-    public Set<Reservation> getAll() {
+    public Set<Sale> getAll() {
 
-        EntityManager em = persistEngine.createConnection();
-        Set<Reservation> reservations = new HashSet<>();
+        EntityManager em = persistEngine.getConnection();
+        Set<Sale> sales = new HashSet<>();
         try
         {
-            reservations.addAll(em.createQuery("FROM Reservation").getResultList());
+            sales.addAll(em.createQuery("FROM Sale").getResultList());
         }
         catch (Exception e)
         {
@@ -106,6 +103,6 @@ public class ReservationDAOImpl implements ReservationDAO {
         {
             em.close();
         }
-        return reservations;
+        return sales;
     }
 }
