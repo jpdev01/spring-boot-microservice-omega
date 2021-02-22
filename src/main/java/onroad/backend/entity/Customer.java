@@ -1,7 +1,6 @@
-package onroad.entity;
+package onroad.backend.entity;
 
 import javax.persistence.*;
-import java.math.BigInteger;
 import java.util.Date;
 
 @Entity

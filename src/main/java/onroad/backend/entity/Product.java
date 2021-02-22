@@ -1,7 +1,4 @@
-package onroad.entity;
-
-import onroad.entity.Category;
-import onroad.entity.Provider;
+package onroad.backend.entity;
 
 import javax.persistence.*;
 import java.util.Date;

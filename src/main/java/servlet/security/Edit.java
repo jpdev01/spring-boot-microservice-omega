@@ -1,6 +1,6 @@
 package servlet.security;
 
-import onroad.entity.User;
+import onroad.backend.entity.User;
 import onroad.service.UserService;
 
 import javax.servlet.ServletException;

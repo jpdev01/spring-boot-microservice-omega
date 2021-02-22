@@ -1,7 +1,7 @@
 package onroad.service;
 
 import onroad.dao.impl.UserDAOImpl;
-import onroad.entity.User;
+import onroad.backend.entity.User;
 
 import java.util.Set;
 

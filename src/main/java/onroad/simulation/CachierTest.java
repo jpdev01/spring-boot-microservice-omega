@@ -2,7 +2,7 @@ package onroad.simulation;
 
 import onroad.dao.CashierDAO;
 import onroad.dao.impl.CashierDAOImpl;
-import onroad.entity.Cashier;
+import onroad.backend.entity.Cashier;
 import onroad.custom.TypeMovimentCashier;
 
 import java.util.Date;

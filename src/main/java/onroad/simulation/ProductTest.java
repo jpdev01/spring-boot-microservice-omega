@@ -4,9 +4,9 @@ package onroad.simulation;
 import onroad.dao.impl.CategoryDAOImpl;
 import onroad.dao.impl.ProductDAOImpl;
 import onroad.dao.impl.ProviderDAOImpl;
-import onroad.entity.Category;
-import onroad.entity.Product;
-import onroad.entity.Provider;
+import onroad.backend.entity.Category;
+import onroad.backend.entity.Product;
+import onroad.backend.entity.Provider;
 
 import java.util.ArrayList;
 import java.util.Date;

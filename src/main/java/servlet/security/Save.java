@@ -3,7 +3,7 @@ package servlet.security;
 import onroad.config.AppUtils;
 import onroad.dao.impl.UserDAOImpl;
 import onroad.custom.Permission;
-import onroad.entity.User;
+import onroad.backend.entity.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

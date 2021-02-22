@@ -1,4 +1,4 @@
-package onroad.entity;
+package onroad.backend.entity;
 
 import onroad.custom.StatusSale;
 

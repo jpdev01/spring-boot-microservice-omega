@@ -1,4 +1,4 @@
-package onroad.entity;
+package onroad.backend.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
