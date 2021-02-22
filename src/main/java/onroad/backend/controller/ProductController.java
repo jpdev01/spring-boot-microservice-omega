@@ -14,7 +14,7 @@ public class ProductController {
     private final ProductService productService = null;
     private ProductRepository productRepository;
 
-    @RequestMapping(value = "/{product}", method = RequestMethod.GET)
+    @RequestMapping(value = "/id/", method = RequestMethod.GET)
     public void save(@PathVariable("product") Product product) {
         if (product != null) {
             productRepository.save(product);
