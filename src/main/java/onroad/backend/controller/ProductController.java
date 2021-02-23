@@ -11,14 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("product")
 public class ProductController {
-    private final ProductService productService = null;
-    private ProductRepository productRepository;
+    private ProductService service;
 
-    @RequestMapping(value = "/id/", method = RequestMethod.GET)
+    @RequestMapping(value = "save", method = RequestMethod.GET)
     public void save(@PathVariable("product") Product product) {
-        if (product != null) {
-            productRepository.save(product);
-        }
+        service.save(product);
     }
 
 }
