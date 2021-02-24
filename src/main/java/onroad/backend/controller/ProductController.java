@@ -19,4 +19,10 @@ public class ProductController {
         service.save(product);
     }
 
+    @RequestMapping(value = "test", method = RequestMethod.GET)
+    public void save() {
+        System.out.println("controller");
+//        service.save(product);
+    }
+
 }
