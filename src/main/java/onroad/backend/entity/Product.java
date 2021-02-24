@@ -39,7 +39,6 @@ public class Product {
     public Product(){}
 
     public Product(Integer id, String name, Float finalValue, Float initialValue, String description, Integer qtde, String color, String genre, Date entryDate, String style, String size, String size2, String code, List<Category> categories, Provider provider) {
-        this.id = id;
         this.name = name;
         this.finalValue = finalValue;
         this.initialValue = initialValue;
@@ -57,7 +56,6 @@ public class Product {
     }
 
     public Product(String name, Float finalValue, Float initialValue, String description, Integer qtde, String color, String genre, Date entryDate, String style, String size, String size2, String code, List<Category> categories, Provider provider) {
-        this.id = id;
         this.name = name;
         this.finalValue = finalValue;
         this.initialValue = initialValue;
