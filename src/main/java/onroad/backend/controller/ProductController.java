@@ -15,6 +15,7 @@ public class ProductController {
 
     @RequestMapping(value = "save", method = RequestMethod.GET)
     public void save(@PathVariable("product") Product product) {
+        System.out.println("controller");
         service.save(product);
     }
 
