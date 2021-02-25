@@ -3,6 +3,7 @@ package onroad.backend.service;
 import onroad.backend.entity.Product;
 import onroad.backend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

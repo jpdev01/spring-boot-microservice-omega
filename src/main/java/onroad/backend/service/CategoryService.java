@@ -5,6 +5,7 @@ import onroad.backend.entity.Product;
 import onroad.backend.repository.CategoryRepository;
 import onroad.backend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
