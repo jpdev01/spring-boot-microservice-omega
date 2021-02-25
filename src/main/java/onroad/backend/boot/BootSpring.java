@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EntityScan(basePackages = { "onroad.backend.entity" })
 @EnableJpaRepositories(basePackages = { "onroad.backend.repository" })
-@ComponentScan(basePackages = {"onroad.backend.controller"})
+@ComponentScan(basePackages = {"onroad.backend.service", "onroad.backend.controller"})
 public class BootSpring {
 
     public static void main(String[] args)
