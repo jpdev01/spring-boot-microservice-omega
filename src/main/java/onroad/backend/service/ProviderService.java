@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProviderService {
     @Autowired
-    ProviderRepository productRepository;
+    private ProviderRepository productRepository;
     public ProviderService(){}
 
     public void save(Provider provider)
