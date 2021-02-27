@@ -1,12 +1,12 @@
 package onroad.backend.service;
 
 import onroad.backend.entity.Category;
-import onroad.backend.entity.Product;
 import onroad.backend.repository.CategoryRepository;
-import onroad.backend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategoryService {
@@ -28,5 +28,15 @@ public class CategoryService {
                 System.err.println("erro ao salvar novo produto!");
             }
         }
+    }
+
+    public Optional<Category> findById(Integer id)
+    {
+        return categoryRepository.findById(id);
+    }
+
+    public List<Category> findAll()
+    {
+        return categoryRepository.findAll();
     }
 }
