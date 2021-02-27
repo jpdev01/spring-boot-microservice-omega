@@ -39,4 +39,11 @@ public class UserController {
         service.save(user);
     }
 
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public Optional<User> validateLogin(@RequestBody String login, @RequestBody String password)
+    {
+        Optional<User> user = service.validadeLogin(login, password);
+        return user;
+    }
+
 }
