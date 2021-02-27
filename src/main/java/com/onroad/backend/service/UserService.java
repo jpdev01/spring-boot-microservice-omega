@@ -41,7 +41,8 @@ public class UserService {
 
     public Optional<User> validadeLogin(String paramLogin, String paramPassword)
     {
-        Integer id = repository.validate(paramLogin, paramPassword);
+//        Integer id = repository.validate(paramLogin, paramPassword);
+        Integer id = null;
         if (id != null)
         {
             Optional<User> user = findById(id);

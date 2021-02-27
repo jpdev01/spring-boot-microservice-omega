@@ -10,7 +10,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-    @Query(value="select id from User where lower(login) = :paramLogin AND lower(password) = :paramPassword")
-    public Integer validate(@Param("login") String paramLogin, @Param("password") String paramPassword);
+//    @Query(value = "select id FROM user u " +
+//            "WHERE u.login = :paramLogin " +
+//            "AND u.password = :paramPassword")
+//    Integer validate(@Param("login") String paramLogin, @Param("password") String paramPassword);
+
+    @Query("SELECT u.id FROM User u WHERE u.login = ?1 and u.password = ?2")
+    Integer validate(String login, String password);
 
 }
