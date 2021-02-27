@@ -20,6 +20,9 @@ public class User {
     @Enumerated(EnumType.ORDINAL)
     private Active active = Active.ACTIVE;
 
+    @OneToOne
+    private Customer customer;
+
 
     public User(){}
 
