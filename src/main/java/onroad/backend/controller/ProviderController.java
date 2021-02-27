@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequestMapping(value = "/provider")
 public class ProviderController {
 
@@ -18,7 +18,7 @@ public class ProviderController {
     private ProviderService service;
 
     @RequestMapping(value = "/save", method = RequestMethod.GET)
-    public void save(@PathVariable("product") Provider provider) {
+    public void save(@PathVariable Provider provider) {
         service.save(provider);
     }
 

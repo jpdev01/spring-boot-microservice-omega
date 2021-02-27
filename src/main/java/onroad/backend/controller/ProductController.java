@@ -13,15 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequestMapping(value = "/product")
 public class ProductController {
 
-    @Autowired
-    private ProductService service;
+    private ProductService service = new ProductService();
 
     @RequestMapping(value = "/save", method = RequestMethod.GET)
-    public void save(@PathVariable("product") Product product) {
+    public void save(@PathVariable Product product) {
         service.save(product);
     }
 

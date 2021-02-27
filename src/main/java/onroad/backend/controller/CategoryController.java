@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequestMapping(value = "/category")
 public class CategoryController {
 
@@ -18,7 +18,7 @@ public class CategoryController {
     private CategoryService service;
 
     @RequestMapping(value = "/save", method = RequestMethod.GET)
-    public void save(@PathVariable("product") Category category) {
+    public void save(@PathVariable Category category) {
         service.save(category);
     }
 
