@@ -1,4 +1,4 @@
-<%@ page import="onroad.config.AppUtils" %><%--
+<%@ page import="com.onroad.config.AppUtils" %><%--
   Created by IntelliJ IDEA.
   User: jptru
   Date: 24/01/2021
