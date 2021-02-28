@@ -26,43 +26,36 @@ public class UserController {
     private UserService service;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<User>> findAll()
-    {
+    public ResponseEntity<List<User>> findAll() {
         List<User> users = service.findAll();
-        if (users == null || users.isEmpty())
-        {
+        if (users == null || users.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(users);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Optional<User>> findById(@PathVariable Integer id)
-    {
+    public ResponseEntity<Optional<User>> findById(@PathVariable Integer id) {
         Optional<User> user = service.findById(id);
-        if (user == null)
-        {
+        if (user == null) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(user);
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public ResponseEntity<Void> save(@RequestBody User user)
-    {
-            service.save(user);
-            URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                    .buildAndExpand(user.getId()).toUri();
-            return ResponseEntity.created(uri).build();
+    public ResponseEntity<Void> save(@RequestBody User user) {
+        service.save(user);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+                .buildAndExpand(user.getId()).toUri();
+        return ResponseEntity.created(uri).build();
 
 
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Void> update(@RequestBody User user, @PathVariable Integer id)
-    {
-        if (service.findById(id) == null)
-        {
+    public ResponseEntity<Void> update(@RequestBody User user, @PathVariable Integer id) {
+        if (service.findById(id) == null) {
             // user not found
             return ResponseEntity.notFound().build();
         }
@@ -71,12 +64,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ResponseEntity<Optional<User>> validateLogin(@RequestBody String submitLogin)
-    {
+    public ResponseEntity<Optional<User>> validateLogin(@RequestBody String submitLogin) {
         String login = null;
         String password = null;
-        if (new JsonUtils().isJSONValid(submitLogin) == true)
-        {
+        if (new JsonUtils().isJSONValid(submitLogin) == true) {
             ObjectMapper objectMapper = new ObjectMapper();
             try {
                 User user = objectMapper.readValue(submitLogin, User.class);
@@ -87,15 +78,13 @@ public class UserController {
             }
         }
 
-        if (login != null && password != null)
-        {
+        if (login != null && password != null) {
             Optional<User> user = service.validadeLogin(login, password);
-            return ResponseEntity.ok(user);
+            if (user != null) {
+                return ResponseEntity.ok(user);
+            }
         }
-        else
-        {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
-        }
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
 
 }
