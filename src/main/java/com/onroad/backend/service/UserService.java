@@ -20,6 +20,10 @@ public class UserService {
         {
             if (user != null)
             {
+                if (repository.existsById(user.getId()))
+                {
+                    // FIXME Fazer validação de usuário já existe
+                }
                 repository.save(user);
             }
         }
@@ -41,8 +45,7 @@ public class UserService {
 
     public Optional<User> validadeLogin(String paramLogin, String paramPassword)
     {
-//        Integer id = repository.validate(paramLogin, paramPassword);
-        Integer id = null;
+        Integer id = repository.validate(paramLogin, paramPassword);
         if (id != null)
         {
             Optional<User> user = findById(id);
