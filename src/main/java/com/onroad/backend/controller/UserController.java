@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.servlet.http.HttpSession;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
@@ -64,7 +65,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ResponseEntity<Optional<User>> validateLogin(@RequestBody String submitLogin) {
+    public ResponseEntity<Optional<User>> validateLogin(@RequestBody String submitLogin, HttpSession session) {
         String login = null;
         String password = null;
         if (new JsonUtils().isJSONValid(submitLogin) == true) {
@@ -81,6 +82,7 @@ public class UserController {
         if (login != null && password != null) {
             Optional<User> user = service.validadeLogin(login, password);
             if (user != null) {
+                session.setAttribute("user", user.get().getId());
                 return ResponseEntity.ok(user);
             }
         }
