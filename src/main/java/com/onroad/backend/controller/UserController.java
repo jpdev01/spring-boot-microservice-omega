@@ -64,6 +64,9 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
+
+    //    @Produces(MediaType.APPLICATION_JSON)
+//    @Consumes(MediaType.APPLICATION_JSON)
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResponseEntity<Optional<User>> validateLogin(@RequestBody String submitLogin, HttpSession session) {
         String login = null;
@@ -88,5 +91,4 @@ public class UserController {
         }
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
-
 }
