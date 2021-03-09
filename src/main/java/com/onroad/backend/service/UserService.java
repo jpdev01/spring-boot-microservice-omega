@@ -42,16 +42,4 @@ public class UserService {
     {
         return repository.findById(id);
     }
-
-    public Optional<User> validadeLogin(String paramLogin, String paramPassword)
-    {
-        Integer id = repository.validate(paramLogin, paramPassword);
-        if (id != null)
-        {
-            Optional<User> user = findById(id);
-            return user;
-        }
-        return null;
-        // FIXME retornar para a tela de acesso negado!
-    }
 }

@@ -64,31 +64,4 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
-
-    //    @Produces(MediaType.APPLICATION_JSON)
-//    @Consumes(MediaType.APPLICATION_JSON)
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ResponseEntity<Optional<User>> validateLogin(@RequestBody String submitLogin, HttpSession session) {
-        String login = null;
-        String password = null;
-        if (new JsonUtils().isJSONValid(submitLogin) == true) {
-            ObjectMapper objectMapper = new ObjectMapper();
-            try {
-                User user = objectMapper.readValue(submitLogin, User.class);
-                login = user.getLogin();
-                password = user.getPassword();
-            } catch (JsonProcessingException e) {
-                e.printStackTrace();
-            }
-        }
-
-        if (login != null && password != null) {
-            Optional<User> user = service.validadeLogin(login, password);
-            if (user != null) {
-                session.setAttribute("user", user.get().getId());
-                return ResponseEntity.ok(user);
-            }
-        }
-        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
-    }
 }
