@@ -3,13 +3,16 @@ package com.onroad.backend.service;
 import com.onroad.backend.entity.User;
 import com.onroad.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class AuthenticationService {
 
     @Autowired
     private UserRepository userRepository;
+
     public Optional<User> validadeLogin(String paramLogin, String paramPassword)
     {
         Integer id = userRepository.validate(paramLogin, paramPassword);

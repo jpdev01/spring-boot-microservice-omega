@@ -18,6 +18,7 @@ import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
 @RestController
+@RequestMapping(value = "/auth")
 public class AuthenticationController {
 
     @Autowired
