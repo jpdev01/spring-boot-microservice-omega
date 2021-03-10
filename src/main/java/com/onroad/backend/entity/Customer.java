@@ -10,7 +10,7 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private String apelido;
+    private String nickname;
     private String cpf;
     private String RG;
     private Date bornDate;
@@ -22,7 +22,9 @@ public class Customer {
     private Float credit;
     private String size;
     private String size2;
-    private String reference;
+
+    @ManyToMany
+    private Reference reference;
     private String office;
 
     @ManyToOne
