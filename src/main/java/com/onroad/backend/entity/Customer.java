@@ -2,6 +2,7 @@ package com.onroad.backend.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -23,8 +24,12 @@ public class Customer {
     private String size;
     private String size2;
 
-    @ManyToMany
-    private Reference reference;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name="customers_has_references", joinColumns=
+    @JoinColumn(name="customer_id"), inverseJoinColumns=
+    @JoinColumn(name="reference_id"))
+    private List<Reference> references;
+
     private String office;
 
     @ManyToOne
