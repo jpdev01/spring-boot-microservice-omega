@@ -5,9 +5,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onroad.backend.entity.Category;
 import com.onroad.backend.entity.User;
 import com.onroad.backend.service.UserService;
+import com.onroad.custom.Permission;
 import com.onroad.utils.JsonUtils;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
@@ -20,19 +25,32 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
     private UserService service;
 
+//    @RequestMapping(method = RequestMethod.GET)
+//    public ResponseEntity<Page<User>> findAll(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC)Pageable pageable) {
+//        Page<User> users = service.findAll(pageable);
+//        if (users == null || users.isEmpty()) {
+////            User teste = new User("adm","adm", Permission.ADM);
+////            service.save(teste);
+//            return ResponseEntity.notFound().build();
+//        }
+//        return new ResponseEntity<Page<User>>(users, HttpStatus.OK);
+//    }
+
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<User>> findAll() {
-        List<User> users = service.findAll();
+    public ResponseEntity<Page<User>> findAll() {
+        Page<User> users = service.findAll();
+
         if (users == null || users.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(users);
+
+        return new ResponseEntity<Page<User>>(users, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

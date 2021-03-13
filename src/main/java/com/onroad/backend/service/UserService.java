@@ -3,6 +3,8 @@ package com.onroad.backend.service;
 import com.onroad.backend.entity.User;
 import com.onroad.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,9 +22,13 @@ public class UserService {
         {
             if (user != null)
             {
-                if (repository.existsById(user.getId()))
+                Integer id = user.getId();
+                if (id != null)
                 {
-                    // FIXME Fazer validação de usuário já existe
+                    if (repository.existsById(id))
+                    {
+                        // FIXME Fazer validação de usuário já existe
+                    }
                 }
                 repository.save(user);
             }
@@ -33,9 +39,14 @@ public class UserService {
         }
     }
 
-    public List<User> findAll()
+    public Page<User> findAll()
     {
-        return repository.findAll();
+        return (Page<User>) repository.findAll();
+    }
+
+    public Page<User> findAll(Pageable pageable)
+    {
+        return (Page<User>) repository.findAll(pageable);
     }
 
     public Optional<User> findById(Integer id)
