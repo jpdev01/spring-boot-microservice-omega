@@ -31,20 +31,10 @@ public class UserController {
     @Autowired
     private UserService service;
 
-//    @RequestMapping(method = RequestMethod.GET)
-//    public ResponseEntity<Page<User>> findAll(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC)Pageable pageable) {
-//        Page<User> users = service.findAll(pageable);
-//        if (users == null || users.isEmpty()) {
-////            User teste = new User("adm","adm", Permission.ADM);
-////            service.save(teste);
-//            return ResponseEntity.notFound().build();
-//        }
-//        return new ResponseEntity<Page<User>>(users, HttpStatus.OK);
-//    }
-
+    //FIXME: FIND ALL WITH PAGEABLE
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<Page<User>> findAll() {
-        Page<User> users = service.findAll();
+    public ResponseEntity<Page<User>> findAll(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
+        Page<User> users = service.findAll(pageable);
 
         if (users == null || users.isEmpty()) {
             return ResponseEntity.notFound().build();
@@ -52,6 +42,17 @@ public class UserController {
 
         return new ResponseEntity<Page<User>>(users, HttpStatus.OK);
     }
+
+//    @RequestMapping(method = RequestMethod.GET)
+//    public ResponseEntity<List<User>> findAll() {
+//        List<User> users = service.findAll();
+//
+//        if (users == null || users.isEmpty()) {
+//            return ResponseEntity.notFound().build();
+//        }
+//
+//        return ResponseEntity.ok(users);
+//    }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Optional<User>> findById(@PathVariable Integer id) {

@@ -39,14 +39,15 @@ public class UserService {
         }
     }
 
-    public Page<User> findAll()
+    public List<User> findAll()
     {
-        return (Page<User>) repository.findAll();
+        return repository.findAll();
     }
 
+    // FIXME = FINDALL WITH PAGEABLE
     public Page<User> findAll(Pageable pageable)
     {
-        return (Page<User>) repository.findAll(pageable);
+        return repository.findAll(pageable);
     }
 
     public Optional<User> findById(Integer id)
