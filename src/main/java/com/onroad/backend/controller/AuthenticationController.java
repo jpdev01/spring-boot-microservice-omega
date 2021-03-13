@@ -7,6 +7,7 @@ import com.onroad.backend.service.AuthenticationService;
 import com.onroad.backend.service.UserService;
 import com.onroad.utils.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -42,7 +43,19 @@ public class AuthenticationController {
         }
 
         if (login != null && password != null) {
-            Optional<User> user = service.validadeLogin(login, password);
+            Optional<User> user = null;
+            try{
+               user = service.validadeLogin(login, password);
+            }
+            catch (IncorrectResultSizeDataAccessException e)
+            {
+                System.out.println("Mais de um usuário encontrado com esses dados!");
+            }
+            catch (Exception e)
+            {
+
+            }
+
             if (user != null) {
                 session.setAttribute("user", user.get().getId());
                 return ResponseEntity.ok(user);
