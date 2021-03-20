@@ -20,7 +20,7 @@ public class UserService {
     {
         try
         {
-            if (user != null)
+            if (isValidUser(user))
             {
                 Integer id = user.getId();
                 if (id != null)
@@ -53,5 +53,9 @@ public class UserService {
     public Optional<User> findById(Integer id)
     {
         return repository.findById(id);
+    }
+
+    private boolean isValidUser(User user) {
+        return user != null && user.getLogin() != null && user.getPassword() != null;
     }
 }
