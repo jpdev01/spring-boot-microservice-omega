@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/product")
@@ -32,6 +33,11 @@ public class ProductController {
     public List<Product> findAll()
     {
         return service.getAll();
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Optional<Product> getProduct(@PathVariable Integer id) {
+        return service.getById(id);
     }
 
 }

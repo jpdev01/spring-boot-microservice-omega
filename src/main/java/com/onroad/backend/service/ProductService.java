@@ -38,4 +38,6 @@ public class ProductService {
         return productRepository.findAll();
     }
 
+    public Optional<Product> getById(Integer id) { return productRepository.findById(id); }
+
 }
