@@ -3,6 +3,8 @@ package com.onroad.backend.service;
 import com.onroad.backend.entity.Product;
 import com.onroad.backend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,6 +38,11 @@ public class ProductService {
     public List<Product> getAll()
     {
         return productRepository.findAll();
+    }
+
+    public Page<Product> getAll(Pageable pageable)
+    {
+        return productRepository.findAll(pageable);
     }
 
     public Optional<Product> getById(Integer id) { return productRepository.findById(id); }

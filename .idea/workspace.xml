@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/onroad/backend/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/onroad/backend/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/onroad/backend/controller/ProductController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +79,8 @@
       <workItem from="1615849127777" duration="1376000" />
       <workItem from="1616196930683" duration="436000" />
       <workItem from="1616241033665" duration="3224000" />
-      <workItem from="1616263642860" duration="8676000" />
+      <workItem from="1616263642860" duration="10043000" />
+      <workItem from="1616292086621" duration="1145000" />
     </task>
     <servers />
   </component>
