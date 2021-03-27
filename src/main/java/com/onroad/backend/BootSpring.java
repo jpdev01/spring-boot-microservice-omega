@@ -32,6 +32,6 @@ public class BootSpring  implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        providerService.save(new Provider("monnari", ""));
+//        providerService.save(new Provider("monnari", ""));
     }
 }

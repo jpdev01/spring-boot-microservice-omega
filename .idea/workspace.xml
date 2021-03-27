@@ -5,15 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/CustomerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/onroad/backend/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/onroad/backend/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/onroad/backend/controller/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/onroad/backend/BootSpring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/BootSpring.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/onroad/backend/entity/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/entity/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/onroad/backend/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/onroad/backend/BootSpring.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/onroad/backend/BootSpring.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -24,6 +34,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -33,8 +47,20 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.11737627" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -80,12 +106,31 @@
       <workItem from="1616196930683" duration="436000" />
       <workItem from="1616241033665" duration="3224000" />
       <workItem from="1616263642860" duration="10043000" />
-      <workItem from="1616292086621" duration="1145000" />
+      <workItem from="1616292086621" duration="4519000" />
+      <workItem from="1616332879400" duration="1737000" />
+      <workItem from="1616367675410" duration="599000" />
+      <workItem from="1616535290282" duration="2666000" />
+      <workItem from="1616713429219" duration="366000" />
+      <workItem from="1616717632131" duration="684000" />
+      <workItem from="1616797774898" duration="706000" />
+      <workItem from="1616800869026" duration="600000" />
+      <workItem from="1616847522872" duration="2515000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
