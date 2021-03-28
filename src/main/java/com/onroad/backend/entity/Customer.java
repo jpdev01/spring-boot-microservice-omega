@@ -17,8 +17,8 @@ public class Customer {
     private Date bornDate;
     private Date dateReg;
     private String email;
-    private Integer fone;
-    private Integer mobile;
+    private String fone;
+    private String mobile;
     private String description;
     private Float credit;
     private String size;

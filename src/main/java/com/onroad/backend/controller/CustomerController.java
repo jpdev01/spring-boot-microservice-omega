@@ -30,9 +30,9 @@ public class CustomerController {
     public ResponseEntity<Page<Customer>> findAll(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
         Page<Customer> customers = service.findAll(pageable);
 
-        if (customers == null || customers.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
+//        if (customers == null || customers.isEmpty()) {
+//            return ResponseEntity.notFound().build();
+//        }
 
         return new ResponseEntity<Page<Customer>>(customers, HttpStatus.OK);
     }
