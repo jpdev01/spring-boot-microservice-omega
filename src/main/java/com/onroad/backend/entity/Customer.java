@@ -99,19 +99,19 @@ public class Customer {
         this.email = email;
     }
 
-    public Integer getFone() {
+    public String getFone() {
         return fone;
     }
 
-    public void setFone(Integer fone) {
+    public void setFone(String fone) {
         this.fone = fone;
     }
 
-    public Integer getMobile() {
+    public String getMobile() {
         return mobile;
     }
 
-    public void setMobile(Integer mobile) {
+    public void setMobile(String mobile) {
         this.mobile = mobile;
     }
 
