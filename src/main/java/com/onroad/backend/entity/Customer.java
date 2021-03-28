@@ -32,7 +32,7 @@ public class Customer {
 
     private String office;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     private Address address;
 
     public Integer getId() {
