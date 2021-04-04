@@ -1,8 +1,11 @@
 package com.onroad.backend.service;
 
 import com.onroad.backend.entity.Category;
+import com.onroad.backend.entity.Product;
 import com.onroad.backend.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +16,11 @@ public class CategoryService {
 
     @Autowired
     private CategoryRepository categoryRepository;
+
+    public Page<Category> findAll(Pageable pageable)
+    {
+        return categoryRepository.findAll(pageable);
+    }
 
     public void save(Category category)
     {

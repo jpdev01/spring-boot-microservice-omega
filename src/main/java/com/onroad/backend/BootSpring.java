@@ -1,5 +1,7 @@
 package com.onroad.backend;
 
+import com.onroad.backend.entity.Category;
+import com.onroad.backend.entity.Product;
 import com.onroad.backend.entity.Provider;
 import com.onroad.backend.entity.User;
 import com.onroad.backend.service.CategoryService;
@@ -7,6 +9,8 @@ import com.onroad.backend.service.ProductService;
 import com.onroad.backend.service.ProviderService;
 import com.onroad.backend.service.UserService;
 import com.onroad.custom.Permission;
+import java.util.ArrayList;
+import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -45,6 +49,18 @@ public class BootSpring  implements CommandLineRunner {
         {
             User user = new User("adm", "adm", Permission.ADM);
             userService.save(user);
+        }
+        List<Product> products = productService.getAll();
+        if (products == null || products.isEmpty())
+        {
+            Provider provider = new Provider("Monnari", "teste");
+            providerService.save(provider);
+            Category category = new Category("Inverno", "teste");
+            categoryService.save(category);
+            List<Category> categories = new ArrayList<>();
+            categories.add(category);
+            Product product = new Product("teste", new Float(100),  new Float(50), "teste", 1, "branco", "M", new Date(), "nenhu", "P", "40", "1", categories, provider);
+            productService.save(product);
         }
 //        providerService.save(new Provider("monnari", ""));
     }
