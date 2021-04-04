@@ -3,6 +3,8 @@ package com.onroad.backend.service;
 import com.onroad.backend.entity.Provider;
 import com.onroad.backend.repository.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,6 +32,11 @@ public class ProviderService {
     public List<Provider> findAll()
     {
         return repository.findAll();
+    }
+
+    public Page<Provider> findAll(Pageable pageable)
+    {
+        return repository.findAll(pageable);
     }
 
     public Optional<Provider> findById(Integer id)
