@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,9 +27,12 @@ public class CategoryController {
     @Autowired
     private CategoryService service;
 
-    @RequestMapping(value = "/save", method = RequestMethod.GET)
-    public void save(@PathVariable Category category) {
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public ResponseEntity<Void> save(@PathVariable Category category) {
         service.save(category);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+                .buildAndExpand(category.getId()).toUri();
+        return ResponseEntity.created(uri).build();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
