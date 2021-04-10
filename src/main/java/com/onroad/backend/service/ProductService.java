@@ -2,6 +2,7 @@ package com.onroad.backend.service;
 
 import com.onroad.backend.entity.Category;
 import com.onroad.backend.entity.Product;
+import com.onroad.backend.entity.Provider;
 import com.onroad.backend.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,6 +22,9 @@ public class ProductService {
     @Autowired
     private CategoryService categoryService;
 
+    @Autowired
+    private ProviderService providerService;
+
     public void save(Product product)
     {
         List<Category> categories = product.getCategories();
@@ -38,9 +42,14 @@ public class ProductService {
             }
         }
         product.setCategories(newCategories);
-        if (product.getProvider().getId() == null)
+        Provider provider = product.getProvider();
+        if (provider == null || provider.getId() == null)
         {
             product.setProvider(null);
+        }
+        else
+        {
+            product.setProvider(providerService.findById(provider.getId()).get());
         }
         if (product != null) {
             try
