@@ -26,7 +26,7 @@ public class ProductController {
     @Autowired
     private ProductService service;
 
-    @RequestMapping(value = "/save", method = RequestMethod.GET)
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     public void save(@PathVariable Product product) {
         service.save(product);
     }

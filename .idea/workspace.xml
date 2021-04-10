@@ -6,8 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/ProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/ProviderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/ProviderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/onroad/backend/service/ProviderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/service/ProviderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/onroad/backend/controller/ProviderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/onroad/backend/controller/ProviderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/onroad/backend/service/ProviderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/onroad/backend/service/ProviderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/neusamoda-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/neusamoda-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,13 +30,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.3\plugins\maven\lib\maven3" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="ProjectId" id="1poTACRQVOqB4bGldXZ7XyMpF2x" />
   <component name="ProjectViewState">
@@ -53,17 +53,6 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -123,6 +112,11 @@
       <workItem from="1617236420005" duration="2402000" />
       <workItem from="1617361737979" duration="4217000" />
       <workItem from="1617477020825" duration="1455000" />
+      <workItem from="1617579950857" duration="2413000" />
+      <workItem from="1617926181659" duration="1540000" />
+      <workItem from="1617929814961" duration="1335000" />
+      <workItem from="1618005471475" duration="1797000" />
+      <workItem from="1618051462033" duration="1447000" />
     </task>
     <servers />
   </component>
@@ -193,6 +187,21 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/CategoryController.java</url>
           <line>28</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/ProviderController.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/CategoryController.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/ProductController.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
