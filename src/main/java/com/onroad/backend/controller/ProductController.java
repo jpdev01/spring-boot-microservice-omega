@@ -49,4 +49,9 @@ public class ProductController {
         return service.getById(id);
     }
 
+    @RequestMapping(value = "/code/{code}", method = RequestMethod.GET)
+    public Optional<Product> getProductByCode(@PathVariable String code) {
+        return service.findByCode(code);
+    }
+
 }

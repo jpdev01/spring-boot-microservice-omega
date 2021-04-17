@@ -68,6 +68,11 @@ public class ProductService {
         return productRepository.findById(id);
     }
 
+    public Optional<Product> findByCode(String code)
+    {
+        return productRepository.findByCode(code);
+    }
+
     public List<Product> getAll()
     {
         return productRepository.findAll();
