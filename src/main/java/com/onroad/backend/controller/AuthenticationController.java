@@ -6,6 +6,7 @@ import com.onroad.backend.entity.User;
 import com.onroad.backend.service.AuthenticationService;
 import com.onroad.backend.service.UserService;
 import com.onroad.utils.JsonUtils;
+import org.hibernate.annotations.Filter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.http.HttpStatus;
