@@ -1,0 +1,163 @@
+Index: src/main/java/com/onroad/backend/controller/AuthenticationController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.onroad.backend.controller;\n\nimport com.fasterxml.jackson.core.JsonProcessingException;\nimport com.fasterxml.jackson.databind.ObjectMapper;\nimport com.onroad.backend.entity.User;\nimport com.onroad.backend.service.AuthenticationService;\nimport com.onroad.backend.service.UserService;\nimport com.onroad.utils.JsonUtils;\nimport org.hibernate.annotations.Filter;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.dao.IncorrectResultSizeDataAccessException;\nimport org.springframework.http.HttpStatus;\nimport org.springframework.http.ResponseEntity;\nimport org.springframework.web.bind.annotation.RequestBody;\nimport org.springframework.web.bind.annotation.RequestMapping;\nimport org.springframework.web.bind.annotation.RequestMethod;\nimport org.springframework.web.bind.annotation.RestController;\n\nimport javax.servlet.http.HttpSession;\nimport java.util.Optional;\n\n@RestController\n@RequestMapping(value = \"/auth\")\npublic class AuthenticationController {\n\n    @Autowired\n    private AuthenticationService service;\n\n    //    @Produces(MediaType.APPLICATION_JSON)\n//    @Consumes(MediaType.APPLICATION_JSON)\n    @RequestMapping(value = \"/login\", method = RequestMethod.POST)\n    public ResponseEntity<Optional<User>> validateLogin(@RequestBody String submitLogin, HttpSession session) {\n        String login = null;\n        String password = null;\n        if (new JsonUtils().isJSONValid(submitLogin) == true) {\n            ObjectMapper objectMapper = new ObjectMapper();\n            try {\n                User user = objectMapper.readValue(submitLogin, User.class);\n                login = user.getLogin();\n                password = user.getPassword();\n            } catch (JsonProcessingException e) {\n                e.printStackTrace();\n            }\n        }\n\n        if (login != null && password != null) {\n            Optional<User> user = null;\n            try{\n               user = service.validadeLogin(login, password);\n            }\n            catch (IncorrectResultSizeDataAccessException e)\n            {\n                System.out.println(\"Mais de um usuário encontrado com esses dados!\");\n            }\n            catch (Exception e)\n            {\n\n            }\n\n            if (user != null) {\n                session.setAttribute(\"user\", user.get().getId());\n                return ResponseEntity.ok(user);\n            }\n        }\n        return ResponseEntity.status(HttpStatus.FORBIDDEN).build();\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/onroad/backend/controller/AuthenticationController.java b/src/main/java/com/onroad/backend/controller/AuthenticationController.java
+--- a/src/main/java/com/onroad/backend/controller/AuthenticationController.java	(revision 4e1ff94ba7a1f43cddef4bd80316b417e719485e)
++++ b/src/main/java/com/onroad/backend/controller/AuthenticationController.java	(date 1618766614227)
+@@ -11,10 +11,7 @@
+ import org.springframework.dao.IncorrectResultSizeDataAccessException;
+ import org.springframework.http.HttpStatus;
+ import org.springframework.http.ResponseEntity;
+-import org.springframework.web.bind.annotation.RequestBody;
+-import org.springframework.web.bind.annotation.RequestMapping;
+-import org.springframework.web.bind.annotation.RequestMethod;
+-import org.springframework.web.bind.annotation.RestController;
++import org.springframework.web.bind.annotation.*;
+ 
+ import javax.servlet.http.HttpSession;
+ import java.util.Optional;
+@@ -46,7 +43,7 @@
+         if (login != null && password != null) {
+             Optional<User> user = null;
+             try{
+-               user = service.validadeLogin(login, password);
++                user = service.validadeLogin(login, password);
+             }
+             catch (IncorrectResultSizeDataAccessException e)
+             {
+Index: src/main/webapp/WEB-INF/web.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<web-app xmlns=\"http://xmlns.jcp.org/xml/ns/javaee\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd\"\n         version=\"4.0\">\n\n    <error-page>\n        <error-code>404</error-code>\n        <location>/404.jsp</location>\n    </error-page>\n    <error-page>\n        <error-code>403</error-code>\n        <location>/403.jsp</location>\n    </error-page>\n    <error-page>\n        <exception-type>java.lang.Exception</exception-type> <!-- todas as exceções -->\n        <location>/error.jsp</location>\n    </error-page>\n    <context-param>\n        <param-name>ApplicationUrl</param-name>\n        <param-value>http://localhost:8081/training_jsp_war_exploded/</param-value>\n    </context-param>\n</web-app>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/webapp/WEB-INF/web.xml b/src/main/webapp/WEB-INF/web.xml
+--- a/src/main/webapp/WEB-INF/web.xml	(revision 4e1ff94ba7a1f43cddef4bd80316b417e719485e)
++++ b/src/main/webapp/WEB-INF/web.xml	(date 1618766042498)
+@@ -4,20 +4,7 @@
+          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+          version="4.0">
+ 
+-    <error-page>
+-        <error-code>404</error-code>
+-        <location>/404.jsp</location>
+-    </error-page>
+-    <error-page>
+-        <error-code>403</error-code>
+-        <location>/403.jsp</location>
+-    </error-page>
+-    <error-page>
+-        <exception-type>java.lang.Exception</exception-type> <!-- todas as exceções -->
+-        <location>/error.jsp</location>
+-    </error-page>
+-    <context-param>
+-        <param-name>ApplicationUrl</param-name>
+-        <param-value>http://localhost:8081/training_jsp_war_exploded/</param-value>
+-    </context-param>
+-</web-app>
+\ No newline at end of file
++    <session-config>
++        <session-timeout>3</session-timeout>
++    </session-config>
++</web-app>
+Index: src/main/java/com/onroad/backend/filter/SecurityFilter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.onroad.backend.filter;\n\nimport org.springframework.stereotype.Component;\n\nimport javax.servlet.*;\nimport javax.servlet.annotation.WebFilter;\nimport javax.servlet.http.HttpServletRequest;\nimport javax.servlet.http.HttpServletResponse;\nimport javax.servlet.http.HttpSession;\nimport java.io.IOException;\n\n//@WebFilter(filterName = \"SecurityFilter\", value=\"/*\")\n@Component\npublic class SecurityFilter implements Filter {\n    public void destroy() {\n    }\n\n    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {\n        HttpServletRequest request = (HttpServletRequest) req;\n        HttpServletResponse response = (HttpServletResponse) resp;\n        System.out.println(\"caiu!\");\n\n        HttpSession session = request.getSession();\n        String user = (String) session.getAttribute(\"user\");\n        String permissao = (String) session.getAttribute(\"permissao\");\n\n        // adm\n//        if (permissao != null && !(permissao == \"adm\")) {\n//            response.sendError(HttpServletResponse.SC_FORBIDDEN);\n//            // acesso negado = codigo 403\n//        }\n        if (user == null)\n        {\n            response.sendError(HttpServletResponse.SC_FORBIDDEN);\n        }\n\n        chain.doFilter(req, resp);\n    }\n\n    public void init(FilterConfig config) throws ServletException {\n\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/onroad/backend/filter/SecurityFilter.java b/src/main/java/com/onroad/backend/filter/SecurityFilter.java
+--- a/src/main/java/com/onroad/backend/filter/SecurityFilter.java	(revision 4e1ff94ba7a1f43cddef4bd80316b417e719485e)
++++ b/src/main/java/com/onroad/backend/filter/SecurityFilter.java	(date 1618766437401)
+@@ -1,5 +1,6 @@
+ package com.onroad.backend.filter;
+ 
++import org.apache.catalina.connector.RequestFacade;
+ import org.springframework.stereotype.Component;
+ 
+ import javax.servlet.*;
+@@ -20,8 +21,10 @@
+         HttpServletResponse response = (HttpServletResponse) resp;
+         System.out.println("caiu!");
+ 
++
+         HttpSession session = request.getSession();
+         String user = (String) session.getAttribute("user");
++        boolean isLoginPath = request.getServletPath().equals("/auth/login");
+         String permissao = (String) session.getAttribute("permissao");
+ 
+         // adm
+@@ -29,7 +32,7 @@
+ //            response.sendError(HttpServletResponse.SC_FORBIDDEN);
+ //            // acesso negado = codigo 403
+ //        }
+-        if (user == null)
++        if (user == null && !isLoginPath)
+         {
+             response.sendError(HttpServletResponse.SC_FORBIDDEN);
+         }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5\" name=\"Default Changelist\" comment=\"\">\n      <change afterPath=\"$PROJECT_DIR$/.idea/uiDesigner.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/AuthenticationController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/AuthenticationController.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/onroad/filter/security/SecurityFilter.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/onroad/backend/filter/SecurityFilter.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/onroad/backend/controller/AuthenticationController.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/com/onroad/backend/controller/AuthenticationController.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/onroad/filter/security/SecurityFilter.class\" beforeDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Interface\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitSEFilterConfiguration\">\n    <file-type-list>\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\n      <filtered-out-file-type name=\"TAG\" />\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\n    </file-type-list>\n  </component>\n  <component name=\"ProjectId\" id=\"1poTACRQVOqB4bGldXZ7XyMpF2x\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"RequestMappingsPanelOrder0\" value=\"0\" />\n    <property name=\"RequestMappingsPanelOrder1\" value=\"1\" />\n    <property name=\"RequestMappingsPanelWidth0\" value=\"75\" />\n    <property name=\"RequestMappingsPanelWidth1\" value=\"75\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/../project-omega-front\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\n    <property name=\"project.structure.side.proportion\" value=\"0.11737627\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"preferences.keymap\" />\n  </component>\n  <component name=\"RunManager\">\n    <configuration default=\"true\" type=\"ArquillianTestNG\" factoryName=\"\" nameIsGenerated=\"true\">\n      <option name=\"arquillianRunConfiguration\">\n        <value>\n          <option name=\"containerStateName\" value=\"\" />\n        </value>\n      </option>\n      <option name=\"TEST_OBJECT\" value=\"CLASS\" />\n      <properties />\n      <listeners />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration default=\"true\" type=\"MavenRunConfiguration\" factoryName=\"Maven\">\n      <MavenSettings>\n        <option name=\"myGeneralSettings\" />\n        <option name=\"myRunnerSettings\" />\n        <option name=\"myRunnerParameters\">\n          <MavenRunnerParameters>\n            <option name=\"profiles\">\n              <set />\n            </option>\n            <option name=\"goals\">\n              <list />\n            </option>\n            <option name=\"pomFileName\" />\n            <option name=\"profilesMap\">\n              <map />\n            </option>\n            <option name=\"resolveToWorkspace\" value=\"false\" />\n            <option name=\"workingDirPath\" value=\"$PROJECT_DIR$\" />\n          </MavenRunnerParameters>\n        </option>\n      </MavenSettings>\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"BootSpring\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\">\n      <module name=\"training-javaweb-02\" />\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.onroad.backend.BootSpring\" />\n      <option name=\"ALTERNATIVE_JRE_PATH\" />\n      <option name=\"SHORTEN_COMMAND_LINE\" value=\"NONE\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5\" name=\"Default Changelist\" comment=\"\" />\n      <created>1615848308083</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1615848308083</updated>\n      <workItem from=\"1615848318374\" duration=\"247000\" />\n      <workItem from=\"1615848625030\" duration=\"451000\" />\n      <workItem from=\"1615849127777\" duration=\"1376000\" />\n      <workItem from=\"1616196930683\" duration=\"436000\" />\n      <workItem from=\"1616241033665\" duration=\"3224000\" />\n      <workItem from=\"1616263642860\" duration=\"10043000\" />\n      <workItem from=\"1616292086621\" duration=\"4519000\" />\n      <workItem from=\"1616332879400\" duration=\"1737000\" />\n      <workItem from=\"1616367675410\" duration=\"599000\" />\n      <workItem from=\"1616535290282\" duration=\"2666000\" />\n      <workItem from=\"1616713429219\" duration=\"366000\" />\n      <workItem from=\"1616717632131\" duration=\"684000\" />\n      <workItem from=\"1616797774898\" duration=\"706000\" />\n      <workItem from=\"1616800869026\" duration=\"600000\" />\n      <workItem from=\"1616847522872\" duration=\"5677000\" />\n      <workItem from=\"1616950148979\" duration=\"2295000\" />\n      <workItem from=\"1617149570056\" duration=\"738000\" />\n      <workItem from=\"1617236420005\" duration=\"2402000\" />\n      <workItem from=\"1617361737979\" duration=\"4217000\" />\n      <workItem from=\"1617477020825\" duration=\"1455000\" />\n      <workItem from=\"1617579950857\" duration=\"2413000\" />\n      <workItem from=\"1617926181659\" duration=\"1540000\" />\n      <workItem from=\"1617929814961\" duration=\"1335000\" />\n      <workItem from=\"1618005471475\" duration=\"1797000\" />\n      <workItem from=\"1618051462033\" duration=\"1737000\" />\n      <workItem from=\"1618057384873\" duration=\"5570000\" />\n      <workItem from=\"1618528084390\" duration=\"1211000\" />\n      <workItem from=\"1618616963099\" duration=\"909000\" />\n      <workItem from=\"1618617942155\" duration=\"633000\" />\n      <workItem from=\"1618620628034\" duration=\"994000\" />\n      <workItem from=\"1618625177656\" duration=\"1217000\" />\n      <workItem from=\"1618658253710\" duration=\"3017000\" />\n      <workItem from=\"1618711820516\" duration=\"3676000\" />\n      <workItem from=\"1618747266435\" duration=\"2521000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/UserController.java</url>\n          <line>67</line>\n          <option name=\"timeStamp\" value=\"1\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/service/UserService.java</url>\n          <line>22</line>\n          <option name=\"timeStamp\" value=\"2\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/service/UserService.java</url>\n          <line>24</line>\n          <option name=\"timeStamp\" value=\"3\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/CustomerController.java</url>\n          <line>61</line>\n          <option name=\"timeStamp\" value=\"5\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/entity/Product.java</url>\n          <line>32</line>\n          <option name=\"timeStamp\" value=\"7\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/CategoryController.java</url>\n          <line>53</line>\n          <option name=\"timeStamp\" value=\"8\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/entity/User.java</url>\n          <line>8</line>\n          <option name=\"timeStamp\" value=\"9\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/CategoryController.java</url>\n          <line>28</line>\n          <option name=\"timeStamp\" value=\"10\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/ProviderController.java</url>\n          <line>28</line>\n          <option name=\"timeStamp\" value=\"11\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/CategoryController.java</url>\n          <line>46</line>\n          <option name=\"timeStamp\" value=\"12\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/service/ProductService.java</url>\n          <line>56</line>\n          <option name=\"timeStamp\" value=\"21\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/ProductController.java</url>\n          <line>27</line>\n          <option name=\"timeStamp\" value=\"24\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/service/ProductService.java</url>\n          <line>53</line>\n          <option name=\"timeStamp\" value=\"25\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/service/ProductService.java</url>\n          <line>30</line>\n          <option name=\"timeStamp\" value=\"26\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/service/ProductService.java</url>\n          <line>60</line>\n          <option name=\"timeStamp\" value=\"27\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/SaleController.java</url>\n          <line>49</line>\n          <option name=\"timeStamp\" value=\"31\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/service/SaleService.java</url>\n          <line>22</line>\n          <option name=\"timeStamp\" value=\"33\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/filter/SecurityFilter.java</url>\n          <line>18</line>\n          <option name=\"timeStamp\" value=\"40\" />\n        </line-breakpoint>\n      </breakpoints>\n    </breakpoint-manager>\n  </component>\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\n    <SUITE FILE_PATH=\"coverage/neusamoda$BootSpring.ic\" NAME=\"BootSpring Coverage Results\" MODIFIED=\"1617553123159\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 4e1ff94ba7a1f43cddef4bd80316b417e719485e)
++++ b/.idea/workspace.xml	(date 1618766614347)
+@@ -5,12 +5,11 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5" name="Default Changelist" comment="">
+-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/AuthenticationController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/onroad/filter/security/SecurityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/filter/SecurityFilter.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/onroad/backend/controller/AuthenticationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/onroad/backend/controller/AuthenticationController.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/onroad/filter/security/SecurityFilter.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/onroad/backend/filter/SecurityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/filter/SecurityFilter.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/onroad/backend/filter/SecurityFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/onroad/backend/filter/SecurityFilter.class" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -146,7 +145,7 @@
+       <workItem from="1618625177656" duration="1217000" />
+       <workItem from="1618658253710" duration="3017000" />
+       <workItem from="1618711820516" duration="3676000" />
+-      <workItem from="1618747266435" duration="2521000" />
++      <workItem from="1618747266435" duration="8734000" />
+     </task>
+     <servers />
+   </component>
+@@ -252,11 +251,21 @@
+           <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/service/SaleService.java</url>
+           <line>22</line>
+           <option name="timeStamp" value="33" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/AuthenticationController.java</url>
++          <line>29</line>
++          <option name="timeStamp" value="41" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/filter/SecurityFilter.java</url>
++          <line>19</line>
++          <option name="timeStamp" value="42" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/filter/SecurityFilter.java</url>
+-          <line>18</line>
+-          <option name="timeStamp" value="40" />
++          <line>24</line>
++          <option name="timeStamp" value="43" />
+         </line-breakpoint>
+       </breakpoints>
+     </breakpoint-manager>
