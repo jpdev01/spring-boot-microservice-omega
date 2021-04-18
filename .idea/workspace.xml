@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/ProvisionalSaleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/entity/ProvisionalSale.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/repository/ProvisionalSaleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/service/ProvisionalSaleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/onroad/backend/entity/Sale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/entity/Sale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/onroad/backend/repository/SaleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/repository/SaleRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/onroad/backend/service/SaleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/onroad/backend/service/SaleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/onroad/custom/StatusSale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/onroad/custom/StatusSale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/onroad/backend/service/SaleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/onroad/backend/service/SaleService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +23,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1poTACRQVOqB4bGldXZ7XyMpF2x" />
   <component name="ProjectViewState">
@@ -54,19 +54,6 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -140,6 +127,7 @@
       <workItem from="1618620628034" duration="994000" />
       <workItem from="1618625177656" duration="1217000" />
       <workItem from="1618658253710" duration="3017000" />
+      <workItem from="1618711820516" duration="2428000" />
     </task>
     <servers />
   </component>
@@ -178,18 +166,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/CustomerController.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/CustomerController.java</url>
           <line>61</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/ProductController.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/entity/Product.java</url>
@@ -247,14 +225,9 @@
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/ProductController.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/ProductController.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="30" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/SaleController.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

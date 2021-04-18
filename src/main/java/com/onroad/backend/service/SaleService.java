@@ -1,5 +1,6 @@
 package com.onroad.backend.service;
 
+import com.onroad.backend.entity.Product;
 import com.onroad.backend.entity.Provider;
 import com.onroad.backend.entity.Sale;
 import com.onroad.backend.repository.SaleRepository;
@@ -19,6 +20,25 @@ public class SaleService {
 
     public void save(Sale sale)
     {
+        List<Product> products = sale.getProducts();
+        Float finalValue = sale.getTotalValue() != null ? sale.getTotalValue() : 0;
+        for (Product product: products)
+        {
+            Integer qtde = product.getQtde();
+            if (qtde > 0)
+            {
+                product.setQtde(qtde);
+                finalValue = finalValue + product.getFinalValue();
+            }
+            else
+            {
+                System.err.println("Produto não está disponível");
+            }
+        }
+        if (finalValue != sale.getTotalValue())
+        {
+            sale.setTotalValue(finalValue);
+        }
         repository.save(sale);
     }
 
