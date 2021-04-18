@@ -18,4 +18,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query("SELECT u.id FROM User u WHERE u.login = ?1 and u.password = ?2")
     Integer validate(String login, String password);
 
+    User findByLogin(String login);
+
 }

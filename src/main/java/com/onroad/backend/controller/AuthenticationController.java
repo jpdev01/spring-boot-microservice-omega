@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "/auth")
+@RequestMapping(value = "/auth2")
 public class AuthenticationController {
 
     @Autowired
@@ -28,7 +28,7 @@ public class AuthenticationController {
 
     //    @Produces(MediaType.APPLICATION_JSON)
 //    @Consumes(MediaType.APPLICATION_JSON)
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login2", method = RequestMethod.POST)
     public ResponseEntity<Optional<User>> validateLogin(@RequestBody String submitLogin, HttpSession session) {
         String login = null;
         String password = null;

@@ -58,4 +58,14 @@ public class UserService {
     private boolean isValidUser(User user) {
         return user != null && user.getLogin() != null && user.getPassword() != null;
     }
+
+    public Integer validateLogin(String login, String password)
+    {
+        return repository.validate(login, password);
+    }
+
+    public User getUserByLogin(String login)
+    {
+        return repository.findByLogin(login);
+    }
 }
