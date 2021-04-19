@@ -10,7 +10,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping(value = "/auth")
 @RestController
 @CrossOrigin
 public class JwtAuthenticationController {
@@ -33,7 +32,7 @@ public class JwtAuthenticationController {
         return ResponseEntity.ok(new JwtResponse(token));
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/auth/login", method = RequestMethod.POST)
     public ResponseEntity<?> login(@RequestBody User user) throws Exception {
         JwtRequest jwtRequest = new JwtRequest();
         jwtRequest.setUsername(user.getLogin());
