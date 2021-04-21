@@ -85,4 +85,14 @@ public class ProductService {
 
     public Optional<Product> getById(Integer id) { return productRepository.findById(id); }
 
+    public Optional<List<Product>> getAllFromCategory(Integer categoryId){
+        Category category = categoryService.findById(categoryId).get();
+        if (category != null){
+            List<Category> categoryList = new ArrayList<>();
+            categoryList.add(category);
+            return productRepository.findProductsByCategoriesIn(categoryList);
+        }
+        return null;
+    }
+
 }

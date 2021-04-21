@@ -1,5 +1,6 @@
 package com.onroad.backend.controller;
 
+import com.onroad.backend.entity.Category;
 import com.onroad.backend.entity.Product;
 import com.onroad.backend.entity.User;
 import com.onroad.backend.service.ProductService;
@@ -52,6 +53,17 @@ public class ProductController {
     @RequestMapping(value = "/code/{code}", method = RequestMethod.GET)
     public Optional<Product> getProductByCode(@PathVariable String code) {
         return service.findByCode(code);
+    }
+
+    @RequestMapping(value = "/category/{id}", method = RequestMethod.GET)
+    public  ResponseEntity<List<Product>> getAllFromCategory(@PathVariable String id) {
+        Integer categoryId = Integer.parseInt(id);
+        Optional<List<Product>> products = service.getAllFromCategory(categoryId);
+        if (!products.isPresent())
+        {
+            return ResponseEntity.noContent().build();
+        }
+        return new ResponseEntity<List<Product>>(products.get(), HttpStatus.OK);
     }
 
 }
