@@ -1,4 +1,4 @@
-package com.onroad.backend.jwt;
+package com.core.backend.jwt;
 
 import java.io.Serializable;
 

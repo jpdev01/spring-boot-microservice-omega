@@ -1,4 +1,4 @@
-package com.onroad.backend.jwt;
+package com.core.backend.jwt;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -12,6 +12,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import io.jsonwebtoken.ExpiredJwtException;
+import com.core.backend.jwt.JwtTokenUtil;
 
 import java.io.IOException;
 

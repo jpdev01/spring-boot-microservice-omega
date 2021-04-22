@@ -1,9 +1,9 @@
-package com.onroad.backend.jwt;
+package com.core.backend.jwt;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
-import com.onroad.backend.service.UserService;
+import com.core.backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,7 +20,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-        com.onroad.backend.entity.User user = findByLogin(login);
+        com.core.backend.entity.User user = findByLogin(login);
         Integer userId = userService.validateLogin(login, user.getPassword());
 
 //        if (user.getEmail().equals(email)) {
@@ -35,7 +35,7 @@ public class JwtUserDetailsService implements UserDetailsService {
                 new ArrayList<>());
     }
 
-    private com.onroad.backend.entity.User findByLogin(String login)
+    private com.core.backend.entity.User findByLogin(String login)
     {
         return userService.getUserByLogin(login);
     }

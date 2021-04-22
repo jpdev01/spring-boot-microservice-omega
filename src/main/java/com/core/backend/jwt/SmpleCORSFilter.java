@@ -1,4 +1,4 @@
-package com.onroad.backend.jwt;
+package com.core.backend.jwt;
 
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;

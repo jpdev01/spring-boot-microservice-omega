@@ -1,6 +1,6 @@
-package com.onroad.backend.jwt;
+package com.core.backend.jwt;
 
-import com.onroad.backend.entity.User;
+import com.core.backend.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

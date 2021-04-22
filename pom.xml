@@ -8,7 +8,7 @@
         <version>2.4.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.onroad</groupId>
+    <groupId>com.core</groupId>
     <artifactId>neusamoda</artifactId>
     <version>1.0.1-SNAPSHOT</version>
     <name>neusamoda</name>

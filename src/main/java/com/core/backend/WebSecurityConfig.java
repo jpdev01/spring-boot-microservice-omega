@@ -1,7 +1,7 @@
-package com.onroad.backend;
+package com.core.backend;
 
-import com.onroad.backend.jwt.JwtAuthenticationEntryPoint;
-import com.onroad.backend.jwt.JwtRequestFilter;
+import com.core.backend.jwt.JwtAuthenticationEntryPoint;
+import com.core.backend.jwt.JwtRequestFilter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

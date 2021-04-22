@@ -6,6 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequestFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtTokenUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtTokenUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/SmpleCORSFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/SmpleCORSFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/onroad/backend/filter/SecurityFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/onroad/backend/service/CategoryService.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +66,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -79,7 +102,7 @@
     </configuration>
     <configuration name="BootSpring" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="training-javaweb-02" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.onroad.backend.BootSpring" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.core.backend.BootSpring" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SHORTEN_COMMAND_LINE" value="NONE" />
       <method v="2">
@@ -135,6 +158,7 @@
       <workItem from="1618875148228" duration="3789000" />
       <workItem from="1618958776351" duration="4119000" />
       <workItem from="1619016934097" duration="4719000" />
+      <workItem from="1619038129319" duration="1963000" />
     </task>
     <servers />
   </component>
@@ -172,164 +196,169 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/UserController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/UserController.java</url>
           <line>67</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/service/UserService.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java</url>
           <line>22</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/service/UserService.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java</url>
           <line>24</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/CustomerController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/CustomerController.java</url>
           <line>61</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/entity/Product.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/entity/Product.java</url>
           <line>32</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/CategoryController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java</url>
           <line>53</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/entity/User.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/entity/User.java</url>
           <line>8</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/CategoryController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java</url>
           <line>28</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/ProviderController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/ProviderController.java</url>
           <line>28</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/CategoryController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java</url>
           <line>46</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/service/ProductService.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>
           <line>56</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/ProductController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/ProductController.java</url>
           <line>28</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/service/ProductService.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>
           <line>53</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/service/ProductService.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>
           <line>30</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/service/ProductService.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>
           <line>60</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/SaleController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/SaleController.java</url>
           <line>49</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/service/SaleService.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/SaleService.java</url>
           <line>22</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/filter/SecurityFilter.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/filter/SecurityFilter.java</url>
           <line>18</line>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/jwt/JwtAuthenticationController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java</url>
           <line>27</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/jwt/JwtAuthenticationController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java</url>
           <line>36</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/jwt/JwtUserDetailsService.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtUserDetailsService.java</url>
           <line>22</line>
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/jwt/JwtAuthenticationController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java</url>
           <line>44</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/jwt/JwtAuthenticationEntryPoint.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationEntryPoint.java</url>
           <line>17</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/jwt/JwtTokenUtil.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtTokenUtil.java</url>
           <line>66</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/jwt/JwtTokenUtil.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtTokenUtil.java</url>
           <line>53</line>
           <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/jwt/JwtAuthenticationController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java</url>
           <line>46</line>
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/jwt/JwtAuthenticationController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java</url>
           <line>48</line>
           <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/CustomerController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/CustomerController.java</url>
           <line>30</line>
           <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/jwt/JwtTokenUtil.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtTokenUtil.java</url>
           <line>59</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/jwt/JwtRequestFilter.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequestFilter.java</url>
           <line>54</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/jwt/JwtRequestFilter.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequestFilter.java</url>
           <line>32</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/onroad/backend/controller/ProductController.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/ProductController.java</url>
           <line>60</line>
           <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/CategoryService.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="63" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
