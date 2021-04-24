@@ -11,37 +11,25 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CategoryService {
-
+public class CategoryService implements ServiceInterface<Category> {
     @Autowired
-    private CategoryRepository categoryRepository;
+    public CategoryRepository repository;
 
-    public Page<Category> findAll(Pageable pageable)
+    @Override
+    public Page<Category> getAll(Pageable pageable)
     {
-        return categoryRepository.findAll(pageable);
+        return repository.findAll(pageable);
     }
 
+    @Override
+    public Optional<Category> get(Integer id) {
+       return repository.findById(id);
+    }
+
+    @Override
     public void save(Category category)
     {
-        if (category != null) {
-            try
-            {
-                categoryRepository.save(category);
-            }
-            catch (Exception e)
-            {
-                System.err.println("erro ao salvar novo produto!");
-            }
-        }
+        repository.save(category);
     }
 
-    public Optional<Category> findById(Integer id)
-    {
-        return categoryRepository.findById(id);
-    }
-
-    public List<Category> findAll()
-    {
-        return categoryRepository.findAll();
-    }
 }

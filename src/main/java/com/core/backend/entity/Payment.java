@@ -1,5 +1,6 @@
 package com.core.backend.entity;
 
+import com.core.backend.entity.store.Sale;
 import com.core.custom.CardFlag;
 import com.core.custom.FormPgto;
 import com.core.custom.Method;

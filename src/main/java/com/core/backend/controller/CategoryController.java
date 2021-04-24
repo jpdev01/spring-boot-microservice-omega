@@ -35,7 +35,7 @@ public class CategoryController {
     {
         if (id != null)
         {
-            return service.findById(id);
+            return service.get(id);
         }
         return null;
         // FIXME deve retornar pagina de erro!
@@ -49,7 +49,7 @@ public class CategoryController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<Page<Category>> findAll(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
-        Page<Category> categories = service.findAll(pageable);
+        Page<Category> categories = service.getAll(pageable);
 
 //        if (customers == null || customers.isEmpty()) {
 //            return ResponseEntity.notFound().build();

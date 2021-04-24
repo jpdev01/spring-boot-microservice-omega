@@ -24,8 +24,6 @@ public class AuthenticationController {
     @Autowired
     private AuthenticationService service;
 
-    //    @Produces(MediaType.APPLICATION_JSON)
-//    @Consumes(MediaType.APPLICATION_JSON)
     @RequestMapping(value = "/login2", method = RequestMethod.POST)
     public ResponseEntity<Optional<User>> validateLogin(@RequestBody String submitLogin, HttpSession session) {
         String login = null;

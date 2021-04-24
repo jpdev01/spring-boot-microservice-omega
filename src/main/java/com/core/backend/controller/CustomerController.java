@@ -26,7 +26,7 @@ public class CustomerController {
     //FIXME: FIND ALL WITH PAGEABLE
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<Page<Customer>> findAll(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
-        Page<Customer> customers = service.findAll(pageable);
+        Page<Customer> customers = service.getAll(pageable);
 
 //        if (customers == null || customers.isEmpty()) {
 //            return ResponseEntity.notFound().build();
@@ -48,7 +48,7 @@ public class CustomerController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Optional<Customer>> findById(@PathVariable Integer id) {
-        Optional<Customer> customer = service.findById(id);
+        Optional<Customer> customer = service.get(id);
         if (customer == null) {
             return ResponseEntity.notFound().build();
         }
@@ -67,7 +67,7 @@ public class CustomerController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Void> update(@RequestBody Customer customer, @PathVariable Integer id) {
-        if (service.findById(id) == null) {
+        if (service.get(id) == null) {
             // user not found
             return ResponseEntity.notFound().build();
         }

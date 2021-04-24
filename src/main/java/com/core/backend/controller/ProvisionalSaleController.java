@@ -44,6 +44,6 @@ public class ProvisionalSaleController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Optional<ProvisionalSale> getProduct(@PathVariable Integer id) {
-        return service.getById(id);
+        return service.get(id);
     }
 }

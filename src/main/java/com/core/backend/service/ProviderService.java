@@ -11,10 +11,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ProviderService {
+public class ProviderService implements ServiceInterface<Provider>{
     @Autowired
     private ProviderRepository repository;
 
+    @Override
     public void save(Provider provider)
     {
         if (provider != null) {
@@ -28,18 +29,14 @@ public class ProviderService {
             }
         }
     }
-
-    public List<Provider> findAll()
-    {
-        return repository.findAll();
-    }
-
-    public Page<Provider> findAll(Pageable pageable)
+    @Override
+    public Page<Provider> getAll(Pageable pageable)
     {
         return repository.findAll(pageable);
     }
 
-    public Optional<Provider> findById(Integer id)
+    @Override
+    public Optional<Provider> get(Integer id)
     {
         return repository.findById(id);
     }

@@ -11,27 +11,25 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CustomerService {
+public class CustomerService implements ServiceInterface<Customer>{
 
     @Autowired
     private CustomerRepository repository;
 
+    @Override
     public void save(Customer customer)
     {
         repository.save(customer);
     }
 
-    public List<Customer> findAll()
-    {
-        return repository.findAll();
-    }
-
-    public Page<Customer> findAll(Pageable pageable)
+    @Override
+    public Page<Customer> getAll(Pageable pageable)
     {
         return repository.findAll(pageable);
     }
 
-    public Optional<Customer> findById(Integer id)
+    @Override
+    public Optional<Customer> get(Integer id)
     {
         return repository.findById(id);
     }

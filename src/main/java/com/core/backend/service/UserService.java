@@ -11,11 +11,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class UserService implements ServiceInterface<User>{
 
     @Autowired
     private UserRepository repository;
 
+    @Override
     public void save(User user)
     {
         try
@@ -39,18 +40,14 @@ public class UserService {
         }
     }
 
-    public List<User> findAll()
-    {
-        return repository.findAll();
-    }
-
-    // FIXME = FINDALL WITH PAGEABLE
-    public Page<User> findAll(Pageable pageable)
+    @Override
+    public Page<User> getAll(Pageable pageable)
     {
         return repository.findAll(pageable);
     }
 
-    public Optional<User> findById(Integer id)
+    @Override
+    public Optional<User> get(Integer id)
     {
         return repository.findById(id);
     }

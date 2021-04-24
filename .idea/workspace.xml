@@ -5,19 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/EntityTeste.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/store/Payment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/repository/Teste.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/ServiceInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationEntryPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequestFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtTokenUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtTokenUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/SmpleCORSFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/SmpleCORSFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/onroad/backend/filter/SecurityFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/onroad/backend/service/CategoryService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/ProviderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/ProviderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/ProvisionalSaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/ProvisionalSaleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/SaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/SaleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/Sale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/store/Sale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/repository/CashFlowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/repository/CashFlowRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/repository/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/repository/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/repository/SaleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/repository/SaleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/CashFlowService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/CashFlowService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/PaymentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/ProviderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/ProviderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/ProvisionalSaleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/ProvisionalSaleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/ReservationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/SaleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/SaleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +42,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -58,12 +73,23 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../project-omega-front" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.11737627" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.core.backend.service" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
@@ -158,7 +184,17 @@
       <workItem from="1618875148228" duration="3789000" />
       <workItem from="1618958776351" duration="4119000" />
       <workItem from="1619016934097" duration="4719000" />
-      <workItem from="1619038129319" duration="1963000" />
+      <workItem from="1619038129319" duration="2283000" />
+      <workItem from="1619133879490" duration="39000" />
+      <workItem from="1619133954496" duration="1512000" />
+      <workItem from="1619221541657" duration="625000" />
+      <workItem from="1619222851567" duration="683000" />
+      <workItem from="1619260275657" duration="127000" />
+      <workItem from="1619260471455" duration="2353000" />
+      <workItem from="1619274569343" duration="63000" />
+      <workItem from="1619274681682" duration="3437000" />
+      <workItem from="1619278717306" duration="4478000" />
+      <workItem from="1619306402479" duration="906000" />
     </task>
     <servers />
   </component>
@@ -202,12 +238,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java</url>
-          <line>22</line>
+          <line>23</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java</url>
-          <line>24</line>
+          <line>25</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -219,11 +255,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/entity/Product.java</url>
           <line>32</line>
           <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/entity/User.java</url>
@@ -247,7 +278,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>
-          <line>56</line>
+          <line>57</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -257,17 +288,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>
-          <line>53</line>
+          <line>54</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>
-          <line>30</line>
+          <line>31</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>
-          <line>60</line>
+          <line>61</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -277,7 +308,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/SaleService.java</url>
-          <line>22</line>
+          <line>23</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -296,11 +327,6 @@
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtUserDetailsService.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java</url>
           <line>44</line>
           <option name="timeStamp" value="47" />
@@ -309,11 +335,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationEntryPoint.java</url>
           <line>17</line>
           <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtTokenUtil.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtTokenUtil.java</url>
@@ -342,11 +363,6 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequestFilter.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequestFilter.java</url>
           <line>32</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
@@ -356,9 +372,9 @@
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/CategoryService.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="63" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="64" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ProductService {
+public class ProductService implements ServiceInterface<Product>{
 
     @Autowired
     private ProductRepository productRepository;
@@ -25,6 +25,7 @@ public class ProductService {
     @Autowired
     private ProviderService providerService;
 
+    @Override
     public void save(Product product)
     {
         List<Category> categories = product.getCategories();
@@ -33,7 +34,7 @@ public class ProductService {
         {
             for (int i = 0; i < categories.size(); i++)
             {
-                Optional<Category> category = categoryService.findById(categories.get(i).getId());
+                Optional<Category> category = categoryService.get(categories.get(i).getId());
                 Category oCategory = category.get();
                 if (oCategory != null)
                 {
@@ -49,7 +50,7 @@ public class ProductService {
         }
         else
         {
-            product.setProvider(providerService.findById(provider.getId()).get());
+            product.setProvider(providerService.get(provider.getId()).get());
         }
         if (product != null) {
             try
@@ -63,7 +64,8 @@ public class ProductService {
         }
     }
 
-    public Optional<Product> findById(Integer id)
+    @Override
+    public Optional<Product> get(Integer id)
     {
         return productRepository.findById(id);
     }
@@ -73,20 +75,14 @@ public class ProductService {
         return productRepository.findByCode(code);
     }
 
-    public List<Product> getAll()
-    {
-        return productRepository.findAll();
-    }
-
+    @Override
     public Page<Product> getAll(Pageable pageable)
     {
         return productRepository.findAll(pageable);
     }
 
-    public Optional<Product> getById(Integer id) { return productRepository.findById(id); }
-
     public Optional<List<Product>> getAllFromCategory(Integer categoryId){
-        Category category = categoryService.findById(categoryId).get();
+        Category category = categoryService.get(categoryId).get();
         if (category != null){
             List<Category> categoryList = new ArrayList<>();
             categoryList.add(category);
