@@ -32,4 +32,9 @@ public class CategoryService implements ServiceInterface<Category> {
         repository.save(category);
     }
 
+    @Override
+    public List<Category> getAll()
+    {
+        return repository.findAll();
+    }
 }

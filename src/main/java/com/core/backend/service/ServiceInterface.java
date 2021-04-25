@@ -9,5 +9,5 @@ public interface ServiceInterface<T> {
     public Page<T> getAll(Pageable pageable);
     public Optional<T> get(Integer id);
     public void save(T object);
-
+    public List<T> getAll();
 }

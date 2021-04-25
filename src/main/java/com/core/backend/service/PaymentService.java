@@ -1,5 +1,6 @@
 package com.core.backend.service;
 
+import com.core.backend.entity.Category;
 import com.core.backend.entity.Payment;
 import com.core.backend.repository.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,12 @@ public class PaymentService implements ServiceInterface<Payment>{
     public Optional<Payment> get(Integer id)
     {
         return repository.findById(id);
+    }
+
+    @Override
+    public List<Payment> getAll()
+    {
+        return repository.findAll();
     }
 
 }

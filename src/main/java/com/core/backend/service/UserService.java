@@ -1,5 +1,6 @@
 package com.core.backend.service;
 
+import com.core.backend.entity.Provider;
 import com.core.backend.entity.User;
 import com.core.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,5 +65,11 @@ public class UserService implements ServiceInterface<User>{
     public User getUserByLogin(String login)
     {
         return repository.findByLogin(login);
+    }
+
+    @Override
+    public List<User> getAll()
+    {
+        return repository.findAll();
     }
 }

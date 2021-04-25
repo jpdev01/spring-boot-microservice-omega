@@ -91,4 +91,10 @@ public class ProductService implements ServiceInterface<Product>{
         return null;
     }
 
+    @Override
+    public List<Product> getAll()
+    {
+        return productRepository.findAll();
+    }
+
 }

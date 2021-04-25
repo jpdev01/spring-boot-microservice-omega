@@ -1,6 +1,7 @@
 package com.core.backend.service;
 
 import com.core.backend.entity.Product;
+import com.core.backend.entity.Provider;
 import com.core.backend.entity.store.Sale;
 import com.core.backend.repository.SaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,4 +55,9 @@ public class SaleService implements ServiceInterface<Sale> {
         return repository.findById(id);
     }
 
+    @Override
+    public List<Sale> getAll()
+    {
+        return repository.findAll();
+    }
 }

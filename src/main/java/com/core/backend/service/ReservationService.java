@@ -1,5 +1,6 @@
 package com.core.backend.service;
 
+import com.core.backend.entity.Provider;
 import com.core.backend.entity.Reservation;
 import com.core.backend.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,11 @@ public class ReservationService implements ServiceInterface<Reservation>{
     public Optional<Reservation> get(Integer id)
     {
         return repository.findById(id);
+    }
+
+    @Override
+    public List<Reservation> getAll()
+    {
+        return repository.findAll();
     }
 }

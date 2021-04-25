@@ -40,4 +40,10 @@ public class ProviderService implements ServiceInterface<Provider>{
     {
         return repository.findById(id);
     }
+
+    @Override
+    public List<Provider> getAll()
+    {
+        return repository.findAll();
+    }
 }

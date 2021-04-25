@@ -34,4 +34,10 @@ public class CashFlowService implements ServiceInterface<CashFlow>{
         return repository.findById(id);
     }
 
+    @Override
+    public List<CashFlow> getAll()
+    {
+        return repository.findAll();
+    }
+
 }

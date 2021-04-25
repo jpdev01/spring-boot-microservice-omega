@@ -1,5 +1,6 @@
 package com.core.backend.service;
 
+import com.core.backend.entity.Category;
 import com.core.backend.entity.Customer;
 import com.core.backend.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,12 @@ public class CustomerService implements ServiceInterface<Customer>{
     public Optional<Customer> get(Integer id)
     {
         return repository.findById(id);
+    }
+
+    @Override
+    public List<Customer> getAll()
+    {
+        return repository.findAll();
     }
 
 }

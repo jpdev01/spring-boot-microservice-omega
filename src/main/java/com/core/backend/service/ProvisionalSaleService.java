@@ -1,5 +1,6 @@
 package com.core.backend.service;
 
+import com.core.backend.entity.Provider;
 import com.core.backend.entity.ProvisionalSale;
 import com.core.backend.repository.ProvisionalSaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,5 +33,9 @@ public class ProvisionalSaleService implements ServiceInterface<ProvisionalSale>
         return repo.findAll(pageable);
     }
 
-
+    @Override
+    public List<ProvisionalSale> getAll()
+    {
+        return repo.findAll();
+    }
 }
