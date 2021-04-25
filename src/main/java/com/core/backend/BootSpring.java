@@ -41,7 +41,7 @@ public class BootSpring  implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        List<User> users = userService.findAll();
+        List<User> users = userService.getAll();
         if (users == null || users.isEmpty())
         {
             User user = new User("adm", "adm", Permission.ADM);

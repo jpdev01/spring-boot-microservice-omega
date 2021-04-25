@@ -1,5 +1,10 @@
 package com.core.backend.entity;
 
+import com.core.backend.entity.Customer;
+import com.core.backend.entity.Product;
+import com.core.backend.entity.User;
+import com.core.backend.entity.Payment;
+import com.core.custom.FormPgto;
 import com.core.custom.StatusSale;
 
 import javax.persistence.*;
@@ -31,6 +36,15 @@ public class Sale {
 
     @Enumerated(EnumType.ORDINAL)
     private StatusSale status;
+
+    @Enumerated(EnumType.ORDINAL)
+    private FormPgto formPgto;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="sales_has_payments", joinColumns=
+    @JoinColumn(name="sale_id"), inverseJoinColumns=
+    @JoinColumn(name="payment_id"))
+    private List<Payment> payments;
 
     public Sale() {
     }
