@@ -26,7 +26,7 @@ public class ProviderController {
     //FIXME: FIND ALL WITH PAGEABLE
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<Page<Provider>> findAll(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
-        Page<Provider> providers = service.findAll(pageable);
+        Page<Provider> providers = service.getAll(pageable);
 
         if (providers == null || providers.isEmpty()) {
             return ResponseEntity.notFound().build();
@@ -37,7 +37,7 @@ public class ProviderController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Optional<Provider>> findById(@PathVariable Integer id) {
-        Optional<Provider> user = service.findById(id);
+        Optional<Provider> user = service.get(id);
         if (user == null) {
             return ResponseEntity.notFound().build();
         }
@@ -54,7 +54,7 @@ public class ProviderController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Void> update(@RequestBody Provider provider, @PathVariable Integer id) {
-        if (service.findById(id) == null) {
+        if (service.get(id) == null) {
             return ResponseEntity.notFound().build();
         }
         service.save(provider);

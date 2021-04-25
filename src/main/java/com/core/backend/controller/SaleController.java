@@ -25,7 +25,7 @@ public class SaleController {
     //FIXME: FIND ALL WITH PAGEABLE
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<Page<Sale>> findAll(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
-        Page<Sale> saleList = service.findAll(pageable);
+        Page<Sale> saleList = service.getAll(pageable);
 
         if (saleList == null || saleList.isEmpty()) {
             return ResponseEntity.notFound().build();
@@ -36,7 +36,7 @@ public class SaleController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Optional<Sale>> findById(@PathVariable Integer id) {
-        Optional<Sale> sale = service.findById(id);
+        Optional<Sale> sale = service.get(id);
         if (sale == null) {
             return ResponseEntity.notFound().build();
         }
@@ -55,7 +55,7 @@ public class SaleController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Void> update(@RequestBody Sale sale, @PathVariable Integer id) {
-        if (service.findById(id) == null) {
+        if (service.get(id) == null) {
             // user not found
             return ResponseEntity.notFound().build();
         }
