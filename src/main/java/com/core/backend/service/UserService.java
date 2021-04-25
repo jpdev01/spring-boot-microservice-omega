@@ -33,10 +33,6 @@ public class UserService implements ServiceInterface<User> {
         }
     }
 
-    public List<User> findAll() {
-        return repository.findAll();
-    }
-
     @Override
     public List<User> getAll() {
         return repository.findAll();
@@ -45,20 +41,6 @@ public class UserService implements ServiceInterface<User> {
     @Override
     public Page<User> getAll(Pageable pageable) {
         return repository.findAll(pageable);
-    }
-
-    /*
-     * JWT - do not remove
-     */
-    public Page<User> findAll(Pageable pageable) {
-        return repository.findAll(pageable);
-    }
-
-    /*
-     * JWT - do not remove
-     */
-    public Optional<User> findById(Integer id) {
-        return repository.findById(id);
     }
 
     @Override

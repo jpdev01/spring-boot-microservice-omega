@@ -40,10 +40,7 @@ public class Sale {
     @Enumerated(EnumType.ORDINAL)
     private FormPgto formPgto;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name="sales_has_payments", joinColumns=
-    @JoinColumn(name="sale_id"), inverseJoinColumns=
-    @JoinColumn(name="payment_id"))
+    @OneToMany
     private List<Payment> payments;
 
     public Sale() {
