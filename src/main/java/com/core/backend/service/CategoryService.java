@@ -11,16 +11,18 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CategoryService {
+public class CategoryService implements ServiceInterface<Category>{
 
     @Autowired
     private CategoryRepository categoryRepository;
 
-    public Page<Category> findAll(Pageable pageable)
+    @Override
+    public Page<Category> getAll(Pageable pageable)
     {
         return categoryRepository.findAll(pageable);
     }
 
+    @Override
     public void save(Category category)
     {
         if (category != null) {
@@ -35,12 +37,14 @@ public class CategoryService {
         }
     }
 
-    public Optional<Category> findById(Integer id)
+    @Override
+    public Optional<Category> get(Integer id)
     {
         return categoryRepository.findById(id);
     }
 
-    public List<Category> findAll()
+    @Override
+    public List<Category> getAll()
     {
         return categoryRepository.findAll();
     }

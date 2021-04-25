@@ -12,11 +12,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class SaleService {
+public class SaleService implements ServiceInterface<Sale>{
 
     @Autowired
     private SaleRepository repository;
 
+    @Override
     public void save(Sale sale)
     {
         List<Product> products = sale.getProducts();
@@ -40,18 +41,18 @@ public class SaleService {
         }
         repository.save(sale);
     }
-
-    public List<Sale> findAll()
+    @Override
+    public List<Sale> getAll()
     {
         return repository.findAll();
     }
-
-    public Page<Sale> findAll(Pageable pageable)
+    @Override
+    public Page<Sale> getAll(Pageable pageable)
     {
         return repository.findAll(pageable);
     }
-
-    public Optional<Sale> findById(Integer id)
+    @Override
+    public Optional<Sale> get(Integer id)
     {
         return repository.findById(id);
     }

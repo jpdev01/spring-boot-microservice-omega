@@ -7,25 +7,35 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ProvisionalSaleService {
+public class ProvisionalSaleService implements ServiceInterface<ProvisionalSale>{
 
     @Autowired
     private ProvisionalSaleRepository repo;
 
+    @Override
     public void save(ProvisionalSale provisionalSale){
         repo.save(provisionalSale);
     }
 
-    public Optional<ProvisionalSale> getById(Integer id){
+    @Override
+    public Optional<ProvisionalSale> get(Integer id){
         return repo.findById(id);
     }
 
+    @Override
     public Page<ProvisionalSale> getAll(Pageable pageable)
     {
         return repo.findAll(pageable);
+    }
+
+    @Override
+    public List<ProvisionalSale> getAll()
+    {
+        return repo.findAll();
     }
 
 

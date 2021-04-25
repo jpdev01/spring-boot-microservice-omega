@@ -1,0 +1,486 @@
+Index: src/main/java/com/core/backend/controller/SaleController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.core.backend.controller;\n\nimport com.core.backend.entity.Sale;\nimport com.core.backend.service.SaleService;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.data.domain.Page;\nimport org.springframework.data.domain.Pageable;\nimport org.springframework.data.domain.Sort;\nimport org.springframework.data.web.PageableDefault;\nimport org.springframework.http.HttpStatus;\nimport org.springframework.http.ResponseEntity;\nimport org.springframework.web.bind.annotation.*;\nimport org.springframework.web.servlet.support.ServletUriComponentsBuilder;\n\nimport java.net.URI;\nimport java.util.Optional;\n\n@RestController\n@RequestMapping(value = \"/sale\")\npublic class SaleController {\n\n    @Autowired\n    private SaleService service;\n\n    //FIXME: FIND ALL WITH PAGEABLE\n    @RequestMapping(method = RequestMethod.GET)\n    public ResponseEntity<Page<Sale>> findAll(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = \"id\", direction = Sort.Direction.ASC) Pageable pageable) {\n        Page<Sale> saleList = service.getAll(pageable);\n\n        if (saleList == null || saleList.isEmpty()) {\n            return ResponseEntity.notFound().build();\n        }\n\n        return new ResponseEntity<Page<Sale>>(saleList, HttpStatus.OK);\n    }\n\n    @RequestMapping(value = \"/{id}\", method = RequestMethod.GET)\n    public ResponseEntity<Optional<Sale>> findById(@PathVariable Integer id) {\n        Optional<Sale> sale = service.get(id);\n        if (sale == null) {\n            return ResponseEntity.notFound().build();\n        }\n        return ResponseEntity.ok(sale);\n    }\n\n    @RequestMapping(value = \"/save\", method = RequestMethod.POST)\n    public ResponseEntity<Void> save(@RequestBody Sale sale) {\n        service.save(sale);\n        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path(\"/{id}\")\n                .buildAndExpand(sale.getId()).toUri();\n        return ResponseEntity.created(uri).build();\n\n\n    }\n\n    @RequestMapping(value = \"/{id}\", method = RequestMethod.PUT)\n    public ResponseEntity<Void> update(@RequestBody Sale sale, @PathVariable Integer id) {\n        Sale saleDB = service.get(id).get();\n        if (saleDB == null) {\n            // user not found\n            return ResponseEntity.notFound().build();\n        }\n        service.save(sale);\n        return ResponseEntity.noContent().build();\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/core/backend/controller/SaleController.java b/src/main/java/com/core/backend/controller/SaleController.java
+--- a/src/main/java/com/core/backend/controller/SaleController.java	
++++ b/src/main/java/com/core/backend/controller/SaleController.java	
+@@ -25,7 +25,7 @@
+     //FIXME: FIND ALL WITH PAGEABLE
+     @RequestMapping(method = RequestMethod.GET)
+     public ResponseEntity<Page<Sale>> findAll(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
+-        Page<Sale> saleList = service.getAll(pageable);
++        Page<Sale> saleList = service.findAll(pageable);
+ 
+         if (saleList == null || saleList.isEmpty()) {
+             return ResponseEntity.notFound().build();
+@@ -36,7 +36,7 @@
+ 
+     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+     public ResponseEntity<Optional<Sale>> findById(@PathVariable Integer id) {
+-        Optional<Sale> sale = service.get(id);
++        Optional<Sale> sale = service.getById(id);
+         if (sale == null) {
+             return ResponseEntity.notFound().build();
+         }
+@@ -55,7 +55,7 @@
+ 
+     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+     public ResponseEntity<Void> update(@RequestBody Sale sale, @PathVariable Integer id) {
+-        Sale saleDB = service.get(id).get();
++        Sale saleDB = service.getById(id).get();
+         if (saleDB == null) {
+             // user not found
+             return ResponseEntity.notFound().build();
+Index: src/main/java/com/core/backend/service/CashFlowService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.core.backend.service;\n\nimport com.core.backend.entity.CashFlow;\nimport com.core.backend.repository.CashFlowRepository;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.data.domain.Page;\nimport org.springframework.data.domain.Pageable;\nimport org.springframework.stereotype.Service;\n\nimport java.util.List;\nimport java.util.Optional;\n\n@Service\npublic class CashFlowService implements ServiceInterface<CashFlow>{\n\n    @Autowired\n    private CashFlowRepository repository;\n\n    @Override\n    public void save(CashFlow cashFlow)\n    {\n        repository.save(cashFlow);\n    }\n\n    @Override\n    public Page<CashFlow> getAll(Pageable pageable)\n    {\n        return repository.findAll(pageable);\n    }\n\n    @Override\n    public Optional<CashFlow> get(Integer id)\n    {\n        return repository.findById(id);\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/core/backend/service/CashFlowService.java b/src/main/java/com/core/backend/service/CashFlowService.java
+--- a/src/main/java/com/core/backend/service/CashFlowService.java	
++++ b/src/main/java/com/core/backend/service/CashFlowService.java	
+@@ -23,13 +23,13 @@
+     }
+ 
+     @Override
+-    public Page<CashFlow> getAll(Pageable pageable)
++    public Page<CashFlow> findAll(Pageable pageable)
+     {
+         return repository.findAll(pageable);
+     }
+ 
+     @Override
+-    public Optional<CashFlow> get(Integer id)
++    public Optional<CashFlow> getById(Integer id)
+     {
+         return repository.findById(id);
+     }
+Index: src/main/java/com/core/backend/controller/UserController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.core.backend.controller;\n\nimport com.core.backend.entity.User;\nimport com.core.backend.service.UserService;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.data.domain.Page;\nimport org.springframework.data.domain.Pageable;\nimport org.springframework.data.domain.Sort;\nimport org.springframework.data.web.PageableDefault;\nimport org.springframework.http.HttpStatus;\nimport org.springframework.http.ResponseEntity;\nimport org.springframework.web.bind.annotation.*;\nimport org.springframework.web.servlet.support.ServletUriComponentsBuilder;\n\nimport java.net.URI;\nimport java.util.Optional;\n\n@RestController\n@RequestMapping(\"/user\")\npublic class UserController {\n\n    @Autowired\n    private UserService service;\n\n    //FIXME: FIND ALL WITH PAGEABLE\n    @RequestMapping(method = RequestMethod.GET)\n    public ResponseEntity<Page<User>> findAll(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = \"id\", direction = Sort.Direction.ASC) Pageable pageable) {\n        Page<User> users = service.getAll(pageable);\n\n        if (users == null || users.isEmpty()) {\n            return ResponseEntity.notFound().build();\n        }\n\n        return new ResponseEntity<Page<User>>(users, HttpStatus.OK);\n    }\n\n//    @RequestMapping(method = RequestMethod.GET)\n//    public ResponseEntity<List<User>> findAll() {\n//        List<User> users = service.findAll();\n//\n//        if (users == null || users.isEmpty()) {\n//            return ResponseEntity.notFound().build();\n//        }\n//\n//        return ResponseEntity.ok(users);\n//    }\n\n    @RequestMapping(value = \"/{id}\", method = RequestMethod.GET)\n    public ResponseEntity<Optional<User>> findById(@PathVariable Integer id) {\n        Optional<User> user = service.get(id);\n        if (user == null) {\n            return ResponseEntity.notFound().build();\n        }\n        return ResponseEntity.ok(user);\n    }\n\n    @RequestMapping(value = \"/save\", method = RequestMethod.POST)\n    public ResponseEntity<Void> save(@RequestBody User user) {\n        service.save(user);\n        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path(\"/{id}\")\n                .buildAndExpand(user.getId()).toUri();\n        return ResponseEntity.created(uri).build();\n\n\n    }\n\n    @RequestMapping(value = \"/{id}\", method = RequestMethod.PUT)\n    public ResponseEntity<Void> update(@RequestBody User user, @PathVariable Integer id) {\n        if (service.get(id) == null) {\n            // user not fouuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuund\n            return ResponseEntity.notFound().build();\n        }\n        service.save(user);\n        return ResponseEntity.noContent().build();\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/core/backend/controller/UserController.java b/src/main/java/com/core/backend/controller/UserController.java
+--- a/src/main/java/com/core/backend/controller/UserController.java	
++++ b/src/main/java/com/core/backend/controller/UserController.java	
+@@ -25,7 +25,7 @@
+     //FIXME: FIND ALL WITH PAGEABLE
+     @RequestMapping(method = RequestMethod.GET)
+     public ResponseEntity<Page<User>> findAll(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
+-        Page<User> users = service.getAll(pageable);
++        Page<User> users = service.findAll(pageable);
+ 
+         if (users == null || users.isEmpty()) {
+             return ResponseEntity.notFound().build();
+@@ -47,7 +47,7 @@
+ 
+     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+     public ResponseEntity<Optional<User>> findById(@PathVariable Integer id) {
+-        Optional<User> user = service.get(id);
++        Optional<User> user = service.getById(id);
+         if (user == null) {
+             return ResponseEntity.notFound().build();
+         }
+@@ -66,7 +66,7 @@
+ 
+     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+     public ResponseEntity<Void> update(@RequestBody User user, @PathVariable Integer id) {
+-        if (service.get(id) == null) {
++        if (service.getById(id) == null) {
+             // user not fouuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuund
+             return ResponseEntity.notFound().build();
+         }
+Index: src/main/java/com/core/backend/service/ReservationService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.core.backend.service;\n\nimport com.core.backend.entity.Reservation;\nimport com.core.backend.repository.ReservationRepository;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.data.domain.Page;\nimport org.springframework.data.domain.Pageable;\nimport org.springframework.stereotype.Service;\n\nimport java.util.List;\nimport java.util.Optional;\n\n@Service\npublic class ReservationService implements ServiceInterface<Reservation>{\n\n    @Autowired\n    private ReservationRepository repository;\n\n    @Override\n    public void save(Reservation reservation)\n    {\n        repository.save(reservation);\n    }\n\n    @Override\n    public Page<Reservation> getAll(Pageable pageable) {\n        return repository.findAll(pageable);\n    }\n\n    @Override\n    public Optional<Reservation> get(Integer id)\n    {\n        return repository.findById(id);\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/core/backend/service/ReservationService.java b/src/main/java/com/core/backend/service/ReservationService.java
+--- a/src/main/java/com/core/backend/service/ReservationService.java	
++++ b/src/main/java/com/core/backend/service/ReservationService.java	
+@@ -23,12 +23,12 @@
+     }
+ 
+     @Override
+-    public Page<Reservation> getAll(Pageable pageable) {
++    public Page<Reservation> findAll(Pageable pageable) {
+         return repository.findAll(pageable);
+     }
+ 
+     @Override
+-    public Optional<Reservation> get(Integer id)
++    public Optional<Reservation> getById(Integer id)
+     {
+         return repository.findById(id);
+     }
+Index: src/main/java/com/core/backend/service/ProviderService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.core.backend.service;\n\nimport com.core.backend.entity.Provider;\nimport com.core.backend.repository.ProviderRepository;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.data.domain.Page;\nimport org.springframework.data.domain.Pageable;\nimport org.springframework.stereotype.Service;\n\nimport java.util.List;\nimport java.util.Optional;\n\n@Service\npublic class ProviderService implements ServiceInterface<Provider>{\n    @Autowired\n    private ProviderRepository repository;\n\n    @Override\n    public void save(Provider provider)\n    {\n        if (provider != null) {\n            try\n            {\n                repository.save(provider);\n            }\n            catch (Exception e)\n            {\n                System.err.println(\"erro ao salvar novo produto!\");\n            }\n        }\n    }\n    @Override\n    public Page<Provider> getAll(Pageable pageable)\n    {\n        return repository.findAll(pageable);\n    }\n\n    @Override\n    public Optional<Provider> get(Integer id)\n    {\n        return repository.findById(id);\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/core/backend/service/ProviderService.java b/src/main/java/com/core/backend/service/ProviderService.java
+--- a/src/main/java/com/core/backend/service/ProviderService.java	
++++ b/src/main/java/com/core/backend/service/ProviderService.java	
+@@ -30,13 +30,13 @@
+         }
+     }
+     @Override
+-    public Page<Provider> getAll(Pageable pageable)
++    public Page<Provider> findAll(Pageable pageable)
+     {
+         return repository.findAll(pageable);
+     }
+ 
+     @Override
+-    public Optional<Provider> get(Integer id)
++    public Optional<Provider> getById(Integer id)
+     {
+         return repository.findById(id);
+     }
+Index: src/main/java/com/core/backend/controller/ProvisionalSaleController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.core.backend.controller;\n\nimport com.core.backend.entity.ProvisionalSale;\nimport com.core.backend.service.ProvisionalSaleService;\nimport com.core.simulation.ProductTest;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.data.domain.Page;\nimport org.springframework.data.domain.Pageable;\nimport org.springframework.data.domain.Sort;\nimport org.springframework.data.web.PageableDefault;\nimport org.springframework.http.HttpStatus;\nimport org.springframework.http.ResponseEntity;\nimport org.springframework.web.bind.annotation.*;\n\nimport java.util.Optional;\n\n@RestController\n@RequestMapping(value = \"/provisionalSale\")\npublic class ProvisionalSaleController {\n\n    @Autowired\n    private ProvisionalSaleService service;\n\n    @RequestMapping(value = \"/save\", method = RequestMethod.POST)\n    public void save(@RequestBody ProvisionalSale provisionalSale) {\n        service.save(provisionalSale);\n    }\n\n    @RequestMapping(value = \"/test\", method = RequestMethod.GET)\n    public void save() {\n        new ProductTest().testAll();\n    }\n\n    @RequestMapping(method = RequestMethod.GET)\n    public ResponseEntity<Page<ProvisionalSale>> findAll(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = \"id\", direction = Sort.Direction.ASC) Pageable pageable)\n    {\n        Page<ProvisionalSale> provisionalSaleList = service.getAll(pageable);\n        if (provisionalSaleList == null || provisionalSaleList.isEmpty()) {\n            return ResponseEntity.notFound().build();\n        }\n\n        return new ResponseEntity<Page<ProvisionalSale>>(provisionalSaleList, HttpStatus.OK);\n    }\n\n    @RequestMapping(value = \"/{id}\", method = RequestMethod.GET)\n    public Optional<ProvisionalSale> getProduct(@PathVariable Integer id) {\n        return service.get(id);\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/core/backend/controller/ProvisionalSaleController.java b/src/main/java/com/core/backend/controller/ProvisionalSaleController.java
+--- a/src/main/java/com/core/backend/controller/ProvisionalSaleController.java	
++++ b/src/main/java/com/core/backend/controller/ProvisionalSaleController.java	
+@@ -34,7 +34,7 @@
+     @RequestMapping(method = RequestMethod.GET)
+     public ResponseEntity<Page<ProvisionalSale>> findAll(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = "id", direction = Sort.Direction.ASC) Pageable pageable)
+     {
+-        Page<ProvisionalSale> provisionalSaleList = service.getAll(pageable);
++        Page<ProvisionalSale> provisionalSaleList = service.findAll(pageable);
+         if (provisionalSaleList == null || provisionalSaleList.isEmpty()) {
+             return ResponseEntity.notFound().build();
+         }
+@@ -44,6 +44,6 @@
+ 
+     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+     public Optional<ProvisionalSale> getProduct(@PathVariable Integer id) {
+-        return service.get(id);
++        return service.getById(id);
+     }
+ }
+Index: src/main/java/com/core/backend/service/ProvisionalSaleService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.core.backend.service;\n\nimport com.core.backend.entity.ProvisionalSale;\nimport com.core.backend.repository.ProvisionalSaleRepository;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.data.domain.Page;\nimport org.springframework.data.domain.Pageable;\nimport org.springframework.stereotype.Service;\n\nimport java.util.Optional;\n\n@Service\npublic class ProvisionalSaleService implements ServiceInterface<ProvisionalSale>{\n\n    @Autowired\n    private ProvisionalSaleRepository repo;\n\n    @Override\n    public void save(ProvisionalSale provisionalSale){\n        repo.save(provisionalSale);\n    }\n\n    @Override\n    public Optional<ProvisionalSale> get(Integer id){\n        return repo.findById(id);\n    }\n\n    @Override\n    public Page<ProvisionalSale> getAll(Pageable pageable)\n    {\n        return repo.findAll(pageable);\n    }\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/core/backend/service/ProvisionalSaleService.java b/src/main/java/com/core/backend/service/ProvisionalSaleService.java
+--- a/src/main/java/com/core/backend/service/ProvisionalSaleService.java	
++++ b/src/main/java/com/core/backend/service/ProvisionalSaleService.java	
+@@ -21,12 +21,12 @@
+     }
+ 
+     @Override
+-    public Optional<ProvisionalSale> get(Integer id){
++    public Optional<ProvisionalSale> getById(Integer id){
+         return repo.findById(id);
+     }
+ 
+     @Override
+-    public Page<ProvisionalSale> getAll(Pageable pageable)
++    public Page<ProvisionalSale> findAll(Pageable pageable)
+     {
+         return repo.findAll(pageable);
+     }
+Index: src/main/java/com/core/backend/service/CategoryService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.core.backend.service;\n\nimport com.core.backend.entity.Category;\nimport com.core.backend.repository.CategoryRepository;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.data.domain.Page;\nimport org.springframework.data.domain.Pageable;\nimport org.springframework.stereotype.Service;\n\nimport java.util.List;\nimport java.util.Optional;\n\n@Service\npublic class CategoryService implements ServiceInterface<Category> {\n    @Autowired\n    public CategoryRepository repository;\n\n    @Override\n    public Page<Category> getAll(Pageable pageable)\n    {\n        return repository.findAll(pageable);\n    }\n\n    @Override\n    public Optional<Category> get(Integer id) {\n       return repository.findById(id);\n    }\n\n    @Override\n    public void save(Category category)\n    {\n        repository.save(category);\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/core/backend/service/CategoryService.java b/src/main/java/com/core/backend/service/CategoryService.java
+--- a/src/main/java/com/core/backend/service/CategoryService.java	
++++ b/src/main/java/com/core/backend/service/CategoryService.java	
+@@ -16,13 +16,13 @@
+     public CategoryRepository repository;
+ 
+     @Override
+-    public Page<Category> getAll(Pageable pageable)
++    public Page<Category> findAll(Pageable pageable)
+     {
+         return repository.findAll(pageable);
+     }
+ 
+     @Override
+-    public Optional<Category> get(Integer id) {
++    public Optional<Category> getById(Integer id) {
+        return repository.findById(id);
+     }
+ 
+Index: src/main/java/com/core/backend/controller/ProviderController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.core.backend.controller;\n\n\nimport com.core.backend.entity.Provider;\nimport com.core.backend.service.ProviderService;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.data.domain.Page;\nimport org.springframework.data.domain.Pageable;\nimport org.springframework.data.domain.Sort;\nimport org.springframework.data.web.PageableDefault;\nimport org.springframework.http.HttpStatus;\nimport org.springframework.http.ResponseEntity;\nimport org.springframework.web.bind.annotation.*;   \nimport org.springframework.web.servlet.support.ServletUriComponentsBuilder;\n\nimport java.net.URI;\nimport java.util.Optional;\n\n@RestController\n@RequestMapping(value = \"/provider\")\npublic class ProviderController {\n\n    @Autowired\n    private ProviderService service;\n\n    //FIXME: FIND ALL WITH PAGEABLE\n    @RequestMapping(method = RequestMethod.GET)\n    public ResponseEntity<Page<Provider>> findAll(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = \"id\", direction = Sort.Direction.ASC) Pageable pageable) {\n        Page<Provider> providers = service.getAll(pageable);\n\n        if (providers == null || providers.isEmpty()) {\n            return ResponseEntity.notFound().build();\n        }\n\n            return new ResponseEntity<Page<Provider>>(providers, HttpStatus.OK);\n    }\n\n    @RequestMapping(value = \"/{id}\", method = RequestMethod.GET)\n    public ResponseEntity<Optional<Provider>> findById(@PathVariable Integer id) {\n        Optional<Provider> user = service.get(id);\n        if (user == null) {\n            return ResponseEntity.notFound().build();\n        }\n        return ResponseEntity.ok(user);\n    }\n\n    @RequestMapping(value = \"/save\", method = RequestMethod.POST)\n    public ResponseEntity<Void> save(@RequestBody Provider provider) {\n        service.save(provider);\n        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path(\"/{id}\")\n                .buildAndExpand(provider.getId()).toUri();\n        return ResponseEntity.created(uri).build();\n    }\n\n    @RequestMapping(value = \"/{id}\", method = RequestMethod.PUT)\n    public ResponseEntity<Void> update(@RequestBody Provider provider, @PathVariable Integer id) {\n        if (service.get(id) == null) {\n            return ResponseEntity.notFound().build();\n        }\n        service.save(provider);\n        return ResponseEntity.noContent().build();\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/core/backend/controller/ProviderController.java b/src/main/java/com/core/backend/controller/ProviderController.java
+--- a/src/main/java/com/core/backend/controller/ProviderController.java	
++++ b/src/main/java/com/core/backend/controller/ProviderController.java	
+@@ -26,7 +26,7 @@
+     //FIXME: FIND ALL WITH PAGEABLE
+     @RequestMapping(method = RequestMethod.GET)
+     public ResponseEntity<Page<Provider>> findAll(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
+-        Page<Provider> providers = service.getAll(pageable);
++        Page<Provider> providers = service.findAll(pageable);
+ 
+         if (providers == null || providers.isEmpty()) {
+             return ResponseEntity.notFound().build();
+@@ -37,7 +37,7 @@
+ 
+     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+     public ResponseEntity<Optional<Provider>> findById(@PathVariable Integer id) {
+-        Optional<Provider> user = service.get(id);
++        Optional<Provider> user = service.getById(id);
+         if (user == null) {
+             return ResponseEntity.notFound().build();
+         }
+@@ -54,7 +54,7 @@
+ 
+     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+     public ResponseEntity<Void> update(@RequestBody Provider provider, @PathVariable Integer id) {
+-        if (service.get(id) == null) {
++        if (service.getById(id) == null) {
+             return ResponseEntity.notFound().build();
+         }
+         service.save(provider);
+Index: src/main/java/com/core/backend/controller/CategoryController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.core.backend.controller;\n\nimport com.core.backend.entity.Category;\nimport com.core.backend.service.CategoryService;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.data.domain.Page;\nimport org.springframework.data.domain.Pageable;\nimport org.springframework.data.domain.Sort;\nimport org.springframework.data.web.PageableDefault;\nimport org.springframework.http.HttpStatus;\nimport org.springframework.http.ResponseEntity;\nimport org.springframework.web.bind.annotation.*;\nimport org.springframework.web.servlet.support.ServletUriComponentsBuilder;\n\nimport java.net.URI;\nimport java.util.Optional;\n\n@RestController\n@RequestMapping(value = \"/category\")\npublic class CategoryController {\n\n    @Autowired\n    private CategoryService service;\n\n    @RequestMapping(value = \"/save\", method = RequestMethod.POST)\n    public ResponseEntity<Void> save(@RequestBody Category category) {\n        service.save(category);\n        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path(\"/{id}\")\n                .buildAndExpand(category.getId()).toUri();\n        return ResponseEntity.created(uri).build();\n    }\n\n    @RequestMapping(value = \"/{id}\", method = RequestMethod.GET)\n    public Optional<Category> get(@PathVariable Integer id)\n    {\n        if (id != null)\n        {\n            return service.get(id);\n        }\n        return null;\n        // FIXME deve retornar pagina de erro!\n    }\n\n//    @RequestMapping(value = \"\", method = RequestMethod.GET)\n//    public List<Category> getAll()\n//    {\n//        return service.findAll();\n//    }\n\n    @RequestMapping(method = RequestMethod.GET)\n    public ResponseEntity<Page<Category>> findAll(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = \"id\", direction = Sort.Direction.ASC) Pageable pageable) {\n        Page<Category> categories = service.getAll(pageable);\n\n//        if (customers == null || customers.isEmpty()) {\n//            return ResponseEntity.notFound().build();\n//        }\n\n        return new ResponseEntity<Page<Category>>(categories, HttpStatus.OK);\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/core/backend/controller/CategoryController.java b/src/main/java/com/core/backend/controller/CategoryController.java
+--- a/src/main/java/com/core/backend/controller/CategoryController.java	
++++ b/src/main/java/com/core/backend/controller/CategoryController.java	
+@@ -35,7 +35,7 @@
+     {
+         if (id != null)
+         {
+-            return service.get(id);
++            return service.getById(id);
+         }
+         return null;
+         // FIXME deve retornar pagina de erro!
+@@ -49,7 +49,7 @@
+ 
+     @RequestMapping(method = RequestMethod.GET)
+     public ResponseEntity<Page<Category>> findAll(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
+-        Page<Category> categories = service.getAll(pageable);
++        Page<Category> categories = service.findAll(pageable);
+ 
+ //        if (customers == null || customers.isEmpty()) {
+ //            return ResponseEntity.notFound().build();
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5\" name=\"Default Changelist\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/core/backend/BootSpring.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/core/backend/BootSpring.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/core/backend/controller/SaleController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/core/backend/controller/SaleController.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/core/backend/entity/Payment.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/core/backend/entity/Payment.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/core/backend/entity/store/Sale.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/core/backend/entity/Sale.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/core/backend/repository/SaleRepository.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/core/backend/repository/SaleRepository.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/core/backend/service/SaleService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/core/backend/service/SaleService.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/core/backend/BootSpring.class\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/core/backend/controller/CategoryController.class\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/core/backend/controller/CustomerController.class\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/core/backend/controller/ProductController.class\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/core/backend/controller/ProviderController.class\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/core/backend/controller/ProvisionalSaleController.class\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/core/backend/controller/UserController.class\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/core/backend/jwt/JwtUserDetailsService.class\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/core/backend/service/CashFlowService.class\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/core/backend/service/CategoryService.class\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/core/backend/service/CustomerService.class\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/core/backend/service/PaymentService.class\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/core/backend/service/ProductService.class\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/core/backend/service/ProviderService.class\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/core/backend/service/ProvisionalSaleService.class\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/core/backend/service/ReservationService.class\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/core/backend/service/SaleService.class\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/core/backend/service/UserService.class\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/core/simulation/ProductTest.class\" beforeDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Interface\" />\n        <option value=\"JUnit5 Test Class\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"project-interfaces\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitSEFilterConfiguration\">\n    <file-type-list>\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\n      <filtered-out-file-type name=\"TAG\" />\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\n    </file-type-list>\n  </component>\n  <component name=\"ProjectId\" id=\"1poTACRQVOqB4bGldXZ7XyMpF2x\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"RequestMappingsPanelOrder0\" value=\"0\" />\n    <property name=\"RequestMappingsPanelOrder1\" value=\"1\" />\n    <property name=\"RequestMappingsPanelWidth0\" value=\"75\" />\n    <property name=\"RequestMappingsPanelWidth1\" value=\"75\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\n    <property name=\"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary\" value=\"JUnit5\" />\n    <property name=\"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5\" value=\"\" />\n    <property name=\"create.test.in.the.same.root\" value=\"true\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/../project-omega-front\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\n    <property name=\"project.structure.side.proportion\" value=\"0.11737627\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"preferences.keymap\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"CreateTestDialog.Recents.Supers\">\n      <recent name=\"\" />\n    </key>\n    <key name=\"CreateTestDialog.RecentsKey\">\n      <recent name=\"com.core.backend.service\" />\n    </key>\n  </component>\n  <component name=\"RunManager\">\n    <configuration default=\"true\" type=\"ArquillianJUnit\" factoryName=\"\" nameIsGenerated=\"true\">\n      <option name=\"arquillianRunConfiguration\">\n        <value>\n          <option name=\"containerStateName\" value=\"\" />\n        </value>\n      </option>\n      <option name=\"TEST_OBJECT\" value=\"class\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration default=\"true\" type=\"MavenRunConfiguration\" factoryName=\"Maven\">\n      <MavenSettings>\n        <option name=\"myGeneralSettings\" />\n        <option name=\"myRunnerSettings\" />\n        <option name=\"myRunnerParameters\">\n          <MavenRunnerParameters>\n            <option name=\"profiles\">\n              <set />\n            </option>\n            <option name=\"goals\">\n              <list />\n            </option>\n            <option name=\"pomFileName\" />\n            <option name=\"profilesMap\">\n              <map />\n            </option>\n            <option name=\"resolveToWorkspace\" value=\"false\" />\n            <option name=\"workingDirPath\" value=\"$PROJECT_DIR$\" />\n          </MavenRunnerParameters>\n        </option>\n      </MavenSettings>\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"BootSpring\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\">\n      <module name=\"training-javaweb-02\" />\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.core.backend.BootSpring\" />\n      <option name=\"ALTERNATIVE_JRE_PATH\" />\n      <option name=\"SHORTEN_COMMAND_LINE\" value=\"NONE\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5\" name=\"Default Changelist\" comment=\"\" />\n      <created>1615848308083</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1615848308083</updated>\n      <workItem from=\"1615848318374\" duration=\"247000\" />\n      <workItem from=\"1615848625030\" duration=\"451000\" />\n      <workItem from=\"1615849127777\" duration=\"1376000\" />\n      <workItem from=\"1616196930683\" duration=\"436000\" />\n      <workItem from=\"1616241033665\" duration=\"3224000\" />\n      <workItem from=\"1616263642860\" duration=\"10043000\" />\n      <workItem from=\"1616292086621\" duration=\"4519000\" />\n      <workItem from=\"1616332879400\" duration=\"1737000\" />\n      <workItem from=\"1616367675410\" duration=\"599000\" />\n      <workItem from=\"1616535290282\" duration=\"2666000\" />\n      <workItem from=\"1616713429219\" duration=\"366000\" />\n      <workItem from=\"1616717632131\" duration=\"684000\" />\n      <workItem from=\"1616797774898\" duration=\"706000\" />\n      <workItem from=\"1616800869026\" duration=\"600000\" />\n      <workItem from=\"1616847522872\" duration=\"5677000\" />\n      <workItem from=\"1616950148979\" duration=\"2295000\" />\n      <workItem from=\"1617149570056\" duration=\"738000\" />\n      <workItem from=\"1617236420005\" duration=\"2402000\" />\n      <workItem from=\"1617361737979\" duration=\"4217000\" />\n      <workItem from=\"1617477020825\" duration=\"1455000\" />\n      <workItem from=\"1617579950857\" duration=\"2413000\" />\n      <workItem from=\"1617926181659\" duration=\"1540000\" />\n      <workItem from=\"1617929814961\" duration=\"1335000\" />\n      <workItem from=\"1618005471475\" duration=\"1797000\" />\n      <workItem from=\"1618051462033\" duration=\"1737000\" />\n      <workItem from=\"1618057384873\" duration=\"5570000\" />\n      <workItem from=\"1618528084390\" duration=\"1211000\" />\n      <workItem from=\"1618616963099\" duration=\"909000\" />\n      <workItem from=\"1618617942155\" duration=\"633000\" />\n      <workItem from=\"1618620628034\" duration=\"994000\" />\n      <workItem from=\"1618625177656\" duration=\"1217000\" />\n      <workItem from=\"1618658253710\" duration=\"3017000\" />\n      <workItem from=\"1618711820516\" duration=\"3676000\" />\n      <workItem from=\"1618747266435\" duration=\"2521000\" />\n      <workItem from=\"1618770405952\" duration=\"4353000\" />\n      <workItem from=\"1618792768407\" duration=\"111000\" />\n      <workItem from=\"1618792955757\" duration=\"3473000\" />\n      <workItem from=\"1618875148228\" duration=\"3789000\" />\n      <workItem from=\"1618958776351\" duration=\"4119000\" />\n      <workItem from=\"1619016934097\" duration=\"4719000\" />\n      <workItem from=\"1619038129319\" duration=\"2283000\" />\n      <workItem from=\"1619133879490\" duration=\"39000\" />\n      <workItem from=\"1619133954496\" duration=\"1512000\" />\n      <workItem from=\"1619221541657\" duration=\"625000\" />\n      <workItem from=\"1619222851567\" duration=\"683000\" />\n      <workItem from=\"1619260275657\" duration=\"127000\" />\n      <workItem from=\"1619260471455\" duration=\"2353000\" />\n      <workItem from=\"1619274569343\" duration=\"63000\" />\n      <workItem from=\"1619274681682\" duration=\"3437000\" />\n      <workItem from=\"1619278717306\" duration=\"4478000\" />\n      <workItem from=\"1619306402479\" duration=\"906000\" />\n      <workItem from=\"1619356921083\" duration=\"364000\" />\n      <workItem from=\"1619357350916\" duration=\"854000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"FILTERS\">\n                <map>\n                  <entry key=\"branch\">\n                    <value>\n                      <list>\n                        <option value=\"main\" />\n                      </list>\n                    </value>\n                  </entry>\n                </map>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"\" />\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/UserController.java</url>\n          <line>67</line>\n          <option name=\"timeStamp\" value=\"1\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java</url>\n          <line>23</line>\n          <option name=\"timeStamp\" value=\"2\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java</url>\n          <line>25</line>\n          <option name=\"timeStamp\" value=\"3\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/CustomerController.java</url>\n          <line>61</line>\n          <option name=\"timeStamp\" value=\"5\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/entity/Product.java</url>\n          <line>32</line>\n          <option name=\"timeStamp\" value=\"7\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/entity/User.java</url>\n          <line>8</line>\n          <option name=\"timeStamp\" value=\"9\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java</url>\n          <line>28</line>\n          <option name=\"timeStamp\" value=\"10\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/ProviderController.java</url>\n          <line>28</line>\n          <option name=\"timeStamp\" value=\"11\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java</url>\n          <line>46</line>\n          <option name=\"timeStamp\" value=\"12\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>\n          <line>57</line>\n          <option name=\"timeStamp\" value=\"21\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/ProductController.java</url>\n          <line>28</line>\n          <option name=\"timeStamp\" value=\"24\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>\n          <line>54</line>\n          <option name=\"timeStamp\" value=\"25\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>\n          <line>31</line>\n          <option name=\"timeStamp\" value=\"26\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>\n          <line>61</line>\n          <option name=\"timeStamp\" value=\"27\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/SaleController.java</url>\n          <line>49</line>\n          <option name=\"timeStamp\" value=\"31\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/SaleService.java</url>\n          <line>23</line>\n          <option name=\"timeStamp\" value=\"33\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/filter/SecurityFilter.java</url>\n          <line>18</line>\n          <option name=\"timeStamp\" value=\"40\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java</url>\n          <line>27</line>\n          <option name=\"timeStamp\" value=\"41\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java</url>\n          <line>36</line>\n          <option name=\"timeStamp\" value=\"42\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java</url>\n          <line>44</line>\n          <option name=\"timeStamp\" value=\"47\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationEntryPoint.java</url>\n          <line>17</line>\n          <option name=\"timeStamp\" value=\"49\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtTokenUtil.java</url>\n          <line>53</line>\n          <option name=\"timeStamp\" value=\"51\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java</url>\n          <line>46</line>\n          <option name=\"timeStamp\" value=\"52\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java</url>\n          <line>48</line>\n          <option name=\"timeStamp\" value=\"53\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/CustomerController.java</url>\n          <line>30</line>\n          <option name=\"timeStamp\" value=\"55\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtTokenUtil.java</url>\n          <line>59</line>\n          <option name=\"timeStamp\" value=\"56\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequestFilter.java</url>\n          <line>32</line>\n          <option name=\"timeStamp\" value=\"59\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/ProductController.java</url>\n          <line>60</line>\n          <option name=\"timeStamp\" value=\"61\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java</url>\n          <line>57</line>\n          <option name=\"timeStamp\" value=\"64\" />\n        </line-breakpoint>\n      </breakpoints>\n    </breakpoint-manager>\n    <pin-to-top-manager>\n      <pinned-members>\n        <PinnedItemInfo parentTag=\"org.apache.tomcat.util.http.MimeHeaders\" memberName=\"headers\" />\n        <PinnedItemInfo parentTag=\"org.apache.tomcat.util.buf.MessageBytes\" memberName=\"charC\" />\n      </pinned-members>\n    </pin-to-top-manager>\n  </component>\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\n    <SUITE FILE_PATH=\"coverage/neusamoda$BootSpring.ic\" NAME=\"BootSpring Coverage Results\" MODIFIED=\"1617553123159\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,36 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5" name="Default Changelist" comment="">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/BootSpring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/BootSpring.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/SaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/SaleController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/Payment.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/store/Sale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/Sale.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/repository/SaleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/repository/SaleRepository.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/SaleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/SaleService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/BootSpring.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/controller/CategoryController.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/controller/CustomerController.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/controller/ProductController.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/controller/ProviderController.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/controller/ProvisionalSaleController.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/controller/UserController.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/jwt/JwtUserDetailsService.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/CashFlowService.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/CategoryService.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/CustomerService.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/PaymentService.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/ProductService.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/ProviderService.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/ProvisionalSaleService.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/ReservationService.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/SaleService.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/UserService.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/simulation/ProductTest.class" beforeDir="false" />
+-    </list>
++    <list default="true" id="d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5" name="Default Changelist" comment="" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -42,18 +13,12 @@
+   <component name="FileTemplateManagerImpl">
+     <option name="RECENT_TEMPLATES">
+       <list>
++        <option value="Class" />
+         <option value="Interface" />
+-        <option value="JUnit5 Test Class" />
+-        <option value="Class" />
+       </list>
+     </option>
+   </component>
+   <component name="Git.Settings">
+-    <option name="RECENT_BRANCH_BY_REPOSITORY">
+-      <map>
+-        <entry key="$PROJECT_DIR$" value="project-interfaces" />
+-      </map>
+-    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="GitSEFilterConfiguration">
+@@ -79,23 +44,12 @@
+     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+     <property name="WebServerToolWindowFactoryState" value="false" />
+     <property name="aspect.path.notification.shown" value="true" />
+-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+-    <property name="create.test.in.the.same.root" value="true" />
+     <property name="last_opened_file_path" value="$PROJECT_DIR$/../project-omega-front" />
+     <property name="nodejs_package_manager_path" value="npm" />
+     <property name="project.structure.last.edited" value="Modules" />
+     <property name="project.structure.proportion" value="0.15" />
+     <property name="project.structure.side.proportion" value="0.11737627" />
+     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+-  </component>
+-  <component name="RecentsManager">
+-    <key name="CreateTestDialog.Recents.Supers">
+-      <recent name="" />
+-    </key>
+-    <key name="CreateTestDialog.RecentsKey">
+-      <recent name="com.core.backend.service" />
+-    </key>
+   </component>
+   <component name="RunManager">
+     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+@@ -190,19 +144,7 @@
+       <workItem from="1618875148228" duration="3789000" />
+       <workItem from="1618958776351" duration="4119000" />
+       <workItem from="1619016934097" duration="4719000" />
+-      <workItem from="1619038129319" duration="2283000" />
+-      <workItem from="1619133879490" duration="39000" />
+-      <workItem from="1619133954496" duration="1512000" />
+-      <workItem from="1619221541657" duration="625000" />
+-      <workItem from="1619222851567" duration="683000" />
+-      <workItem from="1619260275657" duration="127000" />
+-      <workItem from="1619260471455" duration="2353000" />
+-      <workItem from="1619274569343" duration="63000" />
+-      <workItem from="1619274681682" duration="3437000" />
+-      <workItem from="1619278717306" duration="4478000" />
+-      <workItem from="1619306402479" duration="906000" />
+-      <workItem from="1619356921083" duration="364000" />
+-      <workItem from="1619357350916" duration="854000" />
++      <workItem from="1619038129319" duration="1963000" />
+     </task>
+     <servers />
+   </component>
+@@ -220,7 +162,7 @@
+                   <entry key="branch">
+                     <value>
+                       <list>
+-                        <option value="main" />
++                        <option value="project-interfaces" />
+                       </list>
+                     </value>
+                   </entry>
+@@ -263,6 +205,11 @@
+           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/entity/Product.java</url>
+           <line>32</line>
+           <option name="timeStamp" value="7" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java</url>
++          <line>53</line>
++          <option name="timeStamp" value="8" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/entity/User.java</url>
+@@ -316,7 +263,7 @@
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/SaleService.java</url>
+-          <line>23</line>
++          <line>22</line>
+           <option name="timeStamp" value="33" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+@@ -333,6 +280,11 @@
+           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java</url>
+           <line>36</line>
+           <option name="timeStamp" value="42" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtUserDetailsService.java</url>
++          <line>22</line>
++          <option name="timeStamp" value="45" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java</url>
+@@ -343,6 +295,11 @@
+           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationEntryPoint.java</url>
+           <line>17</line>
+           <option name="timeStamp" value="49" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtTokenUtil.java</url>
++          <line>66</line>
++          <option name="timeStamp" value="50" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtTokenUtil.java</url>
+@@ -368,6 +325,11 @@
+           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtTokenUtil.java</url>
+           <line>59</line>
+           <option name="timeStamp" value="56" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequestFilter.java</url>
++          <line>54</line>
++          <option name="timeStamp" value="57" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequestFilter.java</url>
+@@ -380,9 +342,9 @@
+           <option name="timeStamp" value="61" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java</url>
+-          <line>57</line>
+-          <option name="timeStamp" value="64" />
++          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/CategoryService.java</url>
++          <line>30</line>
++          <option name="timeStamp" value="63" />
+         </line-breakpoint>
+       </breakpoints>
+     </breakpoint-manager>

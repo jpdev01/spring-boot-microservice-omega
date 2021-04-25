@@ -11,47 +11,58 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class UserService implements ServiceInterface<User> {
 
     @Autowired
     private UserRepository repository;
 
-    public void save(User user)
-    {
-        try
-        {
-            if (isValidUser(user))
-            {
+    @Override
+    public void save(User user) {
+        try {
+            if (isValidUser(user)) {
                 Integer id = user.getId();
-                if (id != null)
-                {
-                    if (repository.existsById(id))
-                    {
+                if (id != null) {
+                    if (repository.existsById(id)) {
                         // FIXME Fazer validação de usuário já existe
                     }
                 }
                 repository.save(user);
             }
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println("erro ao salvar usuário " + e);
         }
     }
 
-    public List<User> findAll()
-    {
+    public List<User> findAll() {
         return repository.findAll();
     }
 
-    // FIXME = FINDALL WITH PAGEABLE
-    public Page<User> findAll(Pageable pageable)
-    {
+    @Override
+    public List<User> getAll() {
+        return repository.findAll();
+    }
+
+    @Override
+    public Page<User> getAll(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
-    public Optional<User> findById(Integer id)
-    {
+    /*
+     * JWT - do not remove
+     */
+    public Page<User> findAll(Pageable pageable) {
+        return repository.findAll(pageable);
+    }
+
+    /*
+     * JWT - do not remove
+     */
+    public Optional<User> findById(Integer id) {
+        return repository.findById(id);
+    }
+
+    @Override
+    public Optional<User> get(Integer id) {
         return repository.findById(id);
     }
 
@@ -59,13 +70,11 @@ public class UserService {
         return user != null && user.getLogin() != null && user.getPassword() != null;
     }
 
-    public Integer validateLogin(String login, String password)
-    {
+    public Integer validateLogin(String login, String password) {
         return repository.validate(login, password);
     }
 
-    public User getUserByLogin(String login)
-    {
+    public User getUserByLogin(String login) {
         return repository.findByLogin(login);
     }
 }
