@@ -1,7 +1,7 @@
 package com.core.backend.service;
 
 import com.core.backend.entity.Product;
-import com.core.backend.entity.store.Sale;
+import com.core.backend.entity.Sale;
 import com.core.backend.repository.SaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

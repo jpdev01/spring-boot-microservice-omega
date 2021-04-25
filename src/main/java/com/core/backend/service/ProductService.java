@@ -81,6 +81,11 @@ public class ProductService implements ServiceInterface<Product>{
         return productRepository.findAll(pageable);
     }
 
+    public List<Product> getAll()
+    {
+        return productRepository.findAll();
+    }
+
     public Optional<List<Product>> getAllFromCategory(Integer categoryId){
         Category category = categoryService.get(categoryId).get();
         if (category != null){

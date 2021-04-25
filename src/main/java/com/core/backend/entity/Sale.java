@@ -1,8 +1,9 @@
-package com.core.backend.entity.store;
+package com.core.backend.entity;
 
 import com.core.backend.entity.Customer;
 import com.core.backend.entity.Product;
 import com.core.backend.entity.User;
+import com.core.backend.entity.Payment;
 import com.core.custom.FormPgto;
 import com.core.custom.StatusSale;
 

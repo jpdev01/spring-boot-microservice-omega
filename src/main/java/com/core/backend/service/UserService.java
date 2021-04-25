@@ -65,4 +65,9 @@ public class UserService implements ServiceInterface<User>{
     {
         return repository.findByLogin(login);
     }
+
+    public List<User> getAll()
+    {
+        return repository.findAll();
+    }
 }
