@@ -64,4 +64,15 @@ public class ProductController {
         return new ResponseEntity<List<Product>>(products.get(), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/provider/{id}", method = RequestMethod.GET)
+    public  ResponseEntity<List<Product>> getAllFromProvider(@PathVariable String id) {
+        Integer providerId = Integer.parseInt(id);
+        Optional<List<Product>> products = service.getAllFromProvider(providerId);
+        if (!products.isPresent())
+        {
+            return ResponseEntity.noContent().build();
+        }
+        return new ResponseEntity<List<Product>>(products.get(), HttpStatus.OK);
+    }
+
 }

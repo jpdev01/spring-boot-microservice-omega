@@ -97,4 +97,12 @@ public class ProductService implements ServiceInterface<Product>{
         return null;
     }
 
+    public Optional<List<Product>> getAllFromProvider(Integer providerId){
+        Provider provider = providerService.get(providerId).get();
+        if (provider != null){
+            return productRepository.findProductsByProvider(provider);
+        }
+        return null;
+    }
+
 }

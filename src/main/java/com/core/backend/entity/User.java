@@ -1,5 +1,6 @@
 package com.core.backend.entity;
 
+import com.core.components.form.FieldForm;
 import com.core.custom.Active;
 import com.core.custom.Permission;
 
@@ -11,9 +12,12 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @FieldForm(isVisible = true, label = "Login")
     private String login;
+    @FieldForm(isVisible = true, label = "Senha")
     private String password;
 
+    @FieldForm(isVisible = true, label = "Permissão")
     @Enumerated(EnumType.ORDINAL)
     private Permission permission = Permission.LESS;
 

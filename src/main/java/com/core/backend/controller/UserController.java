@@ -2,6 +2,7 @@ package com.core.backend.controller;
 
 import com.core.backend.entity.User;
 import com.core.backend.service.UserService;
+import com.core.components.form.Form;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,7 +25,8 @@ public class UserController {
 
     //FIXME: FIND ALL WITH PAGEABLE
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<Page<User>> findAll(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
+    public ResponseEntity<Page<User>> findAll(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = "id", direction = Sort.Direction.ASC) Pageable pageable)
+    {
         Page<User> users = service.getAll(pageable);
 
         if (users == null || users.isEmpty()) {
@@ -46,7 +48,8 @@ public class UserController {
 //    }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Optional<User>> findById(@PathVariable Integer id) {
+    public ResponseEntity<Optional<User>> findById(@PathVariable Integer id)
+    {
         Optional<User> user = service.get(id);
         if (user == null) {
             return ResponseEntity.notFound().build();
@@ -55,7 +58,8 @@ public class UserController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public ResponseEntity<Void> save(@RequestBody User user) {
+    public ResponseEntity<Void> save(@RequestBody User user)
+    {
         service.save(user);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(user.getId()).toUri();
@@ -65,13 +69,20 @@ public class UserController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Void> update(@RequestBody User user, @PathVariable Integer id) {
+    public ResponseEntity<Void> update(@RequestBody User user, @PathVariable Integer id)
+    {
         if (service.get(id) == null) {
             // user not fouuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuund
             return ResponseEntity.notFound().build();
         }
         service.save(user);
         return ResponseEntity.noContent().build();
+    }
+
+    @RequestMapping(value = "/frm", method = RequestMethod.GET)
+    public ResponseEntity<Form> getForm()
+    {
+        return ResponseEntity.ok(service.formSerialize());
     }
 
 }
