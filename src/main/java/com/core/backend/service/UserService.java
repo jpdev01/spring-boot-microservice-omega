@@ -3,6 +3,7 @@ package com.core.backend.service;
 import com.core.backend.entity.User;
 import com.core.backend.repository.UserRepository;
 import com.core.components.form.Form;
+import com.core.components.form.field.FieldForm;
 import com.core.components.form.field.PasswordFieldForm;
 import com.core.components.form.field.TextFieldForm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +77,9 @@ public class UserService implements ServiceInterface<User> {
         Form form = new Form();
         TextFieldForm login = new TextFieldForm("login", "Login");
         PasswordFieldForm pass = new PasswordFieldForm("password", "Senha");
+
+        form.addField(login);
+        form.addField(pass);
         return form;
     }
 }
