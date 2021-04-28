@@ -2,8 +2,9 @@ package com.core.backend.service;
 
 import com.core.backend.entity.User;
 import com.core.backend.repository.UserRepository;
-import com.core.components.form.Form;
 import com.core.components.form.field.FieldForm;
+import com.core.components.form.isFieldForm;
+import com.core.components.form.Form;
 import com.core.components.form.field.PasswordFieldForm;
 import com.core.components.form.field.TextFieldForm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -64,22 +67,4 @@ public class UserService implements ServiceInterface<User> {
         return repository.findByLogin(login);
     }
 
-    public Form formSerialize(User user)
-    {
-        Form form = new Form();
-        TextFieldForm login = new TextFieldForm("login", "Login");
-        PasswordFieldForm pass = new PasswordFieldForm("password", "Senha");
-        return form;
-    }
-
-    public Form formSerialize()
-    {
-        Form form = new Form();
-        TextFieldForm login = new TextFieldForm("login", "Login");
-        PasswordFieldForm pass = new PasswordFieldForm("password", "Senha");
-
-        form.addField(login);
-        form.addField(pass);
-        return form;
-    }
 }

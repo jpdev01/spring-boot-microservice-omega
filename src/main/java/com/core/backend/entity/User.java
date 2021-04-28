@@ -1,23 +1,23 @@
 package com.core.backend.entity;
 
-import com.core.components.form.FieldForm;
+import com.core.components.form.isFieldForm;
 import com.core.custom.Active;
 import com.core.custom.Permission;
 
 import javax.persistence.*;
 
 @Entity
-public class User {
+public class User implements OnroadObject{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @FieldForm(isVisible = true, label = "Login")
+    @isFieldForm(isVisible = true, label = "Login")
     private String login;
-    @FieldForm(isVisible = true, label = "Senha")
+    @isFieldForm(isVisible = true, label = "Senha")
     private String password;
 
-    @FieldForm(isVisible = true, label = "Permissão")
+    @isFieldForm(isVisible = true, label = "Permissão")
     @Enumerated(EnumType.ORDINAL)
     private Permission permission = Permission.LESS;
 
@@ -28,7 +28,9 @@ public class User {
     private Customer customer;
 
 
-    public User(){}
+    public User(){
+
+    }
 
     public User(String login, String password, Permission permission) {
         this.setLogin(login);

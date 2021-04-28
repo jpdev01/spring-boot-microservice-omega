@@ -1,6 +1,7 @@
 package com.core.backend.controller;
 
 import com.core.backend.entity.User;
+import com.core.backend.service.EFormService;
 import com.core.backend.service.UserService;
 import com.core.components.form.Form;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,9 @@ public class UserController {
 
     @Autowired
     private UserService service;
+
+    @Autowired
+    private EFormService formService;
 
     //FIXME: FIND ALL WITH PAGEABLE
     @RequestMapping(method = RequestMethod.GET)
@@ -79,10 +83,12 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
-    @RequestMapping(value = "/frm", method = RequestMethod.GET)
-    public ResponseEntity<Form> getForm()
+    @RequestMapping(value = "/eform/build", method = RequestMethod.GET)
+    public ResponseEntity<Form> eFormBuild()
     {
-        return ResponseEntity.ok(service.formSerialize());
+        User user = new User();
+            Form eform = formService.build(user);
+        return ResponseEntity.ok(eform);
     }
 
 }

@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface FieldForm {
+public @interface isFieldForm {
     boolean isVisible();
     String label();
 }
