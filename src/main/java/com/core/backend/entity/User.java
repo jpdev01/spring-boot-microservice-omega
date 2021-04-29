@@ -1,5 +1,6 @@
 package com.core.backend.entity;
 
+import com.core.components.form.CustomFieldForm;
 import com.core.components.form.isFieldForm;
 import com.core.custom.Active;
 import com.core.custom.Permission;
@@ -17,7 +18,7 @@ public class User implements OnroadObject{
     @isFieldForm(isVisible = true, label = "Senha")
     private String password;
 
-    @isFieldForm(isVisible = true, label = "Permissão")
+    @CustomFieldForm
     @Enumerated(EnumType.ORDINAL)
     private Permission permission = Permission.LESS;
 

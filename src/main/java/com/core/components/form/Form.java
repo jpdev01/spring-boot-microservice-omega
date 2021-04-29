@@ -42,8 +42,19 @@ public class Form {
         this.fields.add(newField);
     }
 
-    public void setFields(ArrayList<FieldForm> newFields)
-    {
-        this.fields = newFields;
+    public String getNameId() {
+        return nameId;
+    }
+
+    public void setNameId(String nameId) {
+        this.nameId = nameId;
+    }
+
+    public List<FieldForm> getFields() {
+        return fields;
+    }
+
+    public void setFields(List<FieldForm> fields) {
+        this.fields = fields;
     }
 }

@@ -11,32 +11,38 @@ import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class EFormService {
     public Form build(OnroadObject object) {
-//        PersistEngine persistEngine = new PersistEngine();
-//        persistEngine.getOnroadObject(object.getClass(), object.getId());
         Form form = new Form();
 
         ArrayList<FieldForm> fields = new ArrayList<>();
         Class clazz = object.getClass();
         for (Field attribute : clazz.getDeclaredFields()) {
             if (attribute.isAnnotationPresent(isFieldForm.class)) {
-                if (attribute.getType().equals(String.class)) {
-                    String id = attribute.getName();
-                    String label = attribute.getAnnotation(isFieldForm.class).label();
-                    if (id.equals("password")) {
-                        PasswordFieldForm fieldForm = new PasswordFieldForm(id, label);
-                        fields.add(fieldForm);
-                    } else {
-                        TextFieldForm fieldForm = new TextFieldForm(id, label);
-                        fields.add(fieldForm);
-                    }
-                }
+                fields.add(getFieldByType(attribute));
             }
         }
         form.setFields(fields);
         return form;
+    }
+
+    public FieldForm getFieldByType(Field attribute)
+    {
+        FieldForm fieldForm = null;
+        if (attribute.getType().equals(String.class)) {
+            String id = attribute.getName();
+            String label = attribute.getAnnotation(isFieldForm.class).label();
+            if (id.equals("password")) {
+                fieldForm = new PasswordFieldForm(id, label);
+
+            } else {
+                fieldForm = new TextFieldForm(id, label);
+            }
+        }
+
+        return fieldForm;
     }
 }
