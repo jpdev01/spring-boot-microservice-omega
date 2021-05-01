@@ -1,8 +1,7 @@
 package com.core.backend.service;
 
 import com.core.backend.entity.OnroadObject;
-import com.core.backend.repository.hibernate.PersistEngine;
-import com.core.components.form.Form;
+import com.core.components.form.Eform;
 import com.core.components.form.field.FieldForm;
 import com.core.components.form.field.PasswordFieldForm;
 import com.core.components.form.field.TextFieldForm;
@@ -11,12 +10,11 @@ import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class EFormService {
-    public Form build(OnroadObject object) {
-        Form form = new Form();
+    public Eform build(OnroadObject object) {
+        Eform eform = new Eform();
 
         ArrayList<FieldForm> fields = new ArrayList<>();
         Class clazz = object.getClass();
@@ -25,8 +23,21 @@ public class EFormService {
                 fields.add(getFieldByType(attribute));
             }
         }
-        form.setFields(fields);
-        return form;
+        eform.setFields(fields);
+        return eform;
+    }
+
+    public Eform build(Class clazz) {
+        Eform eform = new Eform();
+
+        ArrayList<FieldForm> fields = new ArrayList<>();
+        for (Field attribute : clazz.getDeclaredFields()) {
+            if (attribute.isAnnotationPresent(isFieldForm.class)) {
+                fields.add(getFieldByType(attribute));
+            }
+        }
+        eform.setFields(fields);
+        return eform;
     }
 
     public FieldForm getFieldByType(Field attribute)

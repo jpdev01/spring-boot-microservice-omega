@@ -3,7 +3,7 @@ package com.core.backend.controller;
 import com.core.backend.entity.User;
 import com.core.backend.service.EFormService;
 import com.core.backend.service.UserService;
-import com.core.components.form.Form;
+import com.core.components.form.Eform;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -85,10 +85,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/eform/build", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Form> eFormBuild()
+    public ResponseEntity<Eform> eFormBuild()
     {
         User user = new User();
-        Form eform = formService.build(user);
+        Eform eform = service.buildEform();
         return ResponseEntity.ok(eform);
     }
 

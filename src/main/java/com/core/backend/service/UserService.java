@@ -2,17 +2,15 @@ package com.core.backend.service;
 
 import com.core.backend.entity.User;
 import com.core.backend.repository.UserRepository;
-import com.core.components.form.field.FieldForm;
-import com.core.components.form.isFieldForm;
-import com.core.components.form.Form;
-import com.core.components.form.field.PasswordFieldForm;
-import com.core.components.form.field.TextFieldForm;
+import com.core.components.form.Eform;
+import com.core.components.form.EventBinding;
+import com.core.components.form.field.SelectFieldForm;
+import com.core.utils.PatternUrl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -22,6 +20,9 @@ public class UserService implements ServiceInterface<User> {
 
     @Autowired
     private UserRepository repository;
+
+    @Autowired
+    private EFormService eFormService;
 
     @Override
     public void save(User user) {
@@ -65,6 +66,23 @@ public class UserService implements ServiceInterface<User> {
 
     public User getUserByLogin(String login) {
         return repository.findByLogin(login);
+    }
+
+    public Eform buildEform()
+    {
+        Eform eform = eFormService.build(User.class);
+        ArrayList<String> options = new ArrayList<>();
+        options.add("Administrador");
+        options.add("Gestor");
+        options.add("Básico");
+        options.add("Master"); // programador
+        SelectFieldForm permissionsField = new SelectFieldForm("permission", "Permissão", options);
+
+        // actions
+        PatternUrl patternUrl = new PatternUrl();
+        eform.setOnSave(new EventBinding("Usuário salvo com sucesso!", patternUrl.getHomeRoute(patternUrl.getUser())));
+        eform.setOnSaveError(new EventBinding("Erro ao salvar usuário!"));
+        return eform;
     }
 
 }

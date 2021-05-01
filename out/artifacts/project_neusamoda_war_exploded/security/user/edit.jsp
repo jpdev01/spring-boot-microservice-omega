@@ -12,7 +12,7 @@
     <title>Usuário</title>
 </head>
 <body>
-<form method="post" action="<%=application.getInitParameter("ApplicationUrl")%>user/save">
+<eform method="post" action="<%=application.getInitParameter("ApplicationUrl")%>user/save">
     <c:if test="${user.id != null}">
         <input name="id" value="${user.id}" hidden>
     </c:if>
@@ -36,6 +36,6 @@
             <input type="submit" value="Salvar">
         </td>
     </tr>
-</form>
+</eform>
 </body>
 </html>
