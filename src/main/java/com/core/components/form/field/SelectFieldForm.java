@@ -6,9 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 
 public class SelectFieldForm extends FieldForm{
-    public SelectFieldForm(String id, String label, List<String> options)
+    public SelectFieldForm(String id, String label, List<String> options, String group)
     {
-        super(id, label);
+        super(id, label, group);
         this.options = options;
     }
 

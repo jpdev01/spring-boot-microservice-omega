@@ -13,9 +13,9 @@ public class User implements OnroadObject{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @isFieldForm(isVisible = true, label = "Login")
+    @isFieldForm(isVisible = true, label = "Login", group = "1")
     private String login;
-    @isFieldForm(isVisible = true, label = "Senha")
+    @isFieldForm(isVisible = true, label = "Senha", group = "1")
     private String password;
 
     @CustomFieldForm

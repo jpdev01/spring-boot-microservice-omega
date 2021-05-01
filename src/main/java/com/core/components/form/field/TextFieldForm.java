@@ -1,9 +1,9 @@
 package com.core.components.form.field;
 
 public class TextFieldForm extends FieldForm{
-    public TextFieldForm(String id, String label)
+    public TextFieldForm(String id, String label, String group)
     {
-        super(id, label);
+        super(id, label, group);
     }
     private String value;
 }

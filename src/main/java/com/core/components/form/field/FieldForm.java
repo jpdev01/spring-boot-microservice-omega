@@ -3,11 +3,13 @@ package com.core.components.form.field;
 public abstract class FieldForm {
     private String id;
     private String label;
+    private String group;
 
-    public FieldForm(String id, String label)
+    public FieldForm(String id, String label, String group)
     {
         this.setId(id);
         this.setLabel(label);
+        this.setGroup(group);
     }
 
     public String getId() {
@@ -24,5 +26,13 @@ public abstract class FieldForm {
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
     }
 }

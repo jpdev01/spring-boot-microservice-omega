@@ -46,11 +46,12 @@ public class EFormService {
         if (attribute.getType().equals(String.class)) {
             String id = attribute.getName();
             String label = attribute.getAnnotation(isFieldForm.class).label();
+            String group = attribute.getAnnotation(isFieldForm.class).group();
             if (id.equals("password")) {
-                fieldForm = new PasswordFieldForm(id, label);
+                fieldForm = new PasswordFieldForm(id, label, group);
 
             } else {
-                fieldForm = new TextFieldForm(id, label);
+                fieldForm = new TextFieldForm(id, label, group);
             }
         }
 

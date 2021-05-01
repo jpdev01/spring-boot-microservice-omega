@@ -5,38 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/NavController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/NavbarService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/components/DropdownFieldNav.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/components/FieldNav.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/components/FieldNavInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/components/Navbar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/components/form/EventBinding.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/EnumFieldForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/utils/PatternUrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_11_33.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_h2database_h2_1_4_2002.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_1_2_22.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_52.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_persistence_jakarta_persistence_api_2_2_32.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_transaction_jakarta_transaction_api_1_3_32.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/project_neusamoda_war_exploded/frontend/java/onroad/security/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/project_neusamoda_war_exploded/frontend/java/onroad/security/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/project_neusamoda_war_exploded/security/user/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/project_neusamoda_war_exploded/security/user/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/EFormService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/EFormService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/components/form/Form.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/components/form/Eform.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/FieldForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/FieldForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/PasswordFieldForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/PasswordFieldForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/SelectFieldForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/SelectFieldForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/custom/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/custom/Permission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/frontend/java/onroad/security/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/frontend/java/onroad/security/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/security/user/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/security/user/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/EFormService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/EFormService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/TextFieldForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/TextFieldForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/components/form/isFieldForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/components/form/isFieldForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/components/form/field/SelectFieldForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/components/form/field/SelectFieldForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/custom/Permission.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/custom/Permission.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +25,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -97,15 +75,13 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -204,7 +180,8 @@
       <workItem from="1619737493452" duration="3905000" />
       <workItem from="1619838317760" duration="22000" />
       <workItem from="1619838437622" duration="1688000" />
-      <workItem from="1619874458756" duration="5619000" />
+      <workItem from="1619874458756" duration="8055000" />
+      <workItem from="1619905097696" duration="2542000" />
     </task>
     <servers />
   </component>
