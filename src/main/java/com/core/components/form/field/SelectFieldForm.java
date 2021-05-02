@@ -8,7 +8,7 @@ import java.util.List;
 public class SelectFieldForm extends FieldForm{
     public SelectFieldForm(String id, String label, List<String> options, String group)
     {
-        super(id, label, group);
+        super(id, label, group, FieldFormType.SELECT);
         this.options = options;
     }
 
