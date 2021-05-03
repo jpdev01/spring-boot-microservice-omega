@@ -1,4 +1,4 @@
-package com.core.components;
+package com.core.components.nav;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,9 +1,9 @@
 package com.core.backend.service;
 
-import com.core.components.DropdownFieldNav;
-import com.core.components.FieldNav;
-import com.core.components.FieldNavInterface;
-import com.core.components.Navbar;
+import com.core.components.nav.DropdownFieldNav;
+import com.core.components.nav.FieldNav;
+import com.core.components.nav.FieldNavInterface;
+import com.core.components.nav.Navbar;
 import com.core.utils.PatternUrl;
 import org.springframework.stereotype.Service;
 

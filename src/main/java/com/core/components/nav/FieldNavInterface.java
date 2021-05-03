@@ -1,4 +1,4 @@
-package com.core.components;
+package com.core.components.nav;
 
 public interface FieldNavInterface {
 }

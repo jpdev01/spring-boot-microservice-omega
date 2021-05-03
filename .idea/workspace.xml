@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/SelectFieldForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/SelectFieldForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/NavController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/NavController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/NavbarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/NavbarService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/components/DropdownFieldNav.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/components/nav/DropdownFieldNav.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/components/FieldNav.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/components/nav/FieldNav.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/components/FieldNavInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/components/nav/FieldNavInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/components/Navbar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/components/nav/Navbar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,6 +169,8 @@
       <workItem from="1619874458756" duration="8055000" />
       <workItem from="1619905097696" duration="6376000" />
       <workItem from="1619958893830" duration="2151000" />
+      <workItem from="1619978328796" duration="1401000" />
+      <workItem from="1619996642984" duration="4102000" />
     </task>
     <servers />
   </component>
@@ -200,11 +207,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/UserController.java</url>
-          <line>76</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java</url>
           <line>29</line>
@@ -374,6 +376,26 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/UserController.java</url>
           <line>91</line>
           <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequestFilter.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequestFilter.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/UserController.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/UserController.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="78" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
