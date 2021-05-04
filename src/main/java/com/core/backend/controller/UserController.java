@@ -1,5 +1,6 @@
 package com.core.backend.controller;
 
+import com.core.backend.entity.Product;
 import com.core.backend.entity.User;
 import com.core.backend.service.EFormService;
 import com.core.backend.service.UserService;
@@ -30,8 +31,7 @@ public class UserController {
 
     //FIXME: FIND ALL WITH PAGEABLE
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<Page<User>> findAll(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = "id", direction = Sort.Direction.ASC) Pageable pageable)
-    {
+    public ResponseEntity<Page<User>> findAll(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
         Page<User> users = service.getAll(pageable);
 
         if (users == null || users.isEmpty()) {
@@ -41,20 +41,8 @@ public class UserController {
         return new ResponseEntity<Page<User>>(users, HttpStatus.OK);
     }
 
-//    @RequestMapping(method = RequestMethod.GET)
-//    public ResponseEntity<List<User>> findAll() {
-//        List<User> users = service.findAll();
-//
-//        if (users == null || users.isEmpty()) {
-//            return ResponseEntity.notFound().build();
-//        }
-//
-//        return ResponseEntity.ok(users);
-//    }
-
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Optional<User>> findById(@PathVariable Integer id)
-    {
+    public ResponseEntity<Optional<User>> findById(@PathVariable Integer id) {
         Optional<User> user = service.get(id);
         if (user == null) {
             return ResponseEntity.notFound().build();
@@ -62,20 +50,23 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
+    //    @RequestMapping(value = "/save", method = RequestMethod.POST)
+//    public ResponseEntity<Void> save(@RequestBody User user)
+//    {
+//        service.save(user);
+//        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+//                .buildAndExpand(user.getId()).toUri();
+//        return ResponseEntity.created(uri).build();
+//
+//
+//    }
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public ResponseEntity<Void> save(@RequestBody User user)
-    {
+    public void save(@RequestBody User user) {
         service.save(user);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(user.getId()).toUri();
-        return ResponseEntity.created(uri).build();
-
-
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Void> update(@RequestBody User user, @PathVariable Integer id)
-    {
+    @RequestMapping(value = "edit/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Void> update(@RequestBody User user, @PathVariable Integer id) {
         if (service.get(id) == null) {
             // user not fouuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuund
             return ResponseEntity.notFound().build();
@@ -84,10 +75,9 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
-    @RequestMapping(value = "/eform/build", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Eform> eFormBuild()
-    {
-        User user = new User();
+    @RequestMapping(value = "/eform/build", method = RequestMethod.GET)
+    public ResponseEntity<Eform> eFormBuild() {
+//        User user = new User();
         Eform eform = service.buildEform();
         return ResponseEntity.ok(eform);
     }
