@@ -5,6 +5,7 @@ import com.core.backend.repository.UserRepository;
 import com.core.components.form.Eform;
 import com.core.components.form.EventBinding;
 import com.core.components.form.field.SelectFieldForm;
+import com.core.custom.Permission;
 import com.core.utils.PatternUrl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -71,11 +72,11 @@ public class UserService implements ServiceInterface<User> {
     public Eform buildEform()
     {
         Eform eform = eFormService.build(User.class);
-        ArrayList<String> options = new ArrayList<>();
-        options.add("Administrador");
-        options.add("Gestor");
-        options.add("Básico");
-        options.add("Master"); // programador
+        ArrayList<Permission> options = new ArrayList<>();
+        options.add(Permission.ADM);
+        options.add(Permission.MANAGER);
+        options.add(Permission.LESS);
+        options.add(Permission.MASTER); // programador
         SelectFieldForm permissionsField = new SelectFieldForm("permission", "Permissão", options, "0");
         eform.addField(permissionsField);
 
