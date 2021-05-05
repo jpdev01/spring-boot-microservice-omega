@@ -29,6 +29,7 @@ public class JwtTokenUtil implements Serializable {
 
     //retorna expiration date do token jwt
     public Date getExpirationDateFromToken(String token) {
+        getClaimFromToken(token, Claims::getExpiration);
         return getClaimFromToken(token, Claims::getExpiration);
     }
 

@@ -1,6 +1,9 @@
 package com.core.backend.entity;
 
+import com.core.components.form.field.FieldView;
+import com.core.components.form.field.ListType;
 import com.core.components.form.isFieldForm;
+import com.core.components.form.isListFieldForm;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -45,6 +48,7 @@ public class Product {
     private List<Category> categories;
 
     @ManyToOne
+    @isListFieldForm(isVisible = true, modeView = FieldView.MODAL, group = "0", listType = ListType.UNIQUE, label = "Fornecedor")
     private Provider provider;
 
     public Product(){}

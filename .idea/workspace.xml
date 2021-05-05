@@ -5,25 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/DateFieldForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/NumberFieldForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_11_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_h2database_h2_1_4_200.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_1_2_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_persistence_jakarta_persistence_api_2_2_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_transaction_jakarta_transaction_api_1_3_3.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/FieldView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/ListFieldForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/ListType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/components/form/isListFieldForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequestFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtTokenUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtTokenUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/EFormService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/EFormService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/controller/ProductController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/entity/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/entity/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/EFormService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/ProductService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/jwt/JwtRequestFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/jwt/JwtRequestFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/jwt/JwtTokenUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/jwt/JwtTokenUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/ProductService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,9 +27,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Class" />
         <option value="Interface" />
         <option value="Enum" />
-        <option value="Class" />
       </list>
     </option>
   </component>
@@ -87,13 +81,15 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.BootSpring">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -208,7 +204,8 @@
       <workItem from="1619978328796" duration="1401000" />
       <workItem from="1619996642984" duration="4102000" />
       <workItem from="1620083596929" duration="3745000" />
-      <workItem from="1620171608260" duration="2853000" />
+      <workItem from="1620171608260" duration="3621000" />
+      <workItem from="1620254575452" duration="2839000" />
     </task>
     <servers />
   </component>
@@ -262,7 +259,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/entity/Product.java</url>
-          <line>43</line>
+          <line>46</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -292,7 +289,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>
-          <line>66</line>
+          <line>68</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -302,17 +299,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>
-          <line>63</line>
+          <line>65</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>
-          <line>40</line>
+          <line>42</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>
-          <line>70</line>
+          <line>72</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -377,7 +374,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequestFilter.java</url>
-          <line>47</line>
+          <line>48</line>
           <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -407,18 +404,43 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>
-          <line>118</line>
+          <line>120</line>
           <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/EFormService.java</url>
-          <line>32</line>
+          <line>33</line>
           <option name="timeStamp" value="85" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/EFormService.java</url>
-          <line>37</line>
+          <line>41</line>
           <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequestFilter.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtTokenUtil.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtTokenUtil.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="92" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

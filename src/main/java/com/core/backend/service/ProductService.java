@@ -7,6 +7,8 @@ import com.core.backend.entity.User;
 import com.core.backend.repository.ProductRepository;
 import com.core.components.form.Eform;
 import com.core.components.form.EventBinding;
+import com.core.components.form.field.FieldForm;
+import com.core.components.form.field.ListFieldForm;
 import com.core.components.form.field.SelectFieldForm;
 import com.core.custom.Permission;
 import com.core.utils.PatternUrl;
@@ -117,6 +119,10 @@ public class ProductService implements ServiceInterface<Product>{
     public Eform buildEform()
     {
         Eform eform = eFormService.build(Product.class);
+        List<FieldForm> fields = new ArrayList<>();
+        //FieldForm provider = new ListFieldForm("provider", "Fornecedor", "1", "modal");
+        //fields.add(provider);
+
 
         // actions
         PatternUrl patternUrl = new PatternUrl();
