@@ -2,6 +2,7 @@ package com.core.backend.controller;
 
 import com.core.backend.entity.Product;
 import com.core.backend.service.ProductService;
+import com.core.components.form.Eform;
 import com.core.simulation.ProductTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -73,6 +74,12 @@ public class ProductController {
             return ResponseEntity.noContent().build();
         }
         return new ResponseEntity<List<Product>>(products.get(), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/eform/build", method = RequestMethod.GET)
+    public ResponseEntity<Eform> eFormBuild() {
+        Eform eform = service.buildEform();
+        return ResponseEntity.ok(eform);
     }
 
 }

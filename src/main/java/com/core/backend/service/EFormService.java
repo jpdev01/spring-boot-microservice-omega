@@ -2,14 +2,13 @@ package com.core.backend.service;
 
 import com.core.backend.entity.OnroadObject;
 import com.core.components.form.Eform;
-import com.core.components.form.field.FieldForm;
-import com.core.components.form.field.PasswordFieldForm;
-import com.core.components.form.field.TextFieldForm;
+import com.core.components.form.field.*;
 import com.core.components.form.isFieldForm;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Date;
 
 @Service
 public class EFormService {
@@ -43,16 +42,29 @@ public class EFormService {
     public FieldForm getFieldByType(Field attribute)
     {
         FieldForm fieldForm = null;
-        if (attribute.getType().equals(String.class)) {
-            String id = attribute.getName();
-            String label = attribute.getAnnotation(isFieldForm.class).label();
-            String group = attribute.getAnnotation(isFieldForm.class).group();
+        String id = attribute.getName();
+        String label = attribute.getAnnotation(isFieldForm.class).label();
+        String group = attribute.getAnnotation(isFieldForm.class).group();
+
+        Class<?> attributeType = attribute.getType();
+        boolean isTextField = attributeType.equals(String.class);
+        boolean isNumberField = attributeType.equals(Integer.class) || attributeType.equals(Float.class);
+        boolean isDateField = attributeType.equals(Date.class);
+        if (isTextField)
+        {
             if (id.equals("password")) {
                 fieldForm = new PasswordFieldForm(id, label, group);
-
             } else {
                 fieldForm = new TextFieldForm(id, label, group);
             }
+        }
+        else if(isNumberField)
+        {
+            fieldForm = new NumberFieldForm(id, label, group);
+        }
+        else if (isDateField)
+        {
+            fieldForm = new DateFieldForm(id, label, group);
         }
 
         return fieldForm;

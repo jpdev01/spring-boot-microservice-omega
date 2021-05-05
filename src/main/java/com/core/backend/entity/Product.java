@@ -1,5 +1,7 @@
 package com.core.backend.entity;
 
+import com.core.components.form.isFieldForm;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -10,21 +12,30 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @isFieldForm(isVisible = true, label = "Nome", group = "0")
     private String name;
 
+    @isFieldForm(isVisible = true, label = "Valor de venda", group = "0")
     private Float finalValue;
+    @isFieldForm(isVisible = true, label = "Valor de compra", group = "3")
     private Float initialValue;
-
+    @isFieldForm(isVisible = true, label = "Descricao", group = "0")
     private String description;
+    @isFieldForm(isVisible = true, label = "Quantidade", group = "0")
     private Integer qtde;
+    @isFieldForm(isVisible = true, label = "Cor", group = "0")
     private String color;
+    @isFieldForm(isVisible = true, label = "Genero", group = "0")
     private String genre;
-
+    @isFieldForm(isVisible = true, label = "Data de entrada", group = "0")
     private Date entryDate;
+    @isFieldForm(isVisible = true, label = "Estilo", group = "1")
     private String style;
+
     private String size;
     private String size2;
 
+    @isFieldForm(isVisible = true, label = "Codigo de barras", group = "0")
     private String code;
 
     @ManyToMany(fetch = FetchType.EAGER)

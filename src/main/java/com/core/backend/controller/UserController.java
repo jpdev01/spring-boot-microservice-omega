@@ -77,7 +77,6 @@ public class UserController {
 
     @RequestMapping(value = "/eform/build", method = RequestMethod.GET)
     public ResponseEntity<Eform> eFormBuild() {
-//        User user = new User();
         Eform eform = service.buildEform();
         return ResponseEntity.ok(eform);
     }

@@ -3,7 +3,13 @@ package com.core.backend.service;
 import com.core.backend.entity.Category;
 import com.core.backend.entity.Product;
 import com.core.backend.entity.Provider;
+import com.core.backend.entity.User;
 import com.core.backend.repository.ProductRepository;
+import com.core.components.form.Eform;
+import com.core.components.form.EventBinding;
+import com.core.components.form.field.SelectFieldForm;
+import com.core.custom.Permission;
+import com.core.utils.PatternUrl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,6 +30,9 @@ public class ProductService implements ServiceInterface<Product>{
 
     @Autowired
     private ProviderService providerService;
+
+    @Autowired
+    private EFormService eFormService;
 
     @Override
     public void save(Product product)
@@ -103,6 +112,17 @@ public class ProductService implements ServiceInterface<Product>{
             return productRepository.findProductsByProvider(provider);
         }
         return null;
+    }
+
+    public Eform buildEform()
+    {
+        Eform eform = eFormService.build(Product.class);
+
+        // actions
+        PatternUrl patternUrl = new PatternUrl();
+        eform.setOnSave(new EventBinding("Produto salvo com sucesso!", patternUrl.getHomeRoute(patternUrl.getUser())));
+        eform.setOnSaveError(new EventBinding("Erro ao salvar produto!"));
+        return eform;
     }
 
 }
