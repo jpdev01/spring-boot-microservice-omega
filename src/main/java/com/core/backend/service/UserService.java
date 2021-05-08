@@ -5,6 +5,8 @@ import com.core.backend.repository.UserRepository;
 import com.core.components.form.Eform;
 import com.core.components.form.EventBinding;
 import com.core.components.form.field.SelectFieldForm;
+import com.core.backend.service.list.EntityList;
+import com.core.backend.service.list.UserListBuilder;
 import com.core.custom.Permission;
 import com.core.utils.PatternUrl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,9 @@ public class UserService implements ServiceInterface<User> {
 
     @Autowired
     private EFormService eFormService;
+
+    @Autowired
+    private UserListBuilder listBuilder;
 
     @Override
     public void save(User user) {
@@ -85,6 +90,11 @@ public class UserService implements ServiceInterface<User> {
         eform.setOnSave(new EventBinding("Usuário salvo com sucesso!", patternUrl.getHomeRoute(patternUrl.getUser())));
         eform.setOnSaveError(new EventBinding("Erro ao salvar usuário!"));
         return eform;
+    }
+
+    public EntityList getList()
+    {
+        return listBuilder.build();
     }
 
 }
