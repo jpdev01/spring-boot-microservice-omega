@@ -2,6 +2,7 @@ package com.core.backend.controller;
 
 import com.core.backend.entity.ProvisionalSale;
 import com.core.backend.service.ProvisionalSaleService;
+import com.core.backend.service.list.EntityList;
 import com.core.simulation.ProductTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -45,5 +46,11 @@ public class ProvisionalSaleController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Optional<ProvisionalSale> getProduct(@PathVariable Integer id) {
         return service.get(id);
+    }
+
+    @RequestMapping(value = "/list/build", method = RequestMethod.GET)
+    public ResponseEntity<EntityList> listBuild() {
+        EntityList entityList = service.getList();
+        return ResponseEntity.ok(entityList);
     }
 }

@@ -2,6 +2,7 @@ package com.core.backend.controller;
 
 import com.core.backend.entity.Sale;
 import com.core.backend.service.SaleService;
+import com.core.backend.service.list.EntityList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -61,5 +62,11 @@ public class SaleController {
         }
         service.save(sale);
         return ResponseEntity.noContent().build();
+    }
+
+    @RequestMapping(value = "/list/build", method = RequestMethod.GET)
+    public ResponseEntity<EntityList> listBuild() {
+        EntityList entityList = service.getList();
+        return ResponseEntity.ok(entityList);
     }
 }

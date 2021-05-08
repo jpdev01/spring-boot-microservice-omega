@@ -5,6 +5,8 @@ import com.core.backend.entity.Product;
 import com.core.backend.entity.Provider;
 import com.core.backend.entity.User;
 import com.core.backend.repository.ProductRepository;
+import com.core.backend.service.list.EntityList;
+import com.core.backend.service.list.ListBuilder;
 import com.core.components.form.Eform;
 import com.core.components.form.EventBinding;
 import com.core.components.form.field.FieldForm;
@@ -35,6 +37,9 @@ public class ProductService implements ServiceInterface<Product>{
 
     @Autowired
     private EFormService eFormService;
+
+    @Autowired
+    private ListBuilder listBuilder;
 
     @Override
     public void save(Product product)
@@ -129,6 +134,16 @@ public class ProductService implements ServiceInterface<Product>{
         eform.setOnSave(new EventBinding("Produto salvo com sucesso!", patternUrl.getHomeRoute(patternUrl.getUser())));
         eform.setOnSaveError(new EventBinding("Erro ao salvar produto!"));
         return eform;
+    }
+
+    public EntityList getList()
+    {
+        try {
+            return listBuilder.build(Product.class);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

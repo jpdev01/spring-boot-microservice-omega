@@ -24,11 +24,9 @@ public class ListBuilder {
         ArrayList<String> cols = new ArrayList();
         List<List<Object>> rows = new ArrayList<>();
         Query query = new Query(clazz);
-        ArrayList<String> queryParams = new ArrayList<>();
         Object obj = persistEngine.find(query, clazz);
         for (Field attribute : clazz.getDeclaredFields()) {
             if (attribute.isAnnotationPresent(isFieldList.class)) {
-                User user = new User();
                 attribute.setAccessible(true);
                 if (obj != null && obj instanceof List)
                 {

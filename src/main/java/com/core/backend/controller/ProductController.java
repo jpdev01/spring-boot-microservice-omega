@@ -2,6 +2,7 @@ package com.core.backend.controller;
 
 import com.core.backend.entity.Product;
 import com.core.backend.service.ProductService;
+import com.core.backend.service.list.EntityList;
 import com.core.components.form.Eform;
 import com.core.simulation.ProductTest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,6 +81,12 @@ public class ProductController {
     public ResponseEntity<Eform> eFormBuild() {
         Eform eform = service.buildEform();
         return ResponseEntity.ok(eform);
+    }
+
+    @RequestMapping(value = "/list/build", method = RequestMethod.GET)
+    public ResponseEntity<EntityList> listBuild() {
+        EntityList entityList = service.getList();
+        return ResponseEntity.ok(entityList);
     }
 
 }

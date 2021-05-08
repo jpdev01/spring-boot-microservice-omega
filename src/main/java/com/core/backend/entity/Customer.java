@@ -1,5 +1,8 @@
 package com.core.backend.entity;
 
+import com.core.components.list.ListModule;
+import com.core.components.list.isFieldList;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -10,14 +13,18 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @isFieldList(isVisible = ListModule.ALL, label = "Nome")
     private String name;
+    @isFieldList(isVisible = ListModule.FULL, label = "Apelido")
     private String nickname;
+    @isFieldList(isVisible = ListModule.ALL, label = "CPF")
     private String cpf;
     private String RG;
     private Date bornDate;
     private Date dateReg;
     private String email;
     private String fone;
+    @isFieldList(isVisible = ListModule.FULL, label = "Telefone")
     private String mobile;
     private String description;
     private Float credit;

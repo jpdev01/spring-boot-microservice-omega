@@ -1,7 +1,10 @@
 package com.core.backend.service;
 
 import com.core.backend.entity.Reservation;
+import com.core.backend.entity.User;
 import com.core.backend.repository.ReservationRepository;
+import com.core.backend.service.list.EntityList;
+import com.core.backend.service.list.ListBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,6 +18,9 @@ public class ReservationService implements ServiceInterface<Reservation>{
 
     @Autowired
     private ReservationRepository repository;
+
+    @Autowired
+    private ListBuilder listBuilder;
 
     @Override
     public void save(Reservation reservation)
@@ -36,4 +42,15 @@ public class ReservationService implements ServiceInterface<Reservation>{
     {
         return repository.findAll(pageable);
     }
+
+    public EntityList getList()
+    {
+        try {
+            return listBuilder.build(Reservation.class);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

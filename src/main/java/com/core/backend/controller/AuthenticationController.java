@@ -1,5 +1,6 @@
 package com.core.backend.controller;
 
+import com.core.backend.service.list.EntityList;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.core.backend.entity.User;

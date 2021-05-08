@@ -2,6 +2,7 @@ package com.core.backend.controller;
 
 import com.core.backend.entity.Category;
 import com.core.backend.service.CategoryService;
+import com.core.backend.service.list.EntityList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -56,6 +57,12 @@ public class CategoryController {
 //        }
 
         return new ResponseEntity<Page<Category>>(categories, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/list/build", method = RequestMethod.GET)
+    public ResponseEntity<EntityList> listBuild() {
+        EntityList entityList = service.getList();
+        return ResponseEntity.ok(entityList);
     }
 
 }
