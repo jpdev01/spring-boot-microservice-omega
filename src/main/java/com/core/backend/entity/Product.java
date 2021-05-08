@@ -4,6 +4,8 @@ import com.core.components.form.field.FieldView;
 import com.core.components.form.field.ListType;
 import com.core.components.form.isFieldForm;
 import com.core.components.form.isListFieldForm;
+import com.core.components.list.ListModule;
+import com.core.components.list.isFieldList;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -15,15 +17,18 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @isFieldList(isVisible = ListModule.ALL, label = "Nome", order = 0)
     @isFieldForm(isVisible = true, label = "Nome", group = "0")
     private String name;
 
+    @isFieldList(isVisible = ListModule.ALL, label = "Preço", order = 1)
     @isFieldForm(isVisible = true, label = "Valor de venda", group = "0")
     private Float finalValue;
     @isFieldForm(isVisible = true, label = "Valor de compra", group = "3")
     private Float initialValue;
     @isFieldForm(isVisible = true, label = "Descricao", group = "0")
     private String description;
+    @isFieldList(isVisible = ListModule.ALL, label = "Quantidade", order = 2)
     @isFieldForm(isVisible = true, label = "Quantidade", group = "0")
     private Integer qtde;
     @isFieldForm(isVisible = true, label = "Cor", group = "0")

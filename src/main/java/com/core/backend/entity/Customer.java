@@ -13,18 +13,18 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @isFieldList(isVisible = ListModule.ALL, label = "Nome")
+    @isFieldList(isVisible = ListModule.ALL, label = "Nome", order = 0)
     private String name;
-    @isFieldList(isVisible = ListModule.FULL, label = "Apelido")
+    @isFieldList(isVisible = ListModule.FULL, label = "Apelido", order = 1)
     private String nickname;
-    @isFieldList(isVisible = ListModule.ALL, label = "CPF")
+    @isFieldList(isVisible = ListModule.ALL, label = "CPF", order = 2)
     private String cpf;
     private String RG;
     private Date bornDate;
     private Date dateReg;
     private String email;
     private String fone;
-    @isFieldList(isVisible = ListModule.FULL, label = "Telefone")
+    @isFieldList(isVisible = ListModule.FULL, label = "Telefone", order = 3)
     private String mobile;
     private String description;
     private Float credit;

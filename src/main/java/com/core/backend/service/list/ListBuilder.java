@@ -27,6 +27,7 @@ public class ListBuilder {
         Object obj = persistEngine.find(query, clazz);
         for (Field attribute : clazz.getDeclaredFields()) {
             if (attribute.isAnnotationPresent(isFieldList.class)) {
+                int position = attribute.getAnnotation(isFieldList.class).order();
                 attribute.setAccessible(true);
                 if (obj != null && obj instanceof List)
                 {
@@ -53,11 +54,24 @@ public class ListBuilder {
                         {
                             rows.add(new ArrayList<>());
                         }
-                        rows.get(i).add(objValue);
+                        rows.get(i).add(position, objValue);
+                        //rows.get(i).add(objValue);
                     }
                 }
                 String col = getFieldCol(attribute);
-                cols.add(col);
+
+                if (cols.size() == 0 || cols.size() < position)
+                {
+                    for(int i = 0; i < position; i++)
+                    {
+                        if (cols.size() < position)
+                        {
+                            cols.add(i, null);
+                        }
+                    }
+                }
+                //cols.add(position, col);
+              cols.add(position, col);
             }
         }
         listContent.setCols(cols);

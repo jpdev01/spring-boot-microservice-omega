@@ -1,5 +1,7 @@
 package com.core.backend.entity;
 
+import com.core.components.list.ListModule;
+import com.core.components.list.isFieldList;
 import com.core.custom.CardFlag;
 import com.core.custom.FormPgto;
 import com.core.custom.Method;
@@ -13,7 +15,9 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @isFieldList(isVisible = ListModule.ALL, label = "Valor", order = 1)
     private Float value;
+    @isFieldList(isVisible = ListModule.ALL, label = "Data", order = 0)
     private Date date;
     private String description;
 

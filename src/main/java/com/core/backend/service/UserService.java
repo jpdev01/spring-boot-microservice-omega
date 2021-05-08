@@ -7,7 +7,6 @@ import com.core.components.form.Eform;
 import com.core.components.form.EventBinding;
 import com.core.components.form.field.SelectFieldForm;
 import com.core.backend.service.list.EntityList;
-import com.core.backend.service.list.UserListBuilder;
 import com.core.custom.Permission;
 import com.core.utils.PatternUrl;
 import org.springframework.beans.factory.annotation.Autowired;

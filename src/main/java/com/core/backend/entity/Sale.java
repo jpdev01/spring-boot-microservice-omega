@@ -4,6 +4,8 @@ import com.core.backend.entity.Customer;
 import com.core.backend.entity.Product;
 import com.core.backend.entity.User;
 import com.core.backend.entity.Payment;
+import com.core.components.list.ListModule;
+import com.core.components.list.isFieldList;
 import com.core.custom.FormPgto;
 import com.core.custom.StatusSale;
 
@@ -17,12 +19,15 @@ public class Sale {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @isFieldList(isVisible = ListModule.ALL, label = "Valor", order = 1)
     private Float totalValue;
+    @isFieldList(isVisible = ListModule.ALL, label = "Data", order = 0)
     private Date date;
     private String description;
     private String installments;
 
     @ManyToOne
+    @isFieldList(isVisible = ListModule.ALL, label = "Cliente", order = 2)
     private Customer customer;
 
     @ManyToMany(fetch = FetchType.EAGER)

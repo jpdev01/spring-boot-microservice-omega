@@ -15,14 +15,14 @@ public class User implements OnroadObject{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @isFieldList(isVisible = ListModule.ALL, label = "Login")
+    @isFieldList(isVisible = ListModule.ALL, label = "Login", order=0)
     @isFieldForm(isVisible = true, label = "Login", group = "0")
     private String login;
     @isFieldForm(isVisible = true, label = "Senha", group = "0")
     private String password;
 
     @CustomFieldForm
-    @isFieldList(isVisible = ListModule.ALL, label = "Permissão")
+    @isFieldList(isVisible = ListModule.ALL, label = "Permissão", order = 1)
     @Enumerated(EnumType.ORDINAL)
     private Permission permission = Permission.LESS;
 

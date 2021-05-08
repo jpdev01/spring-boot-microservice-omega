@@ -1,5 +1,8 @@
 package com.core.backend.entity;
 
+import com.core.components.list.ListModule;
+import com.core.components.list.isFieldList;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -9,7 +12,9 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @isFieldList(isVisible = ListModule.ALL, label = "Nome", order = 0)
     private String name;
+    @isFieldList(isVisible = ListModule.ALL, label = "Descrição", order = 1)
     private String description;
 
     @ManyToMany(mappedBy = "categories", fetch = FetchType.EAGER)
