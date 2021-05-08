@@ -17,11 +17,17 @@ public class UserListBuilder implements EntityListBuilder {
     public EntityList build()
     {
         EntityList list = new EntityList();
+
+        EntityListContent listContent = list.getContent();
+        if (listContent == null)
+        {
+            listContent = new EntityListContent();
+        }
         List<String> cols = new ArrayList<>();
+        List<List<String>> rows = new ArrayList<>();
         cols.add("Login");
         cols.add("Permissão");
-        list.setCols(cols);
-        List<List<String>> rows = new ArrayList<>();
+        listContent.setCols(cols);
             List<User> users = userService.getAll();
         for(User user: users)
         {
@@ -30,7 +36,9 @@ public class UserListBuilder implements EntityListBuilder {
             row.add(user.getPermission().name());
             rows.add(row);
         }
-        list.setRows(rows);
+        listContent.setRows(rows);
+        list.setContent(listContent);
+        list.setView(View.FULL);
         return list;
     }
 }

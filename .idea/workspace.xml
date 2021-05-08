@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/EntityList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/EntityListBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/UserListBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/EntityListContent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/EntityList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/EntityList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/UserListBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/UserListBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/EntityList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/EntityList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/UserListBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/UserListBuilder.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +202,7 @@
       <workItem from="1620171608260" duration="3621000" />
       <workItem from="1620254575452" duration="4698000" />
       <workItem from="1620346066080" duration="1844000" />
-      <workItem from="1620436376029" duration="1238000" />
+      <workItem from="1620436376029" duration="2764000" />
     </task>
     <servers />
   </component>
@@ -457,7 +456,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/list/UserListBuilder.java</url>
-          <line>33</line>
+          <line>41</line>
           <option name="timeStamp" value="97" />
         </line-breakpoint>
       </breakpoints>

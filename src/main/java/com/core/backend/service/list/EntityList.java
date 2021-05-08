@@ -3,29 +3,29 @@ package com.core.backend.service.list;
 import java.util.List;
 
 public class EntityList {
-    private List<String> cols;
-    private List<List<String>> rows;
+    private EntityListContent content;
+    private View view;
 
     public EntityList(){}
 
-    public EntityList(List<String> cols, List<List<String>> rows) {
-        this.cols = cols;
-        this.rows = rows;
+    public EntityList(EntityListContent content, View view) {
+        this.content = content;
+        this.view = view;
     }
 
-    public List<String> getCols() {
-        return cols;
+    public View getView() {
+        return view;
     }
 
-    public void setCols(List<String> cols) {
-        this.cols = cols;
+    public void setView(View view) {
+        this.view = view;
     }
 
-    public List<List<String>> getRows() {
-        return rows;
+    public EntityListContent getContent() {
+        return content;
     }
 
-    public void setRows(List<List<String>> rows) {
-        this.rows = rows;
+    public void setContent(EntityListContent content) {
+        this.content = content;
     }
 }
