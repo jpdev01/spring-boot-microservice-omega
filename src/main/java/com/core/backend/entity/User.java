@@ -2,6 +2,8 @@ package com.core.backend.entity;
 
 import com.core.components.form.CustomFieldForm;
 import com.core.components.form.isFieldForm;
+import com.core.components.list.ListModule;
+import com.core.components.list.isFieldList;
 import com.core.custom.Active;
 import com.core.custom.Permission;
 
@@ -13,12 +15,14 @@ public class User implements OnroadObject{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @isFieldList(isVisible = ListModule.ALL, label = "Login")
     @isFieldForm(isVisible = true, label = "Login", group = "0")
     private String login;
     @isFieldForm(isVisible = true, label = "Senha", group = "0")
     private String password;
 
     @CustomFieldForm
+    @isFieldList(isVisible = ListModule.ALL, label = "Permissão")
     @Enumerated(EnumType.ORDINAL)
     private Permission permission = Permission.LESS;
 

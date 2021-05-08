@@ -2,6 +2,7 @@ package com.core.backend.service;
 
 import com.core.backend.entity.User;
 import com.core.backend.repository.UserRepository;
+import com.core.backend.service.list.ListBuilder;
 import com.core.components.form.Eform;
 import com.core.components.form.EventBinding;
 import com.core.components.form.field.SelectFieldForm;
@@ -28,7 +29,8 @@ public class UserService implements ServiceInterface<User> {
     private EFormService eFormService;
 
     @Autowired
-    private UserListBuilder listBuilder;
+    private ListBuilder listBuilder;
+
 
     @Override
     public void save(User user) {
@@ -94,7 +96,8 @@ public class UserService implements ServiceInterface<User> {
 
     public EntityList getList()
     {
-        return listBuilder.build();
+        return listBuilder.build(User.class);
+        //return listBuilder.build();
     }
 
 }

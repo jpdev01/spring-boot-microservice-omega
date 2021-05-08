@@ -5,13 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/EntityListContent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/View.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_ejb_ejb_api_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/repository/query/Query.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/repository/query/QueryBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/ListBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/components/list/ListModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/components/list/isFieldList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/training-javaweb-02.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/training-javaweb-02.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/EntityList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/EntityList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/UserListBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/UserListBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/EntityList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/EntityList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/UserListBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/UserListBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/EntityTeste.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/repository/hibernate/ConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/repository/hibernate/ConnectionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/repository/hibernate/PersistEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/repository/hibernate/PersistEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/EntityListBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/EntityListBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/entity/EntityTeste.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/repository/hibernate/ConnectionFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/repository/hibernate/ConnectionFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/repository/hibernate/PersistEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/repository/hibernate/PersistEngine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/View.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/View.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +37,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -76,15 +92,13 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.BootSpring">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -202,7 +216,8 @@
       <workItem from="1620171608260" duration="3621000" />
       <workItem from="1620254575452" duration="4698000" />
       <workItem from="1620346066080" duration="1844000" />
-      <workItem from="1620436376029" duration="2764000" />
+      <workItem from="1620436376029" duration="4347000" />
+      <workItem from="1620473115479" duration="12920000" />
     </task>
     <servers />
   </component>
@@ -241,12 +256,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java</url>
-          <line>35</line>
+          <line>37</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java</url>
-          <line>36</line>
+          <line>38</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -266,7 +281,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/entity/User.java</url>
-          <line>10</line>
+          <line>12</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -435,16 +450,6 @@
           <option name="timeStamp" value="92" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/UserController.java</url>
-          <line>82</line>
-          <option name="timeStamp" value="93" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java</url>
-          <line>96</line>
-          <option name="timeStamp" value="94" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/list/UserListBuilder.java</url>
           <line>19</line>
           <option name="timeStamp" value="95" />
@@ -458,6 +463,21 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/list/UserListBuilder.java</url>
           <line>41</line>
           <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/list/ListBuilder.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/list/ListBuilder.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/repository/hibernate/PersistEngine.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="107" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
