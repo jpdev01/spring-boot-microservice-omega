@@ -21,6 +21,7 @@ public class Query {
     {
         this.comparator = comparator;
         this.from = from;
+        this.sb.append("FROM " + from.getSimpleName());
     }
 
     public Query(String comparator) {

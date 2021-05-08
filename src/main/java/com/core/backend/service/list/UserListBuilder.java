@@ -24,14 +24,14 @@ public class UserListBuilder implements EntityListBuilder {
             listContent = new EntityListContent();
         }
         List<String> cols = new ArrayList<>();
-        List<List<String>> rows = new ArrayList<>();
+        List<List<Object>> rows = new ArrayList<>();
         cols.add("Login");
         cols.add("Permissão");
         listContent.setCols(cols);
             List<User> users = userService.getAll();
         for(User user: users)
         {
-            List<String> row = new ArrayList<>();
+            List<Object> row = new ArrayList<>();
             row.add(user.getLogin());
             row.add(user.getPermission().name());
             rows.add(row);

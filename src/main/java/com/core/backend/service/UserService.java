@@ -96,8 +96,12 @@ public class UserService implements ServiceInterface<User> {
 
     public EntityList getList()
     {
-        return listBuilder.build(User.class);
-        //return listBuilder.build();
+        try {
+            return listBuilder.build(User.class);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }
