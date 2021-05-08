@@ -7,6 +7,7 @@ import com.core.components.list.isFieldList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.swing.text.html.ListView;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +65,7 @@ public class ListBuilder {
         listContent.setCols(cols);
         listContent.setRows(rows);
         entityList.setContent(listContent);
+        entityList.setView(View.FULL);
 
         return entityList;
     }

@@ -6,16 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/repository/hibernate/PersistEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/repository/hibernate/PersistEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/repository/query/Query.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/repository/query/Query.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/EntityListContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/EntityListContent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/ListBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/ListBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/UserListBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/UserListBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/repository/hibernate/PersistEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/repository/hibernate/PersistEngine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/ListBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/ListBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/UserListBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/UserListBuilder.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +196,7 @@
       <workItem from="1620254575452" duration="4698000" />
       <workItem from="1620346066080" duration="1844000" />
       <workItem from="1620436376029" duration="4347000" />
-      <workItem from="1620473115479" duration="21788000" />
+      <workItem from="1620473115479" duration="21987000" />
     </task>
     <servers />
   </component>
@@ -468,23 +459,13 @@
           <option name="timeStamp" value="114" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/list/ListBuilder.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="115" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java</url>
           <line>99</line>
           <option name="timeStamp" value="117" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/list/ListBuilder.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="120" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/list/ListBuilder.java</url>
-          <line>63</line>
+          <line>64</line>
           <option name="timeStamp" value="121" />
         </line-breakpoint>
       </breakpoints>
