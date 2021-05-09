@@ -33,19 +33,19 @@ public class ListBuilder {
             Object obj = persistEngine.find(query, clazz);
             for (Field attribute : clazz.getDeclaredFields()) {
                 if (attribute.isAnnotationPresent(isFieldList.class)) {
-                    int position = attribute.getAnnotation(isFieldList.class).order();
+                    int indexColumn = attribute.getAnnotation(isFieldList.class).order();
                     attribute.setAccessible(true);
                     if (obj != null && obj instanceof List) {
-                        for (int i = 0; i < ((List<?>) obj).size(); i++) {
+                        for (int indexRow = 0; indexRow < ((List<?>) obj).size(); indexRow++) {
                             if(content.isInputRadioInRows())
                             {
-                                if(position == 0)
+                                if(indexColumn == 0)
                                 {
-                                    rows.get(i).getValue().add(position, "RADIO");
+                                    rows.get(indexRow).getValue().add(indexColumn, "RADIO");
                                 }
-                                position++;
+                                indexColumn++;
                             }
-                            Object objValue = attribute.get(((List<?>) obj).get(i));
+                            Object objValue = attribute.get(((List<?>) obj).get(indexRow));
                             if (objValue != null) {
                                 if (objValue instanceof String) {
                                     objValue = (String) objValue;
@@ -55,20 +55,20 @@ public class ListBuilder {
                             } else {
                                 objValue = "";
                             }
-                            rows = validatePositionOfRow(rows, i);
-                            rows.get(i).getValue().add(position, objValue);
+                            rows = validatePositionOfRow(rows, indexRow);
+                            rows.get(indexRow).getValue().add(indexColumn, objValue);
                         }
                     }
                     String col = getFieldCol(attribute);
 
-                    if (cols.size() == 0 || cols.size() < position) {
-                        for (int i = 0; i < position; i++) {
-                            if (cols.size() < position) {
+                    if (cols.size() == 0 || cols.size() < indexColumn) {
+                        for (int i = 0; i < indexColumn; i++) {
+                            if (cols.size() < indexColumn) {
                                 cols.add(i, null);
                             }
                         }
                     }
-                    cols.add(position, col);
+                    cols.add(indexColumn, col);
                 }
                 if (attribute.isAnnotationPresent(Id.class)) {
                     for (int i = 0; i < ((List<?>) obj).size(); i++) {
