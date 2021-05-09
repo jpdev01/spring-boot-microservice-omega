@@ -83,7 +83,7 @@ public class UserService implements ServiceInterface<User> {
         options.add(Permission.MANAGER);
         options.add(Permission.LESS);
         options.add(Permission.MASTER); // programador
-        SelectFieldForm permissionsField = new SelectFieldForm("permission", "Permissão", options, "0");
+        SelectFieldForm permissionsField = new SelectFieldForm("permission", "Permissão", options, 0);
         eform.addField(permissionsField);
 
         // actions

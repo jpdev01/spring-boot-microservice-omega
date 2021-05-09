@@ -18,32 +18,32 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @isFieldList(isVisible = ListModule.ALL, label = "Nome", order = 0)
-    @isFieldForm(isVisible = true, label = "Nome", group = "0")
+    @isFieldForm(isVisible = true, label = "Nome", group = 0)
     private String name;
 
     @isFieldList(isVisible = ListModule.ALL, label = "Preço", order = 1)
-    @isFieldForm(isVisible = true, label = "Valor de venda", group = "0")
+    @isFieldForm(isVisible = true, label = "Valor de venda", group = 0)
     private Float finalValue;
-    @isFieldForm(isVisible = true, label = "Valor de compra", group = "3")
+    @isFieldForm(isVisible = true, label = "Valor de compra", group = 3)
     private Float initialValue;
-    @isFieldForm(isVisible = true, label = "Descricao", group = "0")
+    @isFieldForm(isVisible = true, label = "Descricao", group = 0)
     private String description;
     @isFieldList(isVisible = ListModule.ALL, label = "Quantidade", order = 2)
-    @isFieldForm(isVisible = true, label = "Quantidade", group = "0")
+    @isFieldForm(isVisible = true, label = "Quantidade", group = 0)
     private Integer qtde;
-    @isFieldForm(isVisible = true, label = "Cor", group = "0")
+    @isFieldForm(isVisible = true, label = "Cor", group = 0)
     private String color;
-    @isFieldForm(isVisible = true, label = "Genero", group = "0")
+    @isFieldForm(isVisible = true, label = "Genero", group = 0)
     private String genre;
-    @isFieldForm(isVisible = true, label = "Data de entrada", group = "0")
+    @isFieldForm(isVisible = true, label = "Data de entrada", group = 0)
     private Date entryDate;
-    @isFieldForm(isVisible = true, label = "Estilo", group = "1")
+    @isFieldForm(isVisible = true, label = "Estilo", group = 1)
     private String style;
 
     private String size;
     private String size2;
 
-    @isFieldForm(isVisible = true, label = "Codigo de barras", group = "0")
+    @isFieldForm(isVisible = true, label = "Codigo de barras", group =0)
     private String code;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -53,7 +53,7 @@ public class Product {
     private List<Category> categories;
 
     @ManyToOne
-    @isListFieldForm(isVisible = true, modeView = FieldView.MODAL, group = "0", listType = ListType.UNIQUE, label = "Fornecedor")
+    @isListFieldForm(isVisible = true, modeView = FieldView.MODAL, group = 0, listType = ListType.UNIQUE, label = "Fornecedor")
     private Provider provider;
 
     public Product(){}

@@ -10,5 +10,5 @@ import java.lang.annotation.Target;
 public @interface isFieldForm {
     boolean isVisible();
     String label();
-    String group();
+    int group();
 }

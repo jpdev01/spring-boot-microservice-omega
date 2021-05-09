@@ -1,5 +1,6 @@
 package com.core.backend.entity;
 
+import com.core.components.form.isFieldForm;
 import com.core.components.list.ListModule;
 import com.core.components.list.isFieldList;
 

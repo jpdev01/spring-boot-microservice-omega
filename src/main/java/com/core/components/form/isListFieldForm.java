@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 public @interface isListFieldForm {
     boolean isVisible();
     String label();
-    String group();
+    int group();
     ListType listType();
     FieldView modeView();
 }

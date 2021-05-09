@@ -4,6 +4,7 @@ package com.core.backend.controller;
 import com.core.backend.entity.Provider;
 import com.core.backend.service.ProviderService;
 import com.core.backend.service.list.EntityList;
+import com.core.components.form.Eform;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -66,6 +67,12 @@ public class ProviderController {
     public ResponseEntity<EntityList> listBuild() {
         EntityList entityList = service.getList();
         return ResponseEntity.ok(entityList);
+    }
+
+    @RequestMapping(value = "/eform/build", method = RequestMethod.GET)
+    public ResponseEntity<Eform> eFormBuild() {
+        Eform eform = service.buildEform();
+        return ResponseEntity.ok(eform);
     }
 
 }

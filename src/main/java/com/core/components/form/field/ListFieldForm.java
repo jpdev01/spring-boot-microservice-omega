@@ -4,15 +4,15 @@ public class ListFieldForm extends FieldForm{
     private FieldView modeView;
     public ListType listType;
 
-    public ListFieldForm(String id, String label, String group){
+    public ListFieldForm(String id, String label, Integer group){
         super(id, label, group, FieldFormType.LIST);
     }
 
-    public ListFieldForm(String id, String label, String group, FieldView modeView){
+    public ListFieldForm(String id, String label, Integer group, FieldView modeView){
         super(id, label, group, FieldFormType.LIST);
     }
 
-    public ListFieldForm(String id, String label, String group, FieldView modeView, ListType listType){
+    public ListFieldForm(String id, String label, Integer group, FieldView modeView, ListType listType){
         super(id, label, group, FieldFormType.LIST);
         this.modeView = modeView;
         this.listType = listType;

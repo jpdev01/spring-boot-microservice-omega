@@ -3,17 +3,17 @@ package com.core.components.form.field;
 public abstract class FieldForm {
     private String id;
     private String label;
-    private String group;
+    private Integer group;
     private FieldFormType fieldType;
 
-    public FieldForm(String id, String label, String group)
+    public FieldForm(String id, String label, Integer group)
     {
         this.setId(id);
         this.setLabel(label);
         this.setGroup(group);
     }
 
-    public FieldForm(String id, String label, String group, FieldFormType type)
+    public FieldForm(String id, String label, Integer group, FieldFormType type)
     {
         this.setId(id);
         this.setLabel(label);
@@ -37,11 +37,11 @@ public abstract class FieldForm {
         this.label = label;
     }
 
-    public String getGroup() {
+    public Integer getGroup() {
         return group;
     }
 
-    public void setGroup(String group) {
+    public void setGroup(Integer group) {
         this.group = group;
     }
 
