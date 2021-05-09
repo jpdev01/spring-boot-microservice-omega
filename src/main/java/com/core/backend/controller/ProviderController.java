@@ -4,6 +4,7 @@ package com.core.backend.controller;
 import com.core.backend.entity.Provider;
 import com.core.backend.service.ProviderService;
 import com.core.backend.service.list.EntityList;
+import com.core.backend.service.list.EntityListContent;
 import com.core.backend.service.list.View;
 import com.core.components.form.Eform;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,6 +73,16 @@ public class ProviderController {
         if (isReduced)
         {
             entityList.setView(View.REDUCED);
+        }
+        boolean radio = req.getParameter("radio") != null ? Boolean.parseBoolean(req.getParameter("reduced")) : false;
+        if (radio)
+        {
+            if(entityList.getContent() == null)
+            {
+                entityList.setContent(new EntityListContent());
+            }
+            entityList.getContent().addCol("");
+            entityList.getContent().setInputRadioInRows(true);
         }
         entityList = service.getList(entityList);
         return ResponseEntity.ok(entityList);

@@ -1,24 +1,25 @@
 package com.core.backend.service.list;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EntityListContent {
-    private List<String> cols;
+    private List<Object> cols;
     private List<Row> rows;
+    private boolean inputRadioInRows;
 
     public EntityListContent(){}
 
-    public EntityListContent(List<String> cols, List<Row> rows) {
+    public EntityListContent(List<Object> cols, List<Row> rows) {
         this.cols = cols;
         this.rows = rows;
-
     }
 
-    public List<String> getCols() {
+    public List<Object> getCols() {
         return cols;
     }
 
-    public void setCols(List<String> cols) {
+    public void setCols(List<Object> cols) {
         this.cols = cols;
     }
 
@@ -30,4 +31,20 @@ public class EntityListContent {
         this.rows = rows;
     }
 
+    public void addCol(String col)
+    {
+        if (this.cols == null)
+        {
+            this.cols = new ArrayList<>();
+        }
+        this.cols.add(col);
+    }
+
+    public boolean isInputRadioInRows() {
+        return inputRadioInRows;
+    }
+
+    public void setInputRadioInRows(boolean inputRadioInRows) {
+        this.inputRadioInRows = inputRadioInRows;
+    }
 }

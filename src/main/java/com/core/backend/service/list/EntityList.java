@@ -28,4 +28,6 @@ public class EntityList {
     public void setContent(EntityListContent content) {
         this.content = content;
     }
+
+
 }

@@ -22,9 +22,12 @@ public class ListBuilder {
             entityList = new EntityList();
         }
         try {
-            EntityListContent listContent = new EntityListContent();
-
-            ArrayList<String> cols = new ArrayList();
+            ArrayList<Object> cols = new ArrayList();
+            EntityListContent content = entityList.getContent();
+            if (content != null && content.getCols() != null)
+            {
+                cols.addAll(content.getCols());
+            }
             List<Row> rows = new ArrayList<>();
             Query query = new Query(clazz);
             Object obj = persistEngine.find(query, clazz);
@@ -34,6 +37,14 @@ public class ListBuilder {
                     attribute.setAccessible(true);
                     if (obj != null && obj instanceof List) {
                         for (int i = 0; i < ((List<?>) obj).size(); i++) {
+                            if(content.isInputRadioInRows())
+                            {
+                                if(position == 0)
+                                {
+                                    rows.get(i).getValue().add(position, "RADIO");
+                                }
+                                position++;
+                            }
                             Object objValue = attribute.get(((List<?>) obj).get(i));
                             if (objValue != null) {
                                 if (objValue instanceof String) {
@@ -68,9 +79,9 @@ public class ListBuilder {
                     }
                 }
             }
-            listContent.setCols(cols);
-            listContent.setRows(rows);
-            entityList.setContent(listContent);
+            content.setCols(cols);
+            content.setRows(rows);
+            entityList.setContent(content);
             if (entityList.getView() == null)
             {
                 entityList.setView(View.FULL);
