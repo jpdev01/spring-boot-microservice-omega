@@ -88,7 +88,7 @@ public class UserService implements ServiceInterface<User> {
 
         // actions
         PatternUrl patternUrl = new PatternUrl();
-        eform.setOnSave(new EventBinding("Usuário salvo com sucesso!", patternUrl.getHomeRoute(patternUrl.getUser())));
+        eform.setOnSave(new EventBinding("Usuário salvo com sucesso!", patternUrl.getListRoute(patternUrl.getUser())));
         eform.setOnSaveError(new EventBinding("Erro ao salvar usuário!"));
         return eform;
     }

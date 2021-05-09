@@ -99,4 +99,9 @@ public class PatternUrl {
     {
         return this.home +"/"+ route;
     }
+
+    public String getListRoute(String route)
+    {
+        return this.home + "/list/" + route;
+    }
 }

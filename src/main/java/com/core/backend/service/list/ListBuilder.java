@@ -7,6 +7,7 @@ import com.core.components.list.isFieldList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.Id;
 import javax.swing.text.html.ListView;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class ListBuilder {
         EntityListContent listContent = new EntityListContent();
 
         ArrayList<String> cols = new ArrayList();
-        List<List<Object>> rows = new ArrayList<>();
+        List<Row> rows = new ArrayList<>();
         Query query = new Query(clazz);
         Object obj = persistEngine.find(query, clazz);
         for (Field attribute : clazz.getDeclaredFields()) {
@@ -49,13 +50,8 @@ public class ListBuilder {
                         {
                             objValue = "";
                         }
-                        boolean indexIsNull = rows.size() == 0 || rows.size() < (i + 1) || rows.get(i) == null;
-                        if (indexIsNull)
-                        {
-                            rows.add(new ArrayList<>());
-                        }
-                        rows.get(i).add(position, objValue);
-                        //rows.get(i).add(objValue);
+                        rows = validatePositionOfRow(rows, i);
+                        rows.get(i).getValue().add(position, objValue);
                     }
                 }
                 String col = getFieldCol(attribute);
@@ -70,8 +66,17 @@ public class ListBuilder {
                         }
                     }
                 }
-                //cols.add(position, col);
               cols.add(position, col);
+            }
+            if(attribute.isAnnotationPresent(Id.class))
+            {
+                for(int i = 0; i < ((List<?>) obj).size(); i++)
+                {
+                    attribute.setAccessible(true);
+                    rows = validatePositionOfRow(rows, i);
+                    Integer objValue = (Integer) attribute.get(((List<?>) obj).get(i));
+                    rows.get(i).setKey(objValue);
+                }
             }
         }
         listContent.setCols(cols);
@@ -84,6 +89,15 @@ public class ListBuilder {
 
     private String getFieldCol(Field attribute){
         return attribute.getName();
+    }
+
+    private List<Row> validatePositionOfRow(List<Row> rows, Integer index){
+        boolean indexIsNull = rows.size() == 0 || rows.size() < (index + 1) || rows.get(index) == null;
+        if (indexIsNull)
+        {
+            rows.add(new Row());
+        }
+        return rows;
     }
 
 }

@@ -14,4 +14,5 @@ public @interface isFieldList {
     ListModule isVisible();
     String label();
     int order();
+    boolean isKey() default false;
 }
