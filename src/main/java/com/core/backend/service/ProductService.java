@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ProductService implements ServiceInterface<Product>{
+public class ProductService implements ServiceInterface<Product> {
 
     @Autowired
     private ProductRepository productRepository;
@@ -42,70 +42,56 @@ public class ProductService implements ServiceInterface<Product>{
     private ListBuilder listBuilder;
 
     @Override
-    public void save(Product product)
-    {
+    public void save(Product product) {
         List<Category> categories = product.getCategories();
         List<Category> newCategories = new ArrayList<>();
-        if (categories != null && !categories.isEmpty())
-        {
-            for (int i = 0; i < categories.size(); i++)
-            {
+        if (categories != null && !categories.isEmpty()) {
+            for (int i = 0; i < categories.size(); i++) {
                 Optional<Category> category = categoryService.get(categories.get(i).getId());
                 Category oCategory = category.get();
-                if (oCategory != null)
-                {
+                if (oCategory != null) {
                     newCategories.add(oCategory);
                 }
             }
         }
         product.setCategories(newCategories);
         Provider provider = product.getProvider();
-        if (provider == null || provider.getId() == null)
-        {
+        if (provider == null || provider.getId() == null) {
             product.setProvider(null);
-        }
-        else
-        {
+        } else {
             product.setProvider(providerService.get(provider.getId()).get());
         }
         if (product != null) {
-            try
-            {
+            try {
                 productRepository.save(product);
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 System.err.println("erro ao salvar novo produto!");
             }
         }
     }
 
     @Override
-    public Optional<Product> get(Integer id)
-    {
+    public Optional<Product> get(Integer id) {
         return productRepository.findById(id);
     }
 
-    public Optional<Product> findByCode(String code)
-    {
+    public Optional<Product> findByCode(String code) {
         return productRepository.findByCode(code);
     }
 
     @Override
-    public List<Product> getAll()
-    {
+    public List<Product> getAll() {
         return productRepository.findAll();
     }
 
     @Override
-    public Page<Product> getAll(Pageable pageable)
-    {
+    public Page<Product> getAll(Pageable pageable) {
         return productRepository.findAll(pageable);
     }
 
-    public Optional<List<Product>> getAllFromCategory(Integer categoryId){
+    public Optional<List<Product>> getAllFromCategory(Integer categoryId) {
         Category category = categoryService.get(categoryId).get();
-        if (category != null){
+        if (category != null) {
             List<Category> categoryList = new ArrayList<>();
             categoryList.add(category);
             return productRepository.findProductsByCategoriesIn(categoryList);
@@ -113,16 +99,15 @@ public class ProductService implements ServiceInterface<Product>{
         return null;
     }
 
-    public Optional<List<Product>> getAllFromProvider(Integer providerId){
+    public Optional<List<Product>> getAllFromProvider(Integer providerId) {
         Provider provider = providerService.get(providerId).get();
-        if (provider != null){
+        if (provider != null) {
             return productRepository.findProductsByProvider(provider);
         }
         return null;
     }
 
-    public Eform buildEform()
-    {
+    public Eform buildEform() {
         Eform eform = eFormService.build(Product.class);
         List<FieldForm> fields = new ArrayList<>();
         //FieldForm provider = new ListFieldForm("provider", "Fornecedor", "1", "modal");
@@ -136,14 +121,8 @@ public class ProductService implements ServiceInterface<Product>{
         return eform;
     }
 
-    public EntityList getList()
-    {
-        try {
-            return listBuilder.build(Product.class);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public EntityList getList() {
+        return listBuilder.build(Product.class);
     }
 
 }

@@ -48,12 +48,7 @@ public class CustomerService implements ServiceInterface<Customer>{
 
     public EntityList getList()
     {
-        try {
-            return listBuilder.build(Customer.class);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return listBuilder.build(Customer.class);
     }
 
 }

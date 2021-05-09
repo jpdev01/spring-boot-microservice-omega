@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ProvisionalSaleService implements ServiceInterface<ProvisionalSale>{
+public class ProvisionalSaleService implements ServiceInterface<ProvisionalSale> {
 
     @Autowired
     private ProvisionalSaleRepository repo;
@@ -23,35 +23,27 @@ public class ProvisionalSaleService implements ServiceInterface<ProvisionalSale>
     private ListBuilder listBuilder;
 
     @Override
-    public void save(ProvisionalSale provisionalSale){
+    public void save(ProvisionalSale provisionalSale) {
         repo.save(provisionalSale);
     }
 
     @Override
-    public Optional<ProvisionalSale> get(Integer id){
+    public Optional<ProvisionalSale> get(Integer id) {
         return repo.findById(id);
     }
 
     @Override
-    public Page<ProvisionalSale> getAll(Pageable pageable)
-    {
+    public Page<ProvisionalSale> getAll(Pageable pageable) {
         return repo.findAll(pageable);
     }
 
     @Override
-    public List<ProvisionalSale> getAll()
-    {
+    public List<ProvisionalSale> getAll() {
         return repo.findAll();
     }
 
-    public EntityList getList()
-    {
-        try {
-            return listBuilder.build(ProvisionalSale.class);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public EntityList getList() {
+        return listBuilder.build(ProvisionalSale.class);
     }
 
 

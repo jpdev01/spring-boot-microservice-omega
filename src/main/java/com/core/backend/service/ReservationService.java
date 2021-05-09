@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ReservationService implements ServiceInterface<Reservation>{
+public class ReservationService implements ServiceInterface<Reservation> {
 
     @Autowired
     private ReservationRepository repository;
@@ -23,34 +23,27 @@ public class ReservationService implements ServiceInterface<Reservation>{
     private ListBuilder listBuilder;
 
     @Override
-    public void save(Reservation reservation)
-    {
+    public void save(Reservation reservation) {
         repository.save(reservation);
     }
+
     @Override
-    public List<Reservation> getAll()
-    {
+    public List<Reservation> getAll() {
         return repository.findAll();
     }
+
     @Override
-    public Optional<Reservation> get(Integer id)
-    {
+    public Optional<Reservation> get(Integer id) {
         return repository.findById(id);
     }
+
     @Override
-    public Page<Reservation> getAll(Pageable pageable)
-    {
+    public Page<Reservation> getAll(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
-    public EntityList getList()
-    {
-        try {
-            return listBuilder.build(Reservation.class);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public EntityList getList() {
+        return listBuilder.build(Reservation.class);
     }
 
 }

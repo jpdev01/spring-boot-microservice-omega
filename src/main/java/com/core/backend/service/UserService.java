@@ -75,8 +75,7 @@ public class UserService implements ServiceInterface<User> {
         return repository.findByLogin(login);
     }
 
-    public Eform buildEform()
-    {
+    public Eform buildEform() {
         Eform eform = eFormService.build(User.class);
         ArrayList<Permission> options = new ArrayList<>();
         options.add(Permission.ADM);
@@ -93,14 +92,8 @@ public class UserService implements ServiceInterface<User> {
         return eform;
     }
 
-    public EntityList getList()
-    {
-        try {
-            return listBuilder.build(User.class);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public EntityList getList() {
+        return listBuilder.build(User.class);
     }
 
 }

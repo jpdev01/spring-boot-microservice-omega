@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class SaleService implements ServiceInterface<Sale>{
+public class SaleService implements ServiceInterface<Sale> {
 
     @Autowired
     private SaleRepository repository;
@@ -24,53 +24,42 @@ public class SaleService implements ServiceInterface<Sale>{
     private ListBuilder listBuilder;
 
     @Override
-    public void save(Sale sale)
-    {
+    public void save(Sale sale) {
         List<Product> products = sale.getProducts();
         Float finalValue = sale.getTotalValue() != null ? sale.getTotalValue() : 0;
-        for (Product product: products)
-        {
+        for (Product product : products) {
             Integer qtde = product.getQtde();
-            if (qtde > 0)
-            {
+            if (qtde > 0) {
                 product.setQtde(qtde);
                 finalValue = finalValue + product.getFinalValue();
-            }
-            else
-            {
+            } else {
                 System.err.println("Produto não está disponível");
             }
         }
-        if (finalValue != sale.getTotalValue())
-        {
+        if (finalValue != sale.getTotalValue()) {
             sale.setTotalValue(finalValue);
         }
         repository.save(sale);
     }
+
     @Override
-    public List<Sale> getAll()
-    {
+    public List<Sale> getAll() {
         return repository.findAll();
     }
+
     @Override
-    public Page<Sale> getAll(Pageable pageable)
-    {
+    public Page<Sale> getAll(Pageable pageable) {
         return repository.findAll(pageable);
     }
+
     @Override
-    public Optional<Sale> get(Integer id)
-    {
+    public Optional<Sale> get(Integer id) {
         return repository.findById(id);
     }
 
-    public EntityList getList()
-    {
-        try {
-            return listBuilder.build(Sale.class);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public EntityList getList() {
+        return listBuilder.build(Sale.class);
+
     }
 
 }

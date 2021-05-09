@@ -57,11 +57,6 @@ public class CategoryService implements ServiceInterface<Category>{
 
     public EntityList getList()
     {
-        try {
-            return listBuilder.build(Category.class);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return listBuilder.build(Category.class);
     }
 }

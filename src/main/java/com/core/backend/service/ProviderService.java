@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ProviderService implements ServiceInterface<Provider>{
+public class ProviderService implements ServiceInterface<Provider> {
     @Autowired
     private ProviderRepository repository;
 
@@ -31,50 +31,40 @@ public class ProviderService implements ServiceInterface<Provider>{
     private EFormService eFormService;
 
     @Override
-    public void save(Provider provider)
-    {
+    public void save(Provider provider) {
         if (provider != null) {
-            try
-            {
+            try {
                 repository.save(provider);
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 System.err.println("erro ao salvar novo produto!");
             }
         }
     }
 
     @Override
-    public List<Provider> getAll()
-    {
+    public List<Provider> getAll() {
         return repository.findAll();
     }
 
     @Override
-    public Page<Provider> getAll(Pageable pageable)
-    {
+    public Page<Provider> getAll(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
     @Override
-    public Optional<Provider> get(Integer id)
-    {
+    public Optional<Provider> get(Integer id) {
         return repository.findById(id);
     }
 
-    public EntityList getList()
-    {
-        try {
-            return listBuilder.build(Provider.class);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public EntityList getList() {
+        return listBuilder.build(Provider.class);
     }
 
-    public Eform buildEform()
-    {
+    public EntityList getList(EntityList entityList) {
+        return listBuilder.build(Provider.class, entityList);
+    }
+
+    public Eform buildEform() {
         Eform eform = eFormService.build(Provider.class);
         ArrayList<Permission> options = new ArrayList<>();
         options.add(Permission.ADM);

@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PaymentService implements ServiceInterface<Payment>{
+public class PaymentService implements ServiceInterface<Payment> {
 
     @Autowired
     private PaymentRepository repository;
@@ -23,36 +23,26 @@ public class PaymentService implements ServiceInterface<Payment>{
     private ListBuilder listBuilder;
 
     @Override
-    public void save(Payment payment)
-    {
+    public void save(Payment payment) {
         repository.save(payment);
     }
 
     @Override
-    public List<Payment> getAll()
-    {
+    public List<Payment> getAll() {
         return repository.findAll();
     }
 
     @Override
-    public Optional<Payment> get(Integer id)
-    {
+    public Optional<Payment> get(Integer id) {
         return repository.findById(id);
     }
 
-    public Page<Payment> getAll(Pageable pageable)
-    {
+    public Page<Payment> getAll(Pageable pageable) {
         return repository.findAll(pageable);
     }
 
-    public EntityList getList()
-    {
-        try {
-            return listBuilder.build(Sale.class);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public EntityList getList() {
+        return listBuilder.build(Sale.class);
     }
 
 }

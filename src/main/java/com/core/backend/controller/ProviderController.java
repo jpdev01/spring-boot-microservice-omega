@@ -4,6 +4,7 @@ package com.core.backend.controller;
 import com.core.backend.entity.Provider;
 import com.core.backend.service.ProviderService;
 import com.core.backend.service.list.EntityList;
+import com.core.backend.service.list.View;
 import com.core.components.form.Eform;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;   
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.servlet.http.HttpServletRequest;
 import java.net.URI;
 import java.util.Optional;
 
@@ -64,8 +66,14 @@ public class ProviderController {
     }
 
     @RequestMapping(value = "/list/build", method = RequestMethod.GET)
-    public ResponseEntity<EntityList> listBuild() {
-        EntityList entityList = service.getList();
+    public ResponseEntity<EntityList> listBuild(HttpServletRequest req) {
+        boolean isReduced = req.getParameter("reduced") != null ? Boolean.parseBoolean(req.getParameter("reduced")) : false;
+        EntityList entityList = new EntityList();
+        if (isReduced)
+        {
+            entityList.setView(View.REDUCED);
+        }
+        entityList = service.getList(entityList);
         return ResponseEntity.ok(entityList);
     }
 
