@@ -71,7 +71,10 @@ public class ListBuilder {
             listContent.setCols(cols);
             listContent.setRows(rows);
             entityList.setContent(listContent);
-            entityList.setView(View.FULL);
+            if (entityList.getView() == null)
+            {
+                entityList.setView(View.FULL);
+            }
 
         } catch (Exception e) {
             System.out.println("Erro ao buildar o eform!" + e);
