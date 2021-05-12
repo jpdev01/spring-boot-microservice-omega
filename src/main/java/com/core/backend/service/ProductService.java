@@ -112,6 +112,8 @@ public class ProductService implements ServiceInterface<Product> {
         List<FieldForm> fields = new ArrayList<>();
         //FieldForm provider = new ListFieldForm("provider", "Fornecedor", "1", "modal");
         //fields.add(provider);
+        // FIXME pendente;
+        // colocar options no select de qtde
 
 
         // actions

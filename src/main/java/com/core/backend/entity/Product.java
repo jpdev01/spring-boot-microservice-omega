@@ -1,5 +1,7 @@
 package com.core.backend.entity;
 
+import com.core.backend.service.ProviderService;
+import com.core.components.form.field.FieldFormType;
 import com.core.components.form.field.FieldView;
 import com.core.components.form.field.ListType;
 import com.core.components.form.isFieldForm;
@@ -28,8 +30,7 @@ public class Product {
     private Float initialValue;
     @isFieldForm(isVisible = true, label = "Descricao", group = 0)
     private String description;
-    @isFieldList(isVisible = ListModule.ALL, label = "Quantidade", order = 2)
-    @isFieldForm(isVisible = true, label = "Quantidade", group = 0)
+    @isFieldForm(isVisible = true, label = "Quantidade", group = 0, type = FieldFormType.SELECT)
     private Integer qtde;
     @isFieldForm(isVisible = true, label = "Cor", group = 0)
     private String color;

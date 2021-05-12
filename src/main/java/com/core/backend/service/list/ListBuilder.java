@@ -2,6 +2,7 @@ package com.core.backend.service.list;
 
 import com.core.backend.repository.query.Query;
 import com.core.backend.repository.hibernate.PersistEngine;
+import com.core.components.form.field.RadioFieldForm;
 import com.core.components.list.isFieldList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -37,15 +38,16 @@ public class ListBuilder {
                     attribute.setAccessible(true);
                     if (obj != null && obj instanceof List) {
                         for (int indexRow = 0; indexRow < ((List<?>) obj).size(); indexRow++) {
+                            Object entity = ((List<?>) obj).get(indexRow);
                             if(content.isInputRadioInRows())
                             {
                                 if(indexColumn == 0)
                                 {
-                                    rows.get(indexRow).getValue().add(indexColumn, "RADIO");
+                                    rows.get(indexRow).getValue().add(indexColumn, new RadioFieldForm("1", "provider", 0));
                                 }
                                 indexColumn++;
                             }
-                            Object objValue = attribute.get(((List<?>) obj).get(indexRow));
+                            Object objValue = attribute.get(entity);
                             if (objValue != null) {
                                 if (objValue instanceof String) {
                                     objValue = (String) objValue;

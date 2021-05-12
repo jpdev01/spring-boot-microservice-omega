@@ -49,10 +49,12 @@ public class EFormService {
         String id = attribute.getName();
         String label = attribute.getAnnotation(isFieldForm.class).label();
         Integer group = attribute.getAnnotation(isFieldForm.class).group();
+        FieldFormType type = attribute.getAnnotation(isFieldForm.class).type();
 
         Class<?> attributeType = attribute.getType();
+        boolean isSelectField = type == FieldFormType.SELECT;
         boolean isTextField = attributeType.equals(String.class);
-        boolean isNumberField = attributeType.equals(Integer.class) || attributeType.equals(Float.class);
+        boolean isNumberField = attributeType.equals(Integer.class) || attributeType.equals(Float.class) && !isSelectField;
         boolean isDateField = attributeType.equals(Date.class);
         if (isTextField)
         {
@@ -69,6 +71,10 @@ public class EFormService {
         else if (isDateField)
         {
             fieldForm = new DateFieldForm(id, label, group);
+        }
+        else if (isSelectField)
+        {
+            fieldForm = new SelectFieldForm(id, label, null, group);
         }
         return fieldForm;
     }
