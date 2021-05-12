@@ -6,7 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class SelectFieldForm extends FieldForm{
-    public SelectFieldForm(String id, String label, List<Permission> options, Integer group)
+    private List<Object> options;
+    public SelectFieldForm(String id, String label, List<Object> options, Integer group)
     {
         super(id, label, group, FieldFormType.SELECT);
         this.options = options;
@@ -16,14 +17,13 @@ public class SelectFieldForm extends FieldForm{
 //    {
 //        System.out.println(options);
 //        //this.options = options;
-//    }
-    private List<Permission> options;
+//
 
-    public List<Permission> getOptions() {
+    public List<Object> getOptions() {
         return options;
     }
 
-    public void setOptions(List<Permission> options) {
+    public void setOptions(List<Object> options) {
         this.options = options;
     }
 }

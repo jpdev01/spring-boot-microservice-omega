@@ -66,7 +66,7 @@ public class ProviderService implements ServiceInterface<Provider> {
 
     public Eform buildEform() {
         Eform eform = eFormService.build(Provider.class);
-        ArrayList<Permission> options = new ArrayList<>();
+        ArrayList<Object> options = new ArrayList<>();
         options.add(Permission.ADM);
         options.add(Permission.MANAGER);
         options.add(Permission.LESS);

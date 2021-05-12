@@ -114,6 +114,16 @@ public class ProductService implements ServiceInterface<Product> {
         //fields.add(provider);
         // FIXME pendente;
         // colocar options no select de qtde
+        FieldForm fieldQtde = eform.findField("qtde");
+        if (fieldQtde != null && fieldQtde instanceof SelectFieldForm)
+        {
+            ArrayList<Object> options = new ArrayList<>();
+            for(int i = 30; i <= 50; i++)
+            {
+                options.add(i);
+            }
+            ((SelectFieldForm) fieldQtde).setOptions(options);
+        }
 
 
         // actions

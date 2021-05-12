@@ -64,6 +64,10 @@ public class EFormService {
                 fieldForm = new TextFieldForm(id, label, group);
             }
         }
+        else if (isSelectField)
+        {
+            fieldForm = new SelectFieldForm(id, label, null, group);
+        }
         else if(isNumberField)
         {
             fieldForm = new NumberFieldForm(id, label, group);
@@ -71,10 +75,6 @@ public class EFormService {
         else if (isDateField)
         {
             fieldForm = new DateFieldForm(id, label, group);
-        }
-        else if (isSelectField)
-        {
-            fieldForm = new SelectFieldForm(id, label, null, group);
         }
         return fieldForm;
     }

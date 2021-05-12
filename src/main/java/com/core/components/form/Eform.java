@@ -10,6 +10,8 @@ import com.core.utils.PatternUrl;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class Eform {
     private String nameId;
@@ -70,5 +72,32 @@ public class Eform {
 
     public void setOnSaveError(EventBinding onSaveError) {
         this.onSaveError = onSaveError;
+    }
+
+    public List<FieldForm> findFields(String fieldId)
+    {
+        Predicate<FieldForm> fieldFilter = field -> field.getId().equalsIgnoreCase(fieldId);
+
+        // Recupera a lista contendo o id
+        List<FieldForm> allFields = this.getFields();
+        List<FieldForm> fields;
+        fields = allFields.stream()
+                .filter(fieldFilter)
+                .collect(Collectors.toList());
+        return fields;
+    }
+
+    public FieldForm findField(String fieldId)
+    {
+        FieldForm field = null;
+        if(fieldId != null)
+        {
+            List<FieldForm> fields = this.findFields(fieldId);
+            if (fields != null && !fields.isEmpty())
+            {
+                field = fields.get(0);
+            }
+        }
+        return field;
     }
 }
