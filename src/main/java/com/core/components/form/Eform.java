@@ -95,6 +95,10 @@ public class Eform {
             List<FieldForm> fields = this.findFields(fieldId);
             if (fields != null && !fields.isEmpty())
             {
+                if(fields.size() > 1)
+                {
+                    System.out.println("code " + fieldId + " returns more than one field");
+                }
                 field = fields.get(0);
             }
         }

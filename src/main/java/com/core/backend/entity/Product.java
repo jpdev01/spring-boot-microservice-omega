@@ -34,7 +34,7 @@ public class Product {
     private Integer qtde;
     @isFieldForm(isVisible = true, label = "Cor", group = 0)
     private String color;
-    @isFieldForm(isVisible = true, label = "Genero", group = 0)
+    @isFieldForm(isVisible = true, label = "Genero", group = 0, type = FieldFormType.SELECT)
     private String genre;
     @isFieldForm(isVisible = true, label = "Data de entrada", group = 0)
     private Date entryDate;

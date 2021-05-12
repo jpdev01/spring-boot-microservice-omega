@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/custom/Genre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/EFormService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/EFormService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/ProviderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/ProviderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/core/components/form/Eform.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/components/form/Eform.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/SelectFieldForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/SelectFieldForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/entity/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/entity/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/EFormService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/EFormService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/ProductService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,6 +78,17 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.BootSpring">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="generated-requests#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" runType="Run single request">
       <method v="2" />
     </configuration>
@@ -196,7 +209,7 @@
       <workItem from="1620586039374" duration="2417000" />
       <workItem from="1620605414556" duration="1142000" />
       <workItem from="1620653613238" duration="2909000" />
-      <workItem from="1620860024970" duration="2018000" />
+      <workItem from="1620860024970" duration="3248000" />
     </task>
     <servers />
   </component>
@@ -280,22 +293,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>
-          <line>65</line>
+          <line>63</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>
-          <line>63</line>
+          <line>61</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>
-          <line>46</line>
+          <line>44</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>
-          <line>67</line>
+          <line>65</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -425,7 +438,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>
-          <line>45</line>
+          <line>43</line>
           <option name="timeStamp" value="135" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -440,18 +453,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>
-          <line>110</line>
-          <option name="timeStamp" value="141" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/EFormService.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="144" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/core/components/form/Eform.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="145" />
+          <line>125</line>
+          <option name="timeStamp" value="149" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

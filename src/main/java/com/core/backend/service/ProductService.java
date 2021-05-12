@@ -3,16 +3,14 @@ package com.core.backend.service;
 import com.core.backend.entity.Category;
 import com.core.backend.entity.Product;
 import com.core.backend.entity.Provider;
-import com.core.backend.entity.User;
 import com.core.backend.repository.ProductRepository;
 import com.core.backend.service.list.EntityList;
 import com.core.backend.service.list.ListBuilder;
 import com.core.components.form.Eform;
 import com.core.components.form.EventBinding;
 import com.core.components.form.field.FieldForm;
-import com.core.components.form.field.ListFieldForm;
 import com.core.components.form.field.SelectFieldForm;
-import com.core.custom.Permission;
+import com.core.custom.Genre;
 import com.core.utils.PatternUrl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -114,15 +112,24 @@ public class ProductService implements ServiceInterface<Product> {
         //fields.add(provider);
         // FIXME pendente;
         // colocar options no select de qtde
-        FieldForm fieldQtde = eform.findField("qtde");
-        if (fieldQtde != null && fieldQtde instanceof SelectFieldForm)
+        FieldForm qtdeField = eform.findField("qtde");
+        if (qtdeField != null && qtdeField instanceof SelectFieldForm)
         {
             ArrayList<Object> options = new ArrayList<>();
             for(int i = 30; i <= 50; i++)
             {
                 options.add(i);
             }
-            ((SelectFieldForm) fieldQtde).setOptions(options);
+            ((SelectFieldForm) qtdeField).setOptions(options);
+        }
+        FieldForm genreField = eform.findField("genre");
+        if(genreField != null && genreField instanceof SelectFieldForm)
+        {
+            List<Object> options = new ArrayList<>();
+            options.add(Genre.F);
+            options.add(Genre.M);
+            options.add(Genre.OTHERS);
+            ((SelectFieldForm) genreField).setOptions(options);
         }
 
 
