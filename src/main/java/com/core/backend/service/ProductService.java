@@ -108,10 +108,6 @@ public class ProductService implements ServiceInterface<Product> {
     public Eform buildEform() {
         Eform eform = eFormService.build(Product.class);
         List<FieldForm> fields = new ArrayList<>();
-        //FieldForm provider = new ListFieldForm("provider", "Fornecedor", "1", "modal");
-        //fields.add(provider);
-        // FIXME pendente;
-        // colocar options no select de qtde
         FieldForm qtdeField = eform.findField("qtde");
         if (qtdeField != null && qtdeField instanceof SelectFieldForm)
         {

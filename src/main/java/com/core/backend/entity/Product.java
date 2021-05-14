@@ -1,6 +1,7 @@
 package com.core.backend.entity;
 
 import com.core.backend.service.ProviderService;
+import com.core.components.form.Eform;
 import com.core.components.form.field.FieldFormType;
 import com.core.components.form.field.FieldView;
 import com.core.components.form.field.ListType;
@@ -54,7 +55,7 @@ public class Product {
     private List<Category> categories;
 
     @ManyToOne
-    @isListFieldForm(isVisible = true, modeView = FieldView.MODAL, group = 0, listType = ListType.UNIQUE, label = "Fornecedor")
+    @isListFieldForm(isVisible = true, modeView = FieldView.MODAL, group = 0, listType = ListType.UNIQUE, label = "Fornecedor", instance = Eform.class)
     private Provider provider;
 
     public Product(){}

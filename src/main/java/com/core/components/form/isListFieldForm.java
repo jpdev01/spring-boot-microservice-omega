@@ -18,4 +18,5 @@ public @interface isListFieldForm {
     int group();
     ListType listType();
     FieldView modeView();
+    Class instance() default Object.class;
 }

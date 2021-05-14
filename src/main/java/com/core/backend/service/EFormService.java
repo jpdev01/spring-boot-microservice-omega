@@ -42,7 +42,7 @@ public class EFormService {
         return eform;
     }
 
-    public FieldForm getFieldByType(Field attribute) 
+    public FieldForm getFieldByType(Field attribute)
     {
         FieldForm fieldForm = null;
         String id = attribute.getName();
@@ -86,7 +86,16 @@ public class EFormService {
         Integer group = attribute.getAnnotation(isListFieldForm.class).group();
         FieldView view = attribute.getAnnotation(isListFieldForm.class).modeView();
         ListType listType = attribute.getAnnotation(isListFieldForm.class).listType();
-        ListFieldForm fieldForm = new ListFieldForm(id, label, group, view);
+        Class instance = attribute.getAnnotation(isListFieldForm.class).instance();
+        ListFieldForm fieldForm = null;
+        if(instance != null)
+        {
+            fieldForm = new ListFieldForm(id, label, group, view, instance);
+        }
+        else
+        {
+            fieldForm = new ListFieldForm(id, label, group, view);
+        }
         return fieldForm;
     }
 }
