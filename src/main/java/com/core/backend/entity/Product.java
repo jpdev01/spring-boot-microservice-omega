@@ -52,10 +52,11 @@ public class Product {
     @JoinTable(name="products_has_categories", joinColumns=
     @JoinColumn(name="product_id"), inverseJoinColumns=
     @JoinColumn(name="category_id"))
+    @isListFieldForm(isVisible = true, modeView = FieldView.MODAL, group = 0, listType = ListType.MANY, label = "Categorias", instance = Category.class)
     private List<Category> categories;
 
     @ManyToOne
-    @isListFieldForm(isVisible = true, modeView = FieldView.MODAL, group = 0, listType = ListType.UNIQUE, label = "Fornecedor", instance = Eform.class)
+    @isListFieldForm(isVisible = true, modeView = FieldView.MODAL, group = 0, listType = ListType.UNIQUE, label = "Fornecedor", instance = Provider.class)
     private Provider provider;
 
     public Product(){}
