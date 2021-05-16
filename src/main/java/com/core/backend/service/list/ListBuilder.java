@@ -2,6 +2,8 @@ package com.core.backend.service.list;
 
 import com.core.backend.repository.query.Query;
 import com.core.backend.repository.hibernate.PersistEngine;
+import com.core.components.form.field.CheckboxFieldForm;
+import com.core.components.form.field.FieldFormType;
 import com.core.components.form.field.RadioFieldForm;
 import com.core.components.list.isFieldList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,13 +41,27 @@ public class ListBuilder {
                     if (obj != null && obj instanceof List) {
                         for (int indexRow = 0; indexRow < ((List<?>) obj).size(); indexRow++) {
                             Object entity = ((List<?>) obj).get(indexRow);
-                            if(content.isInputRadioInRows())
+                            FieldFormType contentInputType = content.getInput();
+                            if(contentInputType != null)
                             {
-                                if(indexColumn == 0)
+                                if(FieldFormType.RADIO.equals(contentInputType))
                                 {
-                                    rows.get(indexRow).getValue().add(indexColumn, new RadioFieldForm("1", "provider", 0));
+                                    if(indexColumn == 0)
+                                    {
+                                        String label = clazz.getSimpleName().toLowerCase();
+                                        rows.get(indexRow).getValue().add(indexColumn, new RadioFieldForm("1", label, 0));
+                                    }
+                                    indexColumn++;
                                 }
-                                indexColumn++;
+                                else if (FieldFormType.CHECKBOX.equals(contentInputType))
+                                {
+                                    if(indexColumn == 0)
+                                    {
+                                        String label = clazz.getSimpleName().toLowerCase();
+                                        rows.get(indexRow).getValue().add(indexColumn, new CheckboxFieldForm("1", label, 0));
+                                    }
+                                    indexColumn++;
+                                }
                             }
                             Object objValue = attribute.get(entity);
                             if (objValue != null) {

@@ -10,6 +10,7 @@ import com.core.components.form.Eform;
 import com.core.components.form.EventBinding;
 import com.core.components.form.field.FieldForm;
 import com.core.components.form.field.SelectFieldForm;
+import com.core.components.utils.WebComponent;
 import com.core.custom.Genre;
 import com.core.utils.PatternUrl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -127,6 +128,8 @@ public class ProductService implements ServiceInterface<Product> {
             options.add(Genre.OTHERS);
             ((SelectFieldForm) genreField).setOptions(options);
         }
+        FieldForm categoriesField = eform.findField("categories");
+        categoriesField.setWebComponent(WebComponent.CATEGORY);
 
 
         // actions

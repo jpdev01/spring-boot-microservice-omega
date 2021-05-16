@@ -59,4 +59,9 @@ public class CategoryService implements ServiceInterface<Category>{
     {
         return listBuilder.build(Category.class);
     }
+    
+    public EntityList getList(EntityList entityList)
+    {
+        return listBuilder.build(Category.class, entityList);
+    }
 }

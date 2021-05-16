@@ -7,6 +7,7 @@ import com.core.backend.service.list.EntityList;
 import com.core.backend.service.list.EntityListContent;
 import com.core.backend.service.list.View;
 import com.core.components.form.Eform;
+import com.core.components.form.field.FieldFormType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -74,15 +75,15 @@ public class ProviderController {
         {
             entityList.setView(View.REDUCED);
         }
-        boolean radio = req.getParameter("radio") != null ? Boolean.parseBoolean(req.getParameter("reduced")) : false;
-        if (radio)
+            boolean hasInput = req.getParameter("input") != null ? Boolean.parseBoolean(req.getParameter("input")) : false;
+        if (hasInput)
         {
             if(entityList.getContent() == null)
             {
                 entityList.setContent(new EntityListContent());
             }
             entityList.getContent().addCol("");
-            entityList.getContent().setInputRadioInRows(true);
+            entityList.getContent().setInput(FieldFormType.RADIO);
         }
         entityList = service.getList(entityList);
         return ResponseEntity.ok(entityList);

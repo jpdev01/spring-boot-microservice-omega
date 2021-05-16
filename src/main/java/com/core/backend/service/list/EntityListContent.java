@@ -1,12 +1,14 @@
 package com.core.backend.service.list;
 
+import com.core.components.form.field.FieldFormType;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class EntityListContent {
     private List<Object> cols;
     private List<Row> rows;
-    private boolean inputRadioInRows;
+    private FieldFormType input;
 
     public EntityListContent(){}
 
@@ -40,11 +42,11 @@ public class EntityListContent {
         this.cols.add(col);
     }
 
-    public boolean isInputRadioInRows() {
-        return inputRadioInRows;
+    public FieldFormType getInput() {
+        return input;
     }
 
-    public void setInputRadioInRows(boolean inputRadioInRows) {
-        this.inputRadioInRows = inputRadioInRows;
+    public void setInput(FieldFormType input) {
+        this.input = input;
     }
 }

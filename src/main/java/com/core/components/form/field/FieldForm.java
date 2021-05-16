@@ -1,10 +1,13 @@
 package com.core.components.form.field;
 
+import com.core.components.utils.WebComponent;
+
 public abstract class FieldForm {
     private String id;
     private String label;
     private Integer group;
     private FieldFormType fieldType;
+    private WebComponent webComponent;
 
     public FieldForm(String id, String label, Integer group)
     {
@@ -14,6 +17,14 @@ public abstract class FieldForm {
     }
 
     public FieldForm(String id, String label, Integer group, FieldFormType type)
+    {
+        this.setId(id);
+        this.setLabel(label);
+        this.setGroup(group);
+        this.fieldType = type;
+    }
+
+    public FieldForm(String id, String label, Integer group, FieldFormType type, WebComponent webComponent)
     {
         this.setId(id);
         this.setLabel(label);
@@ -51,5 +62,13 @@ public abstract class FieldForm {
 
     public void setFieldType(FieldFormType fieldType) {
         this.fieldType = fieldType;
+    }
+
+    public WebComponent getWebComponent() {
+        return webComponent;
+    }
+
+    public void setWebComponent(WebComponent webComponent) {
+        this.webComponent = webComponent;
     }
 }

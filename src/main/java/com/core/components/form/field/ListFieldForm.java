@@ -1,5 +1,7 @@
 package com.core.components.form.field;
 
+import com.core.components.utils.WebComponent;
+
 public class ListFieldForm extends FieldForm{
     private FieldView modeView;
     public ListType listType;
@@ -9,11 +11,11 @@ public class ListFieldForm extends FieldForm{
         super(id, label, group, FieldFormType.LIST);
         if(instance != null)
         {
-            String instanceName = instance.getSimpleName();
+            String instanceName = instance.getName();
             if(instanceName != null)
             {
                 try {
-                    this.instance = Class.forName(instanceName).newInstance();
+                    this.instance = Class.forName(instanceName).getDeclaredConstructor().newInstance();
                 } catch (InstantiationException e) {
                     e.printStackTrace();
                 } catch (IllegalAccessException e) {
@@ -30,12 +32,14 @@ public class ListFieldForm extends FieldForm{
 
     public ListFieldForm(String id, String label, Integer group, FieldView modeView){
         super(id, label, group, FieldFormType.LIST);
+        this.setWebComponentByString(id);
     }
 
     public ListFieldForm(String id, String label, Integer group, FieldView modeView, ListType listType){
         super(id, label, group, FieldFormType.LIST);
         this.modeView = modeView;
         this.listType = listType;
+        this.setWebComponentByString(id);
     }
 
     public ListFieldForm(String id, String label, Integer group, FieldView modeView, ListType listType, Class instance){
@@ -43,6 +47,7 @@ public class ListFieldForm extends FieldForm{
         this.modeView = modeView;
         this.listType = listType;
         this.instance = instance.getSimpleName();
+        this.setWebComponentByString(id);
     }
 
     public FieldView getModeView() {
@@ -67,5 +72,18 @@ public class ListFieldForm extends FieldForm{
 
     public void setInstance(String instance) {
         this.instance = instance;
+    }
+
+    public void setWebComponentByString(String component)
+    {
+        try
+        {
+            WebComponent webComponent = WebComponent.valueOf(component);
+            super.setWebComponent(webComponent);
+        }
+        catch(Exception e)
+        {
+            System.out.println("error creating web component");
+        }
     }
 }
