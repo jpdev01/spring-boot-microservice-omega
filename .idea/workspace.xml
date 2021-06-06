@@ -5,29 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/CheckboxFieldForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/components/utils/WebComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/containerInit.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/ProviderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/ProviderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/EntityListContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/EntityListContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/ListBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/ListBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/FieldForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/FieldForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/FieldFormType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/FieldFormType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/ListFieldForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/components/form/field/ListFieldForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/controller/CategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/controller/CategoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/controller/ProviderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/controller/ProviderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/entity/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/entity/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/CategoryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/ProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/EntityListContent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/EntityListContent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/ListBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/ListBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/components/form/field/FieldForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/components/form/field/FieldForm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/components/form/field/FieldFormType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/components/form/field/FieldFormType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/components/form/field/ListFieldForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/components/form/field/ListFieldForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/neusamoda-1.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/neusamoda-1.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/neusamoda-1.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/neusamoda-1.0.1-SNAPSHOT.jar.original" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +64,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../projects full/project-omega-front" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -215,6 +202,9 @@
       <workItem from="1620860024970" duration="5347000" />
       <workItem from="1620946620680" duration="2867000" />
       <workItem from="1621078459773" duration="13795000" />
+      <workItem from="1621174304379" duration="4001000" />
+      <workItem from="1622856631823" duration="12084000" />
+      <workItem from="1622993552087" duration="326000" />
     </task>
     <servers />
   </component>
@@ -273,7 +263,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java</url>
-          <line>58</line>
+          <line>62</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -283,7 +273,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java</url>
-          <line>33</line>
+          <line>37</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -293,7 +283,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java</url>
-          <line>51</line>
+          <line>55</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -472,19 +462,19 @@
           <option name="timeStamp" value="172" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="173" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/list/ListBuilder.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="174" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/ProviderController.java</url>
           <line>77</line>
           <option name="timeStamp" value="175" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/list/ListBuilder.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="176" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="178" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
