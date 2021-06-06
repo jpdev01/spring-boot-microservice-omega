@@ -1,9 +1,12 @@
 package com.core.backend.service.list;
 
+import com.core.components.TreeComponent;
+
 import java.util.List;
 
 public class EntityList {
     private EntityListContent content;
+    private TreeComponent treeComponent;
     private View view;
 
     public EntityList(){}
@@ -29,5 +32,11 @@ public class EntityList {
         this.content = content;
     }
 
+    public TreeComponent getTreeComponent() {
+        return treeComponent;
+    }
 
+    public void setTreeComponent(TreeComponent treeComponent) {
+        this.treeComponent = treeComponent;
+    }
 }

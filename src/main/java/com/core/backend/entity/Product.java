@@ -9,6 +9,7 @@ import com.core.components.form.isFieldForm;
 import com.core.components.form.isListFieldForm;
 import com.core.components.list.ListModule;
 import com.core.components.list.isFieldList;
+import com.core.components.list.isTreeComponent;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -49,6 +50,7 @@ public class Product {
     private String code;
 
     @ManyToMany(fetch = FetchType.EAGER)
+    @isTreeComponent(clazz = Category.class)
     @JoinTable(name="products_has_categories", joinColumns=
     @JoinColumn(name="product_id"), inverseJoinColumns=
     @JoinColumn(name="category_id"))

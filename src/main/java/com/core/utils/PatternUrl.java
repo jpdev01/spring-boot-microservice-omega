@@ -104,4 +104,15 @@ public class PatternUrl {
     {
         return this.home + "/list/" + route;
     }
+
+    public String getRest(String finalName)
+    {
+        return finalName;
+    }
+
+    public String getRest(Class clazz)
+    {
+        String name = clazz.getSimpleName();
+        return this.getRest(name);
+    }
 }

@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/components/TreeComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/core/components/list/isTreeComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/EntityList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/EntityList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/ListBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/service/list/ListBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/utils/PatternUrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/utils/PatternUrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/entity/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/entity/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/EntityList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/EntityList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/ListBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/ListBuilder.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,9 +24,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -207,7 +216,7 @@
       <workItem from="1621174304379" duration="4001000" />
       <workItem from="1622856631823" duration="12084000" />
       <workItem from="1622993552087" duration="2484000" />
-      <workItem from="1622993645132" duration="9096000" />
+      <workItem from="1622993645132" duration="11212000" />
     </task>
     <servers />
   </component>
@@ -451,12 +460,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/list/ListBuilder.java</url>
-          <line>108</line>
+          <line>127</line>
           <option name="timeStamp" value="168" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/list/ListBuilder.java</url>
-          <line>57</line>
+          <line>64</line>
           <option name="timeStamp" value="172" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -466,18 +475,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/list/ListBuilder.java</url>
-          <line>59</line>
+          <line>66</line>
           <option name="timeStamp" value="176" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java</url>
           <line>89</line>
           <option name="timeStamp" value="178" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/list/ListBuilder.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="180" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/service/ProductService.java</url>
@@ -489,17 +493,13 @@
           <line>127</line>
           <option name="timeStamp" value="182" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequestFilter.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="183" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.apache.tomcat.util.http.MimeHeaders" memberName="headers" />
         <PinnedItemInfo parentTag="org.apache.tomcat.util.buf.MessageBytes" memberName="charC" />
+        <PinnedItemInfo parentTag="java.lang.reflect.Field" memberName="root" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

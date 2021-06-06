@@ -2,10 +2,13 @@ package com.core.backend.service.list;
 
 import com.core.backend.repository.query.Query;
 import com.core.backend.repository.hibernate.PersistEngine;
+import com.core.components.TreeComponent;
 import com.core.components.form.field.CheckboxFieldForm;
 import com.core.components.form.field.FieldFormType;
 import com.core.components.form.field.RadioFieldForm;
 import com.core.components.list.isFieldList;
+import com.core.components.list.isTreeComponent;
+import com.core.utils.PatternUrl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -69,9 +72,11 @@ public class ListBuilder {
                             }
                             Object objValue = attribute.get(entity);
                             if (objValue != null) {
-                                if (objValue instanceof String) {
+                                if (objValue instanceof String)
+                                {
                                     objValue = (String) objValue;
-                                } else if (objValue instanceof Enum) {
+                                } else if (objValue instanceof Enum)
+                                {
                                     objValue = (String) ((Enum<?>) objValue).name();
                                 }
                             } else {
@@ -83,7 +88,8 @@ public class ListBuilder {
                     }
                     String col = getFieldCol(attribute);
 
-                    if (cols.size() == 0 || cols.size() < indexColumn) {
+                    if (cols.size() == 0 || cols.size() < indexColumn)
+                    {
                         for (int i = 0; i < indexColumn; i++) {
                             if (cols.size() < indexColumn) {
                                 cols.add(i, null);
@@ -92,13 +98,22 @@ public class ListBuilder {
                     }
                     cols.add(indexColumn, col);
                 }
-                if (attribute.isAnnotationPresent(Id.class)) {
-                    for (int i = 0; i < ((List<?>) obj).size(); i++) {
+                if (attribute.isAnnotationPresent(Id.class))
+                {
+                    for (int i = 0; i < ((List<?>) obj).size(); i++)
+                    {
                         attribute.setAccessible(true);
                         rows = validatePositionOfRow(rows, i);
                         Integer objValue = (Integer) attribute.get(((List<?>) obj).get(i));
                         rows.get(i).setKey(objValue);
                     }
+                }
+
+                if(attribute.isAnnotationPresent(isTreeComponent.class))
+                {
+                    Class attrClazz = attribute.getAnnotation(isTreeComponent.class).getClass();
+                    TreeComponent treeComponent = new TreeComponent(new PatternUrl().getRest(attrClazz));
+                    entityList.setTreeComponent(treeComponent);
                 }
             }
             content.setCols(cols);
@@ -112,6 +127,8 @@ public class ListBuilder {
         } catch (Exception e) {
             System.out.println("Erro ao buildar o eform!" + e);
         }
+
+
         return entityList;
     }
 
