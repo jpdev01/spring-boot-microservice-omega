@@ -27,6 +27,10 @@ public class ListBuilder {
         try {
             ArrayList<Object> cols = new ArrayList();
             EntityListContent content = entityList.getContent();
+            if(content == null)
+            {
+                content = new EntityListContent();
+            }
             if (content != null && content.getCols() != null)
             {
                 cols.addAll(content.getCols());
