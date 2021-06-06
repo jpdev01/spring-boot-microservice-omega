@@ -33,7 +33,7 @@ public class Product {
     private String description;
     @isFieldForm(isVisible = true, label = "Quantidade", group = 0, type = FieldFormType.SELECT)
     private Integer qtde;
-    @isFieldForm(isVisible = true, label = "Cor", group = 0)
+    @isFieldForm(isVisible = true, label = "Cor", group = 0,type = FieldFormType.SELECT)
     private String color;
     @isFieldForm(isVisible = true, label = "Genero", group = 0, type = FieldFormType.SELECT)
     private String genre;

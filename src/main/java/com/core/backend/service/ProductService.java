@@ -11,6 +11,7 @@ import com.core.components.form.EventBinding;
 import com.core.components.form.field.FieldForm;
 import com.core.components.form.field.SelectFieldForm;
 import com.core.components.utils.WebComponent;
+import com.core.custom.Color;
 import com.core.custom.Genre;
 import com.core.utils.PatternUrl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,10 +48,14 @@ public class ProductService implements ServiceInterface<Product> {
         List<Category> newCategories = new ArrayList<>();
         if (categories != null && !categories.isEmpty()) {
             for (int i = 0; i < categories.size(); i++) {
-                Optional<Category> category = categoryService.get(categories.get(i).getId());
-                Category oCategory = category.get();
-                if (oCategory != null) {
-                    newCategories.add(oCategory);
+                Integer categoryId = categories.get(i).getId();
+                if(categoryId != null)
+                {
+                    Optional<Category> category = categoryService.get(categories.get(i).getId());
+                    Category oCategory = category.get();
+                    if (oCategory != null) {
+                        newCategories.add(oCategory);
+                    }
                 }
             }
         }
@@ -122,14 +128,18 @@ public class ProductService implements ServiceInterface<Product> {
         FieldForm genreField = eform.findField("genre");
         if(genreField != null && genreField instanceof SelectFieldForm)
         {
-            List<Object> options = new ArrayList<>();
-            options.add(Genre.F);
-            options.add(Genre.M);
-            options.add(Genre.OTHERS);
+            List<Object> options =  Arrays.asList(Genre.values());
             ((SelectFieldForm) genreField).setOptions(options);
         }
         FieldForm categoriesField = eform.findField("categories");
         categoriesField.setWebComponent(WebComponent.CATEGORY);
+
+        FieldForm color = eform.findField("color");
+        if (color != null && color instanceof SelectFieldForm)
+        {
+            List<Object> options =  Arrays.asList(Color.values());
+            ((SelectFieldForm) color).setOptions(options);
+        }
 
 
         // actions

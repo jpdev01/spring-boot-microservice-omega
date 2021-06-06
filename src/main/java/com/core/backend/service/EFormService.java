@@ -85,7 +85,6 @@ public class EFormService {
         String label = attribute.getAnnotation(isListFieldForm.class).label();
         Integer group = attribute.getAnnotation(isListFieldForm.class).group();
         FieldView view = attribute.getAnnotation(isListFieldForm.class).modeView();
-        ListType listType = attribute.getAnnotation(isListFieldForm.class).listType();
         Class instance = attribute.getAnnotation(isListFieldForm.class).instance();
         ListFieldForm fieldForm = null;
         if(instance != null)
@@ -95,6 +94,11 @@ public class EFormService {
         else
         {
             fieldForm = new ListFieldForm(id, label, group, view);
+        }
+        ListType listType = attribute.getAnnotation(isListFieldForm.class).listType();
+        if(listType != null)
+        {
+            fieldForm.setListType(listType);
         }
         return fieldForm;
     }
