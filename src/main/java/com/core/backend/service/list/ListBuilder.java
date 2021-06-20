@@ -111,7 +111,7 @@ public class ListBuilder {
 
                 if(attribute.isAnnotationPresent(isTreeComponent.class))
                 {
-                    Class attrClazz = attribute.getAnnotation(isTreeComponent.class).getClass();
+                    Class attrClazz = attribute.getAnnotation(isTreeComponent.class).clazz();
                     TreeComponent treeComponent = new TreeComponent(new PatternUrl().getRest(attrClazz));
                     entityList.setTreeComponent(treeComponent);
                 }

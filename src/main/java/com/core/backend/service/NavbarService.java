@@ -25,11 +25,10 @@ public class NavbarService {
         fields.add(new FieldNav("Pagamentos","fa fa-credit-card-alt", ""));
 
         DropdownFieldNav dropdown = new DropdownFieldNav("Consultas", "fa fa-home");
-        dropdown.addField(new FieldNav("Clientes", patternUrl.getHomeRoute(patternUrl.getCustomer())));
-        dropdown.addField(new FieldNav("Produtos", patternUrl.getHomeRoute(patternUrl.getProduct())));
-        dropdown.addField(new FieldNav("Categorias", patternUrl.getHomeRoute(patternUrl.getCategory())));
-        dropdown.addField(new FieldNav("Fornecedores", patternUrl.getHomeRoute(patternUrl.getProvider())));
-        dropdown.addField(new FieldNav("Usuários", patternUrl.getHomeRoute(patternUrl.getUser())));
+        dropdown.addField(new FieldNav("Clientes", patternUrl.getListRoute(patternUrl.getCustomer())));
+        dropdown.addField(new FieldNav("Produtos", patternUrl.getListRoute(patternUrl.getProduct())));
+        dropdown.addField(new FieldNav("Fornecedores", patternUrl.getListRoute(patternUrl.getProvider())));
+        dropdown.addField(new FieldNav("Usuários", patternUrl.getListRoute(patternUrl.getUser())));
         fields.add(dropdown);
 
         DropdownFieldNav dropdownMore = new DropdownFieldNav("Mais", "fa fa-plus");

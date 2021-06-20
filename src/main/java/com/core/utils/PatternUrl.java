@@ -102,8 +102,9 @@ public class PatternUrl {
 
     public String getListRoute(String route)
     {
-        return this.home + "/list/" + route;
+        return this.getHomeRoute(this.list) + "/" + route;
     }
+
 
     public String getRest(String finalName)
     {
@@ -112,7 +113,7 @@ public class PatternUrl {
 
     public String getRest(Class clazz)
     {
-        String name = clazz.getSimpleName();
-        return this.getRest(name);
+        String name = clazz.getSimpleName().toLowerCase();
+        return this.getRest(name);  
     }
 }
