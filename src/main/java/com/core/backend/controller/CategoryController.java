@@ -6,6 +6,7 @@ import com.core.backend.service.list.EntityList;
 import com.core.backend.service.list.EntityListContent;
 import com.core.backend.service.list.Row;
 import com.core.backend.service.list.View;
+import com.core.components.TreeComponent;
 import com.core.components.form.field.CheckboxFieldForm;
 import com.core.components.form.field.FieldFormType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -123,4 +124,13 @@ public class CategoryController {
         return entityList;
     }
 
+    @RequestMapping(value = "/tree", method = RequestMethod.GET)
+    public ResponseEntity<TreeComponent> getTree(@PageableDefault(page = 0, size = Integer.MAX_VALUE, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
+        TreeComponent tree = new TreeComponent<Category>();
+        tree.setFields(service.getAll());
+        tree.setName(Category.class.getSimpleName());
+        //TODO implementar!
+
+        return new ResponseEntity<>(tree, HttpStatus.OK);
+    }
 }

@@ -72,7 +72,7 @@ public class ProductController {
         Optional<List<Product>> products = service.getAllFromProvider(providerId);
         if (!products.isPresent())
         {
-            return ResponseEntity.noContent().build();
+            return ResponseEntity.noContent().build();  
         }
         return new ResponseEntity<List<Product>>(products.get(), HttpStatus.OK);
     }
@@ -84,7 +84,7 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/list/build", method = RequestMethod.GET)
-    public ResponseEntity<EntityList> listBuild() {
+    public ResponseEntity<EntityList> listBuild(@RequestParam(required = false, name = "category") String category) {
         EntityList entityList = service.getList();
         return ResponseEntity.ok(entityList);
     }

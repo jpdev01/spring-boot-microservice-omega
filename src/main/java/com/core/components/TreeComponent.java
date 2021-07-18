@@ -7,6 +7,10 @@ public class TreeComponent<T> {
     private List<T> fields;
     private String urlRest;
 
+    public TreeComponent(){
+
+    }
+
     public TreeComponent(String name, List<T> fields) {
         this.name = name;
         this.fields = fields;

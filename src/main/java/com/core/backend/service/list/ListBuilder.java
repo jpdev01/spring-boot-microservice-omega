@@ -55,6 +55,7 @@ public class ListBuilder {
                                 {
                                     if(indexColumn == 0)
                                     {
+                                        // cria o header da lista.
                                         String label = clazz.getSimpleName().toLowerCase();
                                         rows.get(indexRow).getValue().add(indexColumn, new RadioFieldForm("1", label, 0));
                                     }
@@ -64,6 +65,7 @@ public class ListBuilder {
                                 {
                                     if(indexColumn == 0)
                                     {
+                                        // cria o header da lista.
                                         String label = clazz.getSimpleName().toLowerCase();
                                         rows.get(indexRow).getValue().add(indexColumn, new CheckboxFieldForm("1", label, 0));
                                     }
@@ -71,15 +73,19 @@ public class ListBuilder {
                                 }
                             }
                             Object objValue = attribute.get(entity);
-                            if (objValue != null) {
+                            if (objValue != null)
+                            {
                                 if (objValue instanceof String)
                                 {
                                     objValue = (String) objValue;
-                                } else if (objValue instanceof Enum)
+                                }
+                                else if (objValue instanceof Enum)
                                 {
                                     objValue = (String) ((Enum<?>) objValue).name();
                                 }
-                            } else {
+                            }
+                            else
+                            {
                                 objValue = "";
                             }
                             rows = validatePositionOfRow(rows, indexRow);
