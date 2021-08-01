@@ -21,6 +21,10 @@ public class JwtUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
         com.core.backend.entity.User user = findByLogin(login);
+        if(user == null)
+        {
+            return null;
+        }
         Integer userId = userService.validateLogin(login, user.getPassword());
 
 //        if (user.getEmail().equals(email)) {

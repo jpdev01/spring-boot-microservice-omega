@@ -6,12 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d8fe5f3c-fd8d-4dfb-98a3-0a1f687944f5" name="Default Changelist" comment="Remoção das classes de frontend unitilizaveis">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/components/TreeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/components/TreeComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/controller/CategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/controller/CategoryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/controller/ProductController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/core/components/TreeComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/components/TreeComponent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/jwt/JwtAuthenticationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/jwt/JwtAuthenticationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/jwt/JwtUserDetailsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/jwt/JwtUserDetailsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/ListBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/core/backend/service/list/ListBuilder.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -327,7 +326,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java</url>
-          <line>44</line>
+          <line>48</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -337,12 +336,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java</url>
-          <line>46</line>
+          <line>50</line>
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java</url>
-          <line>48</line>
+          <line>52</line>
           <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -499,6 +498,21 @@
           <url>jar://$MAVEN_REPOSITORY$/io/jsonwebtoken/jjwt/0.9.1/jjwt-0.9.1-sources.jar!/io/jsonwebtoken/impl/DefaultJwtParser.java</url>
           <line>232</line>
           <option name="timeStamp" value="203" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtTokenUtil.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="206" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtAuthenticationController.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="207" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/core/backend/jwt/JwtRequestFilter.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="208" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
