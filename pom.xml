@@ -76,6 +76,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- i18n aws -->
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk</artifactId>
+            <version>1.12.52</version>
+        </dependency>
+
 
     </dependencies>
 

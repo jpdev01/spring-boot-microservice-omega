@@ -1,13 +1,7 @@
 package com.core.backend;
 
-import com.core.backend.entity.Category;
-import com.core.backend.entity.Product;
-import com.core.backend.entity.Provider;
-import com.core.backend.entity.User;
-import com.core.backend.service.CategoryService;
-import com.core.backend.service.ProductService;
-import com.core.backend.service.ProviderService;
-import com.core.backend.service.UserService;
+import com.core.backend.entity.*;
+import com.core.backend.service.*;
 import com.core.custom.Permission;
 import java.util.ArrayList;
 import java.util.Date;
@@ -26,13 +20,16 @@ public class BootSpring  implements CommandLineRunner {
     private ProductService productService;
 
     @Autowired
-    ProviderService providerService;
+    private ProviderService providerService;
 
     @Autowired
-    CategoryService categoryService;
+    private CategoryService categoryService;
 
     @Autowired
-    UserService userService;
+    private UserService userService;
+
+    @Autowired
+    private SystemConfigService systemConfigService;
 
     public static void main(String[] args)
     {
@@ -58,6 +55,13 @@ public class BootSpring  implements CommandLineRunner {
             categories.add(category);
             Product product = new Product("teste", new Float(100),  new Float(50), "teste", 1, "branco", "M", new Date(), "nenhu", "P", "40", "1", categories, provider);
             productService.save(product);
+        }
+
+        List<SystemConfig> systemConfigs = systemConfigService.getAll();
+        if(systemConfigs == null || systemConfigs.isEmpty())
+        {
+            SystemConfig systemConfig = new SystemConfig();
+            systemConfig.setLanguage(Language.PT_BR);
         }
 //        providerService.save(new Provider("monnari", ""));
     }

@@ -13,6 +13,7 @@ import com.core.backend.entity.Language;
 import com.core.backend.entity.User;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.sound.sampled.Port;
 
 public class I18nUtils
 {
@@ -54,7 +55,7 @@ public class I18nUtils
 	public static String getStringLanguage()
 	{
 		Language language = getCurrentLanguage();
-		if(Language.PR_BR.equals(language))
+		if(Language.PT_BR.equals(language))
 		{
 			return "pt";
 		}
@@ -69,7 +70,7 @@ public class I18nUtils
 	{
 		//fixme validar se isso nao pode ser guardado no banco, criando uma entidade language
 		String language = getCurrentLanguage().name();
-		if(language.equals(Language.PR_BR))
+		if(language.equals(Language.PT_BR))
 		{
 			return "br";
 		}
@@ -107,7 +108,7 @@ public class I18nUtils
 	private static Regions getAwsRegion()
 	{
 		Language language = getCurrentLanguage();
-		if(language.equals(Language.PR_BR))
+		if(language.equals(Language.PT_BR))
 		{
 			return Regions.SA_EAST_1;
 		}
@@ -120,7 +121,6 @@ public class I18nUtils
 
 	public static Language getSystemLanguage()
 	{
-		//FIXME Implementar
-		return Language.PR_BR;
+		return PortalUtil.getSystemLanguage();
 	}
 }
