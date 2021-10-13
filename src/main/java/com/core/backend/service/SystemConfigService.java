@@ -5,6 +5,7 @@ import com.core.backend.repository.SystemConfigRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
+@Service
 public class SystemConfigService
 {
 	@Autowired
