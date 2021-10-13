@@ -28,9 +28,7 @@ public class User implements OnroadObject{
 
     @Enumerated(EnumType.ORDINAL)
     private Active active = Active.ACTIVE;
-
-    @OneToOne
-    private Customer customer;
+    private Language language;
 
 
     public User(){
@@ -82,5 +80,25 @@ public class User implements OnroadObject{
 
     public void setPermission(Permission permission) {
         this.permission = permission;
+    }
+
+    public Active getActive()
+    {
+        return active;
+    }
+
+    public void setActive(Active active)
+    {
+        this.active = active;
+    }
+
+    public Language getLanguage()
+    {
+        return language;
+    }
+
+    public void setLanguage(Language language)
+    {
+        this.language = language;
     }
 }
