@@ -16,7 +16,7 @@ public class NavController {
     @Autowired
     private NavbarService navbarService;
 
-    @RequestMapping(value = "navbar", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<Navbar> get() {
         Navbar navbar = navbarService.getNavbar();
         return new ResponseEntity<Navbar>(navbar, HttpStatus.OK);
